@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commands - LabelUtils Docs</title>
+  <meta name="description" content="Full reference of public LabelUtils slash commands">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+  <aside class="sidebar">
+    <a class="brand" href="/">
+      <span class="brand-mark">LU</span>
+      <span><strong>LabelUtils</strong><small>Docs</small></span>
+    </a>
+    <nav><section class="nav-section"><h2>Get Started</h2><a class="" href="/">Welcome</a><a class="" href="/getting-started">Getting started</a></section><section class="nav-section"><h2>For artists</h2><a class="" href="/artist-guide">Artist guide</a></section><section class="nav-section"><h2>For staff</h2><a class="" href="/staff-workflow">Staff workflow</a><a class="" href="/support-tickets">Support tickets</a></section><section class="nav-section"><h2>Premium</h2><a class="" href="/free-vs-pro">Free vs Pro</a><a class="" href="/pro-plus">Planned Pro+</a></section><section class="nav-section"><h2>Reference</h2><a class="active" href="/commands">Commands</a><a class="" href="/faq">FAQ</a></section></nav>
+  </aside>
+  <main class="content">
+    <div class="hero">
+      <p>Reference</p>
+      <h1>Commands</h1>
+      <span>Full reference of public LabelUtils slash commands</span>
+    </div>
+    <article class="article"><p>Every public LabelUtils slash command, grouped by who uses it. Run <code>/help</code> in Discord to see a shorter command list inside your server.</p>
+<aside class="callout callout-info"><strong>Info</strong><p>Commands marked <strong>Pro</strong> require an active Pro server. Bot-owner-only maintenance commands are intentionally not listed here.</p></aside>
+<h2 id="everyone">Everyone</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/help</code></td><td>Show the command list and setup steps inside Discord.</td></tr><tr><td><code>/premium</code></td><td>See how to buy Pro for the current server.</td></tr><tr><td><code>/pro_status</code></td><td>Check whether the current server has Pro.</td></tr></tbody></table></div>
+<h2 id="artists">Artists</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/submit</code></td><td>Open the demo submission form.</td></tr><tr><td><code>/submission ticket_id:&lt;id&gt;</code></td><td>Look up one submission. Artists can only view their own submissions; staff can view any submission.</td></tr><tr><td><code>/my_subs</code></td><td>Show your submissions in the current server.</td></tr><tr><td><code>/my_demos</code></td><td>Show a longer list of demos you submitted.</td></tr><tr><td><code>/my_stats</code></td><td>Show your submitted, accepted, rejected, and queued counts.</td></tr><tr><td><code>/leaderboard</code></td><td>Show top accepted submitters, grouped by Discord user so name changes do not split stats.</td></tr></tbody></table></div>
+<h2 id="server-setup">Server Setup</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/start label_name:&lt;name&gt;</code></td><td>Create managed LabelUtils storage and set the server's label name.</td></tr><tr><td><code>/setup_staff channel:&lt;channel&gt;</code></td><td>Set the private staff channel where new submission cards are posted.</td></tr><tr><td><code>/setup</code></td><td>Check storage, Pro status, branding, staff channel, ticket channel, and thread permissions.</td></tr><tr><td><code>/db_status</code></td><td>Check which storage is connected. Managed storage shows the region and schema.</td></tr><tr><td><code>/staff_status</code></td><td>Check which staff channel is connected.</td></tr><tr><td><code>/setup_db</code></td><td><strong>Pro</strong>: connect a custom Neon database.</td></tr><tr><td><code>/storage region:&lt;region&gt;</code></td><td><strong>Pro</strong>: move managed storage to West US, Europe (UK), or South-East Asia.</td></tr></tbody></table></div>
+<aside class="callout callout-note"><strong>Note</strong><p>Free servers use managed storage automatically. Pro servers can move regions or connect a custom database. When storage changes, LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching.</p></aside>
+<h2 id="staff-submissions">Staff Submissions</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/queue</code></td><td>Show the newest submissions still in queue.</td></tr><tr><td><code>/recent</code></td><td>Show the newest submissions across all statuses.</td></tr><tr><td><code>/panel</code></td><td>Open an admin browser with filters, pages, and refresh controls.</td></tr><tr><td><code>/status ticket_id:&lt;id&gt; new_status:&lt;status&gt;</code></td><td>Update a submission's status.</td></tr></tbody></table></div>
+<p>Available submission statuses:</p>
+<ul><li>In Queue</li><li>Needs Review</li><li>Shortlisted</li><li>Contacted</li><li>Signed</li><li>Approved</li><li>Rejected</li></ul>
+<p>Staff submission cards also include <strong>Approve</strong>, <strong>Reject</strong>, and <strong>DM</strong> buttons. Each submission can open a private staff discussion thread so notes, DM replies, and release logs stay attached to the right ticket.</p>
+<aside class="callout callout-note"><strong>Note</strong><p>DM reply forwarding works when the artist replies directly to the bot's DM message. Attachments are forwarded as Discord attachment links; files are not downloaded or reuploaded by the bot.</p></aside>
+<h2 id="pro-branding-and-customization">Pro Branding And Customization</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/brand</code></td><td>Open a form to set display name, required submit panel caption, and embed color.</td></tr><tr><td><code>/brand_info</code></td><td>Show the current Pro branding and premium state.</td></tr><tr><td><code>/brand_clear</code></td><td>Reset custom branding back to server defaults.</td></tr><tr><td><code>/post_panel</code></td><td>Post a branded public submit button panel.</td></tr><tr><td><code>/form label:&lt;text&gt; placeholder:&lt;text&gt;</code></td><td>Customize the optional submission question.</td></tr><tr><td><code>/templates</code></td><td>Edit approval and rejection DM templates. Either template can be changed on its own.</td></tr><tr><td><code>/extras footer_text:&lt;text&gt; logo_url:&lt;url or none&gt; success_message:&lt;text&gt;</code></td><td>Customize staff card footers, thumbnails, and submitter confirmation text.</td></tr></tbody></table></div>
+<h2 id="pro-submission-rules-and-routing">Pro Submission Rules And Routing</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/limits cooldown_minutes:&lt;minutes&gt; max_submissions_per_user:&lt;count&gt; duplicate_policy:&lt;policy&gt;</code></td><td>Configure cooldowns, total user caps, and duplicate-link handling.</td></tr><tr><td><code>/routing approved_channel:&lt;channel&gt; rejected_channel:&lt;channel&gt;</code></td><td>Send approved and rejected updates to selected channels.</td></tr></tbody></table></div>
+<h2 id="pro-ar-tools">Pro A&amp;R Tools</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/note ticket_id:&lt;id&gt; note:&lt;text&gt;</code></td><td>Add a private staff note to a submission.</td></tr><tr><td><code>/reviewer ticket_id:&lt;id&gt; reviewer:&lt;member&gt;</code></td><td>Assign a reviewer to a submission.</td></tr><tr><td><code>/shortlist ticket_id:&lt;id&gt; enabled:&lt;true or false&gt;</code></td><td>Add or remove a submission from the shortlist.</td></tr><tr><td><code>/shortlisted</code></td><td>Show shortlisted submissions.</td></tr><tr><td><code>/priority ticket_id:&lt;id&gt; enabled:&lt;true or false&gt;</code></td><td>Mark or unmark a submission as priority.</td></tr><tr><td><code>/rate ticket_id:&lt;id&gt; score:&lt;1-10&gt;</code></td><td>Give a demo an internal rating.</td></tr><tr><td><code>/reasons reasons:&lt;reason, reason&gt;</code></td><td>Set saved rejection reasons. Leave the option blank to show current reasons.</td></tr><tr><td><code>/digest channel:&lt;channel&gt;</code></td><td>Post a weekly submission digest and save the digest target channel.</td></tr><tr><td><code>/analytics</code></td><td>Show Pro submission analytics.</td></tr><tr><td><code>/export</code></td><td>Export submissions as a CSV file.</td></tr></tbody></table></div>
+<h2 id="pro-support-tickets">Pro Support Tickets</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/ticket_channel channel:&lt;channel&gt;</code></td><td>Set the private staff channel where ticket cards appear.</td></tr><tr><td><code>/ticket_panel channel:&lt;channel&gt;</code></td><td>Post the public button panel users click to open tickets.</td></tr><tr><td><code>/tickets status:&lt;optional&gt;</code></td><td>List recent support tickets, optionally filtered by Open, Waiting, Answered, or Resolved.</td></tr><tr><td><code>/ticket_set ticket_id:&lt;id&gt; new_status:&lt;status&gt;</code></td><td>Update a support ticket to Open, Waiting, Answered, or Resolved.</td></tr></tbody></table></div>
+<h2 id="premium">Premium</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/premium</code></td><td>See how to buy Pro.</td></tr><tr><td><code>/pro_status</code></td><td>Check the server's current Pro status.</td></tr><tr><td><code>/redeem code:&lt;coupon&gt;</code></td><td>Redeem a Pro coupon for the current server.</td></tr></tbody></table></div></article>
+    <nav class="pager">
+      <a href="/pro-plus"><span>Previous</span>Planned Pro+</a>
+      <a href="/faq"><span>Next</span>FAQ</a>
+    </nav>
+  </main>
+  <script src="/assets/script.js"></script>
+</body>
+</html>

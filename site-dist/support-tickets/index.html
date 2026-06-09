@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support Tickets - LabelUtils Docs</title>
+  <meta name="description" content="Run private support tickets from Discord">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+  <aside class="sidebar">
+    <a class="brand" href="/">
+      <span class="brand-mark">LU</span>
+      <span><strong>LabelUtils</strong><small>Docs</small></span>
+    </a>
+    <nav><section class="nav-section"><h2>Get Started</h2><a class="" href="/">Welcome</a><a class="" href="/getting-started">Getting started</a></section><section class="nav-section"><h2>For artists</h2><a class="" href="/artist-guide">Artist guide</a></section><section class="nav-section"><h2>For staff</h2><a class="" href="/staff-workflow">Staff workflow</a><a class="active" href="/support-tickets">Support tickets</a></section><section class="nav-section"><h2>Premium</h2><a class="" href="/free-vs-pro">Free vs Pro</a><a class="" href="/pro-plus">Planned Pro+</a></section><section class="nav-section"><h2>Reference</h2><a class="" href="/commands">Commands</a><a class="" href="/faq">FAQ</a></section></nav>
+  </aside>
+  <main class="content">
+    <div class="hero">
+      <p>For staff</p>
+      <h1>Support Tickets</h1>
+      <span>Run private support tickets from Discord</span>
+    </div>
+    <article class="article"><p>Support tickets are a Pro feature for labels that want a private help desk inside Discord. The public side is simple: users click a button and fill out a short form. The staff side stays private in the channel you choose.</p>
+<h2 id="how-tickets-work">How tickets work</h2>
+<ol><li>Staff chooses a private ticket channel.</li><li>Staff posts a public ticket panel.</li><li>A user clicks <strong>Open Ticket</strong> and fills out the form.</li><li>LabelUtils posts the ticket card in the private staff channel.</li><li>Staff can resolve the ticket or DM the user from the card.</li></ol>
+<p>The submitter cannot see the staff ticket card or staff discussion thread. They only receive a confirmation that the ticket was opened.</p>
+<h2 id="setup">Setup</h2>
+<p>Set the private staff ticket channel:</p>
+<pre><code data-language="text">/ticket_channel channel:#staff-tickets</code></pre>
+<p>Post the public ticket panel:</p>
+<pre><code data-language="text">/ticket_panel channel:#support</code></pre>
+<p>Users click the button on that panel to open tickets.</p>
+<aside class="callout callout-tip"><strong>Tip</strong><p>Use a staff-only channel for <code>/ticket_channel</code> and a public or community-facing channel for <code>/ticket_panel</code>.</p></aside>
+<h2 id="staff-actions">Staff actions</h2>
+<p>Ticket cards include:</p>
+<ul><li><strong>Resolved</strong>: marks the ticket as resolved.</li><li><strong>DM</strong>: sends a message to the user through LabelUtils.</li></ul>
+<p>When staff uses the DM button, the user's direct reply to that bot message is forwarded back into the matching ticket thread.</p>
+<aside class="callout callout-note"><strong>Note</strong><p>Attachments in user replies are forwarded as Discord attachment links. LabelUtils does not download or reupload files.</p></aside>
+<h2 id="ticket-commands">Ticket commands</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/ticket_channel channel:&lt;channel&gt;</code></td><td>Set the private staff channel where ticket cards appear.</td></tr><tr><td><code>/ticket_panel channel:&lt;channel&gt;</code></td><td>Post the public button panel users click to open tickets.</td></tr><tr><td><code>/tickets status:&lt;optional&gt;</code></td><td>List recent support tickets.</td></tr><tr><td><code>/ticket_set ticket_id:&lt;id&gt; new_status:&lt;status&gt;</code></td><td>Update a support ticket status.</td></tr></tbody></table></div>
+<p>Available ticket statuses:</p>
+<ul><li>Open</li><li>Waiting</li><li>Answered</li><li>Resolved</li></ul>
+<h2 id="best-practices">Best practices</h2>
+<ul><li>Keep the staff ticket channel private.</li><li>Use the DM button instead of manually messaging users, so replies return to the correct thread.</li><li>Resolve tickets when the issue is finished.</li><li>Use clear subject lines so staff can scan tickets quickly.</li></ul></article>
+    <nav class="pager">
+      <a href="/staff-workflow"><span>Previous</span>Staff workflow</a>
+      <a href="/free-vs-pro"><span>Next</span>Free vs Pro</a>
+    </nav>
+  </main>
+  <script src="/assets/script.js"></script>
+</body>
+</html>

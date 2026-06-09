@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQs - LabelUtils Docs</title>
+  <meta name="description" content="Answers to common questions about LabelUtils">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+  <aside class="sidebar">
+    <a class="brand" href="/">
+      <span class="brand-mark">LU</span>
+      <span><strong>LabelUtils</strong><small>Docs</small></span>
+    </a>
+    <nav><section class="nav-section"><h2>Get Started</h2><a class="" href="/">Welcome</a><a class="" href="/getting-started">Getting started</a></section><section class="nav-section"><h2>For artists</h2><a class="" href="/artist-guide">Artist guide</a></section><section class="nav-section"><h2>For staff</h2><a class="" href="/staff-workflow">Staff workflow</a><a class="" href="/support-tickets">Support tickets</a></section><section class="nav-section"><h2>Premium</h2><a class="" href="/free-vs-pro">Free vs Pro</a><a class="" href="/pro-plus">Planned Pro+</a></section><section class="nav-section"><h2>Reference</h2><a class="" href="/commands">Commands</a><a class="active" href="/faq">FAQ</a></section></nav>
+  </aside>
+  <main class="content">
+    <div class="hero">
+      <p>Reference</p>
+      <h1>FAQs</h1>
+      <span>Answers to common questions about LabelUtils</span>
+    </div>
+    <article class="article"><div class="accordion"><details><summary>Is LabelUtils free?</summary><div><p>Yes. The core submission flow, staff cards, threads, status updates, and DM routing are free. Pro unlocks branding, customization, analytics, support tickets, and more — see <a href="/free-vs-pro">Free vs Pro</a>.</p></div></details><details><summary>How do I get Pro?</summary><div><p>Run <code>/premium</code> in your server to see how to contact the bot owner. After payment you'll get a coupon code — redeem it with <code>/redeem code:&lt;your-coupon&gt;</code> in your server. Check status with <code>/pro_status</code>.</p></div></details><details><summary>Can LabelUtils have a custom avatar or online status per server?</summary><div><p>Not on the current Pro plan. Discord does not let a shared bot use a different avatar or online status per server. Pro branding applies to messages, embeds, panels, and (where permissions allow) the bot's server nickname.</p>
+<p>A future <a href="/pro-plus">Pro+ tier</a> is planned to let labels run a separate branded bot connection with their own name, avatar, and profile.</p></div></details><details><summary>Why does the submission form only have five fields?</summary><div><p>Discord modals only allow up to five text inputs. LabelUtils uses these for the core demo fields. Pro servers can customize the optional message prompt with <code>/form</code>.</p></div></details><details><summary>What happens to artist attachments?</summary><div><p>Attachments sent in artist DM replies are forwarded as Discord attachment links. The bot does <strong>not</strong> download or reupload artist files.</p></div></details><details><summary>An artist's DM reply didn't reach our staff thread. Why?</summary><div><p>DM reply forwarding only works when the artist <strong>replies directly</strong> to a message the bot sent them. A brand-new DM to the bot won't be forwarded. Always start contact using the <strong>DM</strong> button on a submission card.</p></div></details><details><summary>Where is our data stored?</summary><div><p>Free servers use managed storage. Pro servers can pick a storage region with <code>/storage region:&lt;region&gt;</code> (West US, Europe UK, South-East Asia), or connect their own Neon database with <code>/setup_db</code>.</p></div></details><details><summary>What happens to our data when we change storage?</summary><div><p>LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching. Old managed storage is cleaned up after a successful move.</p></div></details><details><summary>Can users see each other's submissions?</summary><div><p>No. Submission cards appear in your private staff channel. Submitters only see their own submissions via <code>/my_subs</code>, <code>/my_demos</code>, <code>/my_stats</code>, and <code>/submission</code>.</p></div></details><details><summary>How do support tickets stay private?</summary><div><p>The public panel is just a button. When pressed, the actual ticket card is posted to your staff-only channel. The user only gets a confirmation, and staff reach them via the DM button.</p></div></details><details><summary>Why does the leaderboard not match nicknames I remember?</summary><div><p>The leaderboard groups by Discord user ID, not display name. That way, name changes and nickname variations don't split an artist's stats.</p></div></details></div></article>
+    <nav class="pager">
+      <a href="/commands"><span>Previous</span>Commands</a>
+      <span></span>
+    </nav>
+  </main>
+  <script src="/assets/script.js"></script>
+</body>
+</html>

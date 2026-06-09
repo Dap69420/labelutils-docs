@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting started - LabelUtils Docs</title>
+  <meta name="description" content="Add LabelUtils to your Discord server and set it up in a few minutes">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+  <aside class="sidebar">
+    <a class="brand" href="/">
+      <span class="brand-mark">LU</span>
+      <span><strong>LabelUtils</strong><small>Docs</small></span>
+    </a>
+    <nav><section class="nav-section"><h2>Get Started</h2><a class="" href="/">Welcome</a><a class="active" href="/getting-started">Getting started</a></section><section class="nav-section"><h2>For artists</h2><a class="" href="/artist-guide">Artist guide</a></section><section class="nav-section"><h2>For staff</h2><a class="" href="/staff-workflow">Staff workflow</a><a class="" href="/support-tickets">Support tickets</a></section><section class="nav-section"><h2>Premium</h2><a class="" href="/free-vs-pro">Free vs Pro</a><a class="" href="/pro-plus">Planned Pro+</a></section><section class="nav-section"><h2>Reference</h2><a class="" href="/commands">Commands</a><a class="" href="/faq">FAQ</a></section></nav>
+  </aside>
+  <main class="content">
+    <div class="hero">
+      <p>Get Started</p>
+      <h1>Getting started</h1>
+      <span>Add LabelUtils to your Discord server and set it up in a few minutes</span>
+    </div>
+    <article class="article"><p>This guide walks server admins through adding LabelUtils and getting it ready to receive demos.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>You need to be an admin, or have Manage Server permissions, in the Discord server where you want to install LabelUtils.</p>
+<p>LabelUtils also needs permission to send messages, create threads, and send DMs to users who interact with it.</p>
+<h2 id="setup-steps">Setup steps</h2>
+<div class="steps"><section class="step"><span class="step-number">1</span><div><h3>Invite the bot</h3><p>Invite LabelUtils to your Discord server using the invite link. When prompted, accept the default permissions so the bot can read channels, send messages, and create threads.</p></div></section><section class="step"><span class="step-number">2</span><div><h3>Initialize storage with your label name</h3><p>In your server, run:</p>
+<pre><code data-language="text">/start label_name:Label Name</code></pre>
+<p>Replace <code>Label Name</code> with your label or collective's name. This creates managed storage for your server and sets your label name, which LabelUtils uses across messages and embeds.</p>
+<aside class="callout callout-info"><strong>Info</strong><p>Free servers are automatically assigned managed storage. Pro servers can choose a storage region or connect their own Neon database. See <a href="/free-vs-pro">Free vs Pro</a>.</p></aside></div></section><section class="step"><span class="step-number">3</span><div><h3>Pick a staff channel</h3><p>Choose where staff-only submission cards should appear:</p>
+<pre><code data-language="text">/setup_staff channel:#staff-demos</code></pre>
+<p>Pick a private channel that only your reviewers can see. This is where incoming demo cards with Approve, Reject, and DM buttons will appear.</p></div></section><section class="step"><span class="step-number">4</span><div><h3>Verify setup</h3><p>Run:</p>
+<pre><code data-language="text">/setup</code></pre>
+<p>LabelUtils confirms your storage, Pro status, branding, staff channel, ticket channel, and thread permissions.</p>
+<p>You can also use:</p>
+<ul><li><code>/db_status</code> to check storage connection</li><li><code>/staff_status</code> to check staff channel connection</li></ul></div></section><section class="step"><span class="step-number">5</span><div><h3>Tell artists how to submit</h3><p>Artists run <code>/submit</code> anywhere in your server to open the demo submission form. Pin a message or post in your submissions channel so artists know what to do.</p></div></section></div>
+<h2 id="recommended-channel-setup">Recommended channel setup</h2>
+<ul><li>A public channel where artists can learn how to submit.</li><li>A private staff channel for demo cards.</li><li>A private staff ticket channel if you use Pro support tickets.</li><li>Optional approved and rejected routing channels for Pro servers.</li></ul>
+<h2 id="next-steps">Next steps</h2>
+<div class="card-grid"><a class="doc-card" href="/artist-guide"><strong>Artist guide</strong><span>Share this page with your artists.</span></a><a class="doc-card" href="/staff-workflow"><strong>Staff workflow</strong><span>Learn how to review submissions efficiently.</span></a><a class="doc-card" href="/free-vs-pro"><strong>Unlock Pro features</strong><span>Branding, templates, analytics, and more.</span></a><a class="doc-card" href="/faq"><strong>Need help?</strong><span>Check the FAQ or run <code>/help</code> in Discord.</span></a></div></article>
+    <nav class="pager">
+      <a href="/"><span>Previous</span>Welcome</a>
+      <a href="/artist-guide"><span>Next</span>Artist guide</a>
+    </nav>
+  </main>
+  <script src="/assets/script.js"></script>
+</body>
+</html>

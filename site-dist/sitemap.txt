@@ -1,0 +1,9 @@
+/
+/getting-started
+/artist-guide
+/staff-workflow
+/support-tickets
+/free-vs-pro
+/pro-plus
+/commands
+/faq

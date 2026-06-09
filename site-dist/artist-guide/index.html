@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artist Guide - LabelUtils Docs</title>
+  <meta name="description" content="How to submit demos and track your submissions">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
+  <aside class="sidebar">
+    <a class="brand" href="/">
+      <span class="brand-mark">LU</span>
+      <span><strong>LabelUtils</strong><small>Docs</small></span>
+    </a>
+    <nav><section class="nav-section"><h2>Get Started</h2><a class="" href="/">Welcome</a><a class="" href="/getting-started">Getting started</a></section><section class="nav-section"><h2>For artists</h2><a class="active" href="/artist-guide">Artist guide</a></section><section class="nav-section"><h2>For staff</h2><a class="" href="/staff-workflow">Staff workflow</a><a class="" href="/support-tickets">Support tickets</a></section><section class="nav-section"><h2>Premium</h2><a class="" href="/free-vs-pro">Free vs Pro</a><a class="" href="/pro-plus">Planned Pro+</a></section><section class="nav-section"><h2>Reference</h2><a class="" href="/commands">Commands</a><a class="" href="/faq">FAQ</a></section></nav>
+  </aside>
+  <main class="content">
+    <div class="hero">
+      <p>For artists</p>
+      <h1>Artist Guide</h1>
+      <span>How to submit demos and track your submissions</span>
+    </div>
+    <article class="article"><p>If you're an artist sending demos to a label that uses LabelUtils, everything happens inside Discord. No external links, no sign-ups.</p>
+<h2 id="submitting-a-demo">Submitting a demo</h2>
+<p>In the label's Discord server, run:</p>
+<pre><code data-language="text">/submit</code></pre>
+<p>A form opens with up to five fields. (Pro labels can customize the optional message prompt with their own question.) Fill it in and hit submit — you'll get a confirmation with your <strong>ticket ID</strong>. Keep this if you want to check on the submission later.</p>
+<aside class="callout callout-tip"><strong>Tip</strong><p>Always submit your strongest work. Most labels keep a public leaderboard of top accepted submitters via <code>/leaderboard</code>.</p></aside>
+<h2 id="tracking-your-submissions">Tracking your submissions</h2>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody><tr><td><code>/submission ticket_id:&lt;id&gt;</code></td><td>Look up one submission by its ticket ID (you can only see your own)</td></tr><tr><td><code>/my_subs</code></td><td>Show your submissions in the current server</td></tr><tr><td><code>/my_demos</code></td><td>Show a longer list of demos you submitted</td></tr><tr><td><code>/my_stats</code></td><td>Show your total submitted, accepted, rejected, and queued counts</td></tr><tr><td><code>/leaderboard</code></td><td>Show the top accepted submitters in this server</td></tr></tbody></table></div>
+<aside class="callout callout-note"><strong>Note</strong><p>The leaderboard groups by Discord user (not by display name), so changing your nickname won't split your stats.</p></aside>
+<h2 id="replying-to-staff">Replying to staff</h2>
+<p>If the label's staff sends you a <strong>DM through the bot</strong>, you can reply directly to that DM message. Your reply — including attachments — is automatically forwarded back to the staff thread for your submission.</p>
+<aside class="callout callout-info"><strong>Info</strong><p>Attachments you send are forwarded as Discord attachment links. The bot does not download or reupload your files.</p></aside>
+<h2 id="tips">Tips</h2>
+<ul><li>Submit one track per <code>/submit</code> — don't spam the form.</li><li>If the server has a cooldown, duplicate-link rule, or per-user submission cap, the bot will let you know.</li><li>Make sure your DMs are open to server members so staff can reach you.</li></ul></article>
+    <nav class="pager">
+      <a href="/getting-started"><span>Previous</span>Getting started</a>
+      <a href="/staff-workflow"><span>Next</span>Staff workflow</a>
+    </nav>
+  </main>
+  <script src="/assets/script.js"></script>
+</body>
+</html>
