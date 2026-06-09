@@ -26,6 +26,7 @@
       <span>Run private support tickets from Discord</span>
     </div>
     <article class="article"><p>Support tickets are a Pro feature for labels that want a private help desk inside Discord. The public side is simple: users click a button and fill out a short form. The staff side stays private in the channel you choose.</p>
+<aside class="callout callout-info"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><strong>Info</strong></div><p>Support tickets require their own private staff channel. This must be different from the demo submission staff channel set with <code>/setup_staff</code>.</p></aside>
 <h2 id="how-tickets-work">How tickets work</h2>
 <ol><li>Staff chooses a private ticket channel.</li><li>Staff posts a public ticket panel.</li><li>A user clicks <strong>Open Ticket</strong> and fills out the form.</li><li>LabelUtils posts the ticket card in the private staff channel.</li><li>Staff can resolve the ticket or DM the user from the card.</li></ol>
 <p>The submitter cannot see the staff ticket card or staff discussion thread. They only receive a confirmation that the ticket was opened.</p>
@@ -35,11 +36,11 @@
 <p>Post the public ticket panel:</p>
 <pre><code data-language="text">/ticket_panel channel:#support</code></pre>
 <p>Users click the button on that panel to open tickets.</p>
-<aside class="callout callout-tip"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.5 14a6 6 0 1 1 7 0c-.8.7-1.2 1.5-1.4 2H9.9c-.2-.5-.6-1.3-1.4-2Z"/></svg><strong>Tip</strong></div><p>Use a staff-only channel for <code>/ticket_channel</code> and a public or community-facing channel for <code>/ticket_panel</code>.</p></aside>
+<aside class="callout callout-tip"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.5 14a6 6 0 1 1 7 0c-.8.7-1.2 1.5-1.4 2H9.9c-.2-.5-.6-1.3-1.4-2Z"/></svg><strong>Tip</strong></div><p>Use a staff-only channel for <code>/ticket_channel</code> and a public or community-facing channel for <code>/ticket_panel</code>. Do not use the same staff channel that receives demo submissions.</p></aside>
 <h2 id="staff-actions">Staff actions</h2>
 <p>Ticket cards include:</p>
 <ul><li><strong>Resolved</strong>: marks the ticket as resolved.</li><li><strong>DM</strong>: sends a message to the user through LabelUtils.</li></ul>
-<p>When staff uses the DM button, the user's direct reply to that bot message is forwarded back into the matching ticket thread.</p>
+<p>When staff uses the DM button, the user's direct reply to that bot message is forwarded back into the matching ticket thread. The DM button stays available after a ticket is resolved.</p>
 <aside class="callout callout-note"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4Z"/><path d="M15 4v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg><strong>Note</strong></div><p>Attachments in user replies are forwarded as Discord attachment links. LabelUtils does not download or reupload files.</p></aside>
 <h2 id="ticket-commands">Ticket commands</h2>
 <div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/ticket_channel channel:&lt;channel&gt;</code></td><td>Set the private staff channel where ticket cards appear.</td></tr><tr><td><code>/ticket_panel channel:&lt;channel&gt;</code></td><td>Post the public button panel users click to open tickets.</td></tr><tr><td><code>/tickets status:&lt;optional&gt;</code></td><td>List recent support tickets.</td></tr><tr><td><code>/ticket_set ticket_id:&lt;id&gt; new_status:&lt;status&gt;</code></td><td>Update a support ticket status.</td></tr></tbody></table></div>
