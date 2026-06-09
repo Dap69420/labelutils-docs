@@ -44,6 +44,49 @@ const flatPages = navigation.flatMap((section) =>
   section.pages.map(([label, file, href]) => ({ label, file, href, group: section.group })),
 );
 
+const pageIcons = {
+  "/": "home",
+  "/welcome": "home",
+  "/getting-started": "rocket",
+  "/artist-guide": "music",
+  "/staff-workflow": "users",
+  "/support-tickets": "ticket",
+  "/free-vs-pro": "star",
+  "/pro-plus": "sparkles",
+  "/commands": "terminal",
+  "/faq": "help",
+};
+
+const groupIcons = {
+  "Get Started": "rocket",
+  "For artists": "music",
+  "For staff": "users",
+  Premium: "star",
+  Reference: "terminal",
+};
+
+const iconPaths = {
+  home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/>',
+  rocket: '<path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/>',
+  music: '<path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/>',
+  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/>',
+  ticket: '<path d="M3 9V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a3 3 0 0 0 0 6v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a3 3 0 0 0 0-6Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/>',
+  star: '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/>',
+  sparkles: '<path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/>',
+  terminal: '<path d="m4 17 6-5-6-5"/><path d="M12 19h8"/>',
+  help: '<circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.7 2.7 0 1 1 4.4 2.1c-1.2.9-1.9 1.5-1.9 2.9"/><path d="M12 17h.01"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+  note: '<path d="M4 4h11l5 5v11H4Z"/><path d="M15 4v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/>',
+  tip: '<path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.5 14a6 6 0 1 1 7 0c-.8.7-1.2 1.5-1.4 2H9.9c-.2-.5-.6-1.3-1.4-2Z"/>',
+  warning: '<path d="M12 3 2 21h20Z"/><path d="M12 9v5"/><path d="M12 17h.01"/>',
+  arrow: '<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>',
+};
+
+function icon(name, className = "icon") {
+  const paths = iconPaths[name] || iconPaths.info;
+  return `<svg class="${className}" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
+}
+
 function cleanText(value) {
   return value
     .replaceAll("â€”", "-")
@@ -101,6 +144,7 @@ function convertComponents(source, stashHtml) {
         cards.push({
           title: attrValue(attrs, "title"),
           href: attrValue(attrs, "href"),
+          icon: attrValue(attrs, "icon") || pageIcons[attrValue(attrs, "href")] || "info",
           body: renderInline(content.trim()),
         });
         return "";
@@ -108,7 +152,7 @@ function convertComponents(source, stashHtml) {
       return stashHtml(`<div class="card-grid">${cards
         .map(
           (card) =>
-            `<a class="doc-card" href="${escapeHtml(card.href)}"><strong>${escapeHtml(card.title)}</strong><span>${card.body}</span></a>`,
+            `<a class="doc-card" href="${escapeHtml(card.href)}"><span class="card-icon">${icon(card.icon)}</span><strong>${escapeHtml(card.title)}</strong><span>${card.body}</span></a>`,
         )
         .join("")}</div>`);
     },
@@ -157,7 +201,7 @@ function convertComponents(source, stashHtml) {
   text = text.replace(
     /<(Info|Note|Tip|Warning)[^>]*>([\s\S]*?)<\/\1>/g,
     (_match, kind, body) =>
-      stashHtml(`<aside class="callout callout-${kind.toLowerCase()}"><strong>${kind}</strong>${renderBlocks(dedent(body))}</aside>`),
+      stashHtml(`<aside class="callout callout-${kind.toLowerCase()}"><div class="callout-title">${icon(kind.toLowerCase())}<strong>${kind}</strong></div>${renderBlocks(dedent(body))}</aside>`),
   );
 
   return text;
@@ -290,10 +334,10 @@ function sidebar(currentHref) {
   return navigation
     .map(
       (section) =>
-        `<section class="nav-section"><h2>${escapeHtml(section.group)}</h2>${section.pages
+        `<section class="nav-section"><h2>${icon(groupIcons[section.group] || "info", "section-icon")}${escapeHtml(section.group)}</h2>${section.pages
           .map(([label, _file, href]) => {
             const active = href === currentHref || (currentHref === "/" && href === "/");
-            return `<a class="${active ? "active" : ""}" href="${href}">${escapeHtml(label)}</a>`;
+            return `<a class="${active ? "active" : ""}" href="${href}">${icon(pageIcons[href] || "info", "nav-icon")}<span>${escapeHtml(label)}</span></a>`;
           })
           .join("")}</section>`,
     )
@@ -320,21 +364,22 @@ function pageShell(page, content, allPages) {
   <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
   <aside class="sidebar">
     <a class="brand" href="/">
-      <span class="brand-mark">LU</span>
+      <span class="brand-mark">${icon("music", "brand-icon")}</span>
       <span><strong>LabelUtils</strong><small>Docs</small></span>
     </a>
     <nav>${sidebar(page.href)}</nav>
   </aside>
   <main class="content">
     <div class="hero">
+      <span class="hero-icon">${icon(pageIcons[page.href] || groupIcons[page.group] || "info")}</span>
       <p>${escapeHtml(page.group)}</p>
       <h1>${escapeHtml(title)}</h1>
       <span>${escapeHtml(description)}</span>
     </div>
     <article class="article">${content}</article>
     <nav class="pager">
-      ${prev ? `<a href="${prev.href}"><span>Previous</span>${escapeHtml(prev.label)}</a>` : "<span></span>"}
-      ${next ? `<a href="${next.href}"><span>Next</span>${escapeHtml(next.label)}</a>` : "<span></span>"}
+      ${prev ? `<a href="${prev.href}"><span>Previous</span><strong>${icon("arrow", "pager-icon pager-prev")}${escapeHtml(prev.label)}</strong></a>` : "<span></span>"}
+      ${next ? `<a href="${next.href}"><span>Next</span><strong>${escapeHtml(next.label)}${icon("arrow", "pager-icon")}</strong></a>` : "<span></span>"}
     </nav>
   </main>
   <script src="/assets/script.js"></script>
@@ -379,34 +424,47 @@ async function build() {
 const styles = `
 :root {
   color-scheme: dark;
-  --bg: #0b0f0d;
-  --panel: #111714;
-  --panel-2: #17211c;
-  --text: #edf5f0;
-  --muted: #9bad9f;
-  --line: #26352d;
-  --brand: #22c55e;
+  --bg: #050807;
+  --bg-soft: #090d0d;
+  --panel: #0d1311;
+  --panel-2: #121b17;
+  --panel-3: #17231d;
+  --text: #f0f7f3;
+  --muted: #8fa39a;
+  --line: #1d2a25;
+  --line-strong: #2e453a;
+  --brand: #16a34a;
+  --brand-light: #22c55e;
   --brand-2: #38bdf8;
   --warn: #f59e0b;
   --radius: 8px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.34);
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 30% 0%, rgba(34, 197, 94, 0.08), transparent 34rem),
+    linear-gradient(180deg, #070b0a 0%, var(--bg) 38rem);
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.65;
 }
 a { color: inherit; }
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
-  width: 292px;
+  width: 304px;
   overflow-y: auto;
-  border-right: 1px solid var(--line);
-  background: #0d130f;
-  padding: 20px;
+  border-right: 1px solid rgba(46, 69, 58, 0.62);
+  background: rgba(6, 10, 9, 0.94);
+  backdrop-filter: blur(14px);
+  padding: 22px 18px;
 }
 .brand {
   display: flex;
@@ -416,49 +474,84 @@ a { color: inherit; }
   margin-bottom: 28px;
 }
 .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
   border-radius: 8px;
-  background: var(--brand);
-  color: #06120b;
+  background: linear-gradient(135deg, var(--brand-light), #0ea5e9);
+  color: #03120a;
   font-weight: 800;
+  box-shadow: 0 10px 30px rgba(22, 163, 74, 0.22);
 }
+.brand-icon { width: 22px; height: 22px; }
 .brand small { display: block; color: var(--muted); }
 .nav-section { margin: 20px 0; }
 .nav-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--muted);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0;
   margin: 0 0 8px;
 }
+.section-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--brand-light);
+}
 .nav-section a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 8px 10px;
   border-radius: var(--radius);
   color: #cbd8d0;
   text-decoration: none;
   font-size: 14px;
+  border: 1px solid transparent;
 }
 .nav-section a:hover, .nav-section a.active {
-  background: var(--panel-2);
+  background: rgba(18, 27, 23, 0.9);
+  border-color: rgba(46, 69, 58, 0.74);
   color: var(--text);
 }
+.nav-section a.active {
+  box-shadow: inset 3px 0 0 var(--brand-light);
+}
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  color: #86efac;
+}
 .content {
-  margin-left: 292px;
-  max-width: 980px;
-  padding: 48px 56px 72px;
+  margin-left: 304px;
+  max-width: 1040px;
+  padding: 56px 64px 80px;
 }
 .hero {
+  position: relative;
   border-bottom: 1px solid var(--line);
   padding-bottom: 28px;
   margin-bottom: 32px;
 }
+.hero-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  color: #bbf7d0;
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.22), rgba(56, 189, 248, 0.12));
+  border: 1px solid rgba(74, 222, 128, 0.18);
+}
+.hero-icon .icon { width: 26px; height: 26px; }
 .hero p {
   margin: 0 0 8px;
-  color: var(--brand);
+  color: #86efac;
   font-weight: 700;
   font-size: 14px;
 }
@@ -468,23 +561,29 @@ a { color: inherit; }
   margin: 0 0 14px;
   letter-spacing: 0;
 }
-.hero span { color: var(--muted); font-size: 18px; }
+.hero span { color: #aabdb5; font-size: 18px; }
 .article h2 { margin-top: 36px; font-size: 28px; line-height: 1.2; }
 .article h3 { margin-top: 24px; font-size: 19px; }
 .article p, .article li { color: #d6e2db; }
+.article a {
+  color: #86efac;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(134, 239, 172, 0.35);
+}
 .article code {
-  background: #18221d;
-  border: 1px solid var(--line);
+  background: #101815;
+  border: 1px solid #22332b;
   padding: 2px 5px;
   border-radius: 5px;
   font-size: 0.92em;
 }
 pre {
   overflow-x: auto;
-  background: #080c0a;
-  border: 1px solid var(--line);
+  background: #030604;
+  border: 1px solid #1c2b24;
   border-radius: var(--radius);
   padding: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 pre code {
   background: transparent;
@@ -503,18 +602,25 @@ th, td {
   text-align: left;
   vertical-align: top;
 }
-th { color: var(--text); background: #111915; }
+th { color: var(--text); background: #0c1411; }
 td { color: #d6e2db; }
 .callout {
   border: 1px solid var(--line);
-  border-left: 4px solid var(--brand);
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(18, 27, 23, 0.96), rgba(11, 17, 14, 0.96));
   border-radius: var(--radius);
-  padding: 14px 16px;
+  padding: 16px;
   margin: 20px 0;
+  box-shadow: var(--shadow);
 }
-.callout-warning { border-left-color: var(--warn); }
-.callout strong { display: block; margin-bottom: 6px; }
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+.callout-title .icon { width: 18px; height: 18px; color: #86efac; }
+.callout-warning .callout-title .icon { color: var(--warn); }
+.callout strong { display: block; }
 .callout p { margin: 0; }
 .card-grid {
   display: grid;
@@ -523,16 +629,35 @@ td { color: #d6e2db; }
   margin: 22px 0;
 }
 .doc-card {
-  display: block;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 8px;
   min-height: 126px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(18, 27, 23, 0.98), rgba(10, 15, 13, 0.98));
   text-decoration: none;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.24);
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
 }
-.doc-card:hover { border-color: var(--brand); }
-.doc-card strong { display: block; margin-bottom: 8px; }
+.doc-card:hover {
+  border-color: rgba(34, 197, 94, 0.72);
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(23, 35, 29, 0.98), rgba(12, 19, 16, 0.98));
+}
+.card-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #bbf7d0;
+  background: rgba(22, 163, 74, 0.12);
+  border: 1px solid rgba(134, 239, 172, 0.16);
+}
+.card-icon .icon { width: 18px; height: 18px; }
+.doc-card strong { display: block; }
 .doc-card span { color: var(--muted); }
 .steps { display: grid; gap: 16px; margin: 22px 0; }
 .step {
@@ -542,7 +667,7 @@ td { color: #d6e2db; }
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
+  background: linear-gradient(180deg, rgba(18, 27, 23, 0.96), rgba(9, 14, 12, 0.96));
 }
 .step-number {
   width: 32px;
@@ -550,15 +675,15 @@ td { color: #d6e2db; }
   display: grid;
   place-items: center;
   border-radius: 8px;
-  background: var(--brand);
-  color: #06120b;
+  background: linear-gradient(135deg, var(--brand-light), #38bdf8);
+  color: #03120a;
   font-weight: 800;
 }
 .step h3 { margin: 0 0 8px; }
 .accordion details {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
+  background: rgba(13, 19, 17, 0.94);
   margin: 12px 0;
   padding: 0 16px;
 }
@@ -567,6 +692,9 @@ td { color: #d6e2db; }
   padding: 14px 0;
   color: var(--text);
   font-weight: 700;
+}
+.accordion details[open] {
+  border-color: rgba(34, 197, 94, 0.42);
 }
 .pager {
   display: grid;
@@ -581,10 +709,22 @@ td { color: #d6e2db; }
   border-radius: var(--radius);
   padding: 14px;
   text-decoration: none;
-  background: var(--panel);
+  background: rgba(13, 19, 17, 0.94);
+}
+.pager a:hover {
+  border-color: rgba(34, 197, 94, 0.58);
 }
 .pager a:last-child { text-align: right; }
 .pager span { display: block; color: var(--muted); font-size: 13px; }
+.pager strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+}
+.pager a:last-child strong { justify-content: flex-end; }
+.pager-icon { width: 16px; height: 16px; color: #86efac; }
+.pager-prev { transform: rotate(180deg); }
 .menu-toggle { display: none; }
 @media (max-width: 860px) {
   .menu-toggle {
@@ -603,6 +743,7 @@ td { color: #d6e2db; }
     transform: translateX(-100%);
     transition: transform 180ms ease;
     z-index: 20;
+    box-shadow: 30px 0 90px rgba(0, 0, 0, 0.45);
   }
   body.nav-open .sidebar { transform: translateX(0); }
   .content {
