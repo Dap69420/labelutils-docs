@@ -1,45 +1,49 @@
 ---
-title: "Free vs Pro"
-description: "What's included in Free and what unlocks with Pro"
-sidebarTitle: "Free vs Pro"
+title: "Plans"
+description: "What's included in Free, Starter, Pro, and Pro+"
+sidebarTitle: "Plans"
 ---
 
-LabelUtils is free to use for any server. **Pro** unlocks the full A&R workflow: branding, templates, analytics, support tickets, and more. A future **Pro+** tier is planned for white-label hosting (see [Planned Pro+](/pro-plus)).
+LabelUtils is free to use for any server. **Starter** adds branding and customization, **Pro** unlocks the full A&R workflow, and **Pro+** currently has the same bot features as Pro while deeper white-label hosting is prepared.
+
+<Info>
+  LabelUtils keeps each server's slash command list tier-aware. Free servers see the core commands, Starter servers see Starter tools, and Pro or Pro+ servers see the full workflow commands after premium is redeemed.
+</Info>
 
 ## At a glance
 
-| Feature | Free | Pro |
-| --- | --- | --- |
-| Demo submissions via `/submit` | Yes | Yes |
-| Staff submission cards with Approve, Reject, and DM | Yes | Yes |
-| Private staff threads per submission | Yes | Yes |
-| DM reply forwarding from artists | Yes | Yes |
-| Submission queue, recent, and panel views | Yes | Yes |
-| Status updates with `/status` | Yes | Yes |
-| Artist commands and leaderboard | Yes | Yes |
-| Managed storage | Yes | Yes |
-| Choose storage region with `/storage` | No | Yes |
-| Bring your own Neon database with `/setup_db` | No | Yes |
-| Custom branding | No | Yes |
-| Custom submit panel | No | Yes |
-| Custom approval and rejection DM templates | No | Yes |
-| Custom form prompt | No | Yes |
-| Cooldowns, duplicate rules, and submission limits | No | Yes |
-| Approved and rejected routing channels | No | Yes |
-| Footer, logo, and success-message customization | No | Yes |
-| Staff notes | No | Yes |
-| Reviewer assignment | No | Yes |
-| Shortlist tools | No | Yes |
-| Quick status buttons | No | Yes |
-| Priority flags | No | Yes |
-| Demo ratings | No | Yes |
-| Saved rejection reasons | No | Yes |
-| Weekly digest | No | Yes |
-| Analytics | No | Yes |
-| CSV export | No | Yes |
-| Support tickets | No | Yes |
+| Feature | Free | Starter | Pro | Pro+ |
+| --- | --- | --- | --- | --- |
+| Demo submissions via `/submit` | ✓ | ✓ | ✓ | ✓ |
+| Staff submission cards with Approve, Reject, and DM | ✓ | ✓ | ✓ | ✓ |
+| Private staff threads per submission | ✓ | ✓ | ✓ | ✓ |
+| Submission queue, recent, and panel views | ✓ | ✓ | ✓ | ✓ |
+| Status updates with `/status` | ✓ | ✓ | ✓ | ✓ |
+| Artist commands and leaderboard | ✓ | ✓ | ✓ | ✓ |
+| Managed storage | ✓ | ✓ | ✓ | ✓ |
+| DM reply forwarding from artists | ✕ | ✓ | ✓ | ✓ |
+| Custom branding | ✕ | ✓ | ✓ | ✓ |
+| Custom submit panel | ✕ | ✓ | ✓ | ✓ |
+| Custom approval and rejection DM templates | ✕ | ✓ | ✓ | ✓ |
+| Custom form prompt | ✕ | ✓ | ✓ | ✓ |
+| Cooldowns, duplicate rules, and submission limits | ✕ | ✓ | ✓ | ✓ |
+| Approved and rejected routing channels | ✕ | ✓ | ✓ | ✓ |
+| Footer, logo, and success-message customization | ✕ | ✓ | ✓ | ✓ |
+| Choose storage region with `/storage` | ✕ | ✕ | ✓ | ✓ |
+| Bring your own Neon database with `/setup_db` | ✕ | ✕ | ✓ | ✓ |
+| Staff notes | ✕ | ✕ | ✓ | ✓ |
+| Reviewer assignment | ✕ | ✕ | ✓ | ✓ |
+| Shortlist tools | ✕ | ✕ | ✓ | ✓ |
+| Quick status buttons | ✕ | ✕ | ✓ | ✓ |
+| Priority flags | ✕ | ✕ | ✓ | ✓ |
+| Demo ratings | ✕ | ✕ | ✓ | ✓ |
+| Saved rejection reasons | ✕ | ✕ | ✓ | ✓ |
+| Weekly digest | ✕ | ✕ | ✓ | ✓ |
+| Analytics | ✕ | ✕ | ✓ | ✓ |
+| CSV export | ✕ | ✕ | ✓ | ✓ |
+| Support tickets | ✕ | ✕ | ✓ | ✓ |
 
-## Pro features in detail
+## Starter features
 
 ### Branding
 
@@ -52,7 +56,7 @@ Make LabelUtils feel closer to your label.
 `/brand` also tries to update the bot's server nickname when permissions allow it.
 
 <Info>
-  Discord does not let a shared bot use a different avatar or online status per server. Pro branding applies to server-specific messages, embeds, panels, and the bot's server nickname where permissions allow it. A future [Pro+ tier](/pro-plus) is planned for full white-label identity.
+  Discord does not let a shared bot use a different avatar or online status per server. Starter branding applies to server-specific messages, embeds, panels, and the bot's server nickname where permissions allow it.
 </Info>
 
 ### Submission experience
@@ -64,7 +68,7 @@ Make LabelUtils feel closer to your label.
 - `/limits cooldown_minutes:<minutes> max_submissions_per_user:<count> duplicate_policy:<policy>` controls cooldowns, caps, and duplicate handling.
 - `/routing approved_channel:<channel> rejected_channel:<channel>` routes accepted and rejected updates.
 
-### Review tools
+## Pro features
 
 - `/note ticket_id:<id> note:<text>` adds private staff notes.
 - `/reviewer ticket_id:<id> reviewer:<member>` assigns a reviewer.
@@ -74,32 +78,35 @@ Make LabelUtils feel closer to your label.
 - `/priority ticket_id:<id> enabled:<true or false>` marks or unmarks priority.
 - `/rate ticket_id:<id> score:<1-10>` stores an internal rating.
 - `/reasons reasons:<reason, reason>` saves rejection reasons.
-
-### Reporting
-
 - `/digest channel:<channel>` posts a weekly submission digest and saves the digest channel.
 - `/analytics` shows Pro submission analytics.
 - `/export` exports submissions to CSV.
-
-### Storage
-
 - `/storage region:<region>` moves managed storage to West US, Europe (UK), or South-East Asia.
 - `/setup_db` connects your own Neon database.
+- Support ticket commands: `/ticket_channel`, `/ticket_panel`, `/tickets`, and `/ticket_set`.
 
 <Note>
-  When you change storage region or connect a custom database, LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching. Old managed storage is cleaned up after a successful move.
+  Pro+ currently unlocks the same features as Pro. It exists now so buyers can be tracked separately before future white-label hosting is added.
 </Note>
 
-## How to get Pro
+## Storage changes
+
+When you change storage region or connect a custom database, LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching. Old managed storage is cleaned up after a successful move.
+
+## How to upgrade
 
 ```text
 /premium
 ```
 
-Pro access is handled manually:
+Premium access is handled manually:
 
 1. Run `/premium` to see contact and pricing info.
 2. Contact the owner and pay.
 3. Receive a redeemable coupon code.
 4. In your server, run `/redeem code:<your-coupon>`.
 5. Check status anytime with `/pro_status`.
+
+<Warning>
+  When premium expires, saved paid settings are kept but inactive. Existing branded submit panels and ticket panels may still be visible in Discord, but paid workflows stop opening until the server renews.
+</Warning>

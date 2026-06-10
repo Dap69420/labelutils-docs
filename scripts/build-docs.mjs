@@ -76,6 +76,13 @@ const iconPaths = {
   sparkles: '<path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/>',
   terminal: '<path d="m4 17 6-5-6-5"/><path d="M12 19h8"/>',
   help: '<circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.7 2.7 0 1 1 4.4 2.1c-1.2.9-1.9 1.5-1.9 2.9"/><path d="M12 17h.01"/>',
+  book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/>',
+  newspaper: '<path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/>',
+  search: '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+  moon: '<path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/>',
+  copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/>',
+  send: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+  menu: '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>',
   info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
   note: '<path d="M4 4h11l5 5v11H4Z"/><path d="M15 4v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/>',
   tip: '<path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.5 14a6 6 0 1 1 7 0c-.8.7-1.2 1.5-1.4 2H9.9c-.2-.5-.6-1.3-1.4-2Z"/>',
@@ -243,6 +250,12 @@ function renderTable(lines) {
 }
 
 function renderTableCell(value) {
+  if (value === "✓") {
+    return '<span class="feature-mark feature-yes" aria-label="Included">&check;</span>';
+  }
+  if (value === "✕" || value === "×") {
+    return '<span class="feature-mark feature-no" aria-label="Not included">&times;</span>';
+  }
   if (value === "Yes") {
     return '<span class="feature-mark feature-yes" aria-label="Included">✓</span>';
   }
@@ -355,6 +368,16 @@ function renderBlocks(source) {
   return htmlBlocks.join("\n");
 }
 
+function plainTextFromMdx(source) {
+  return cleanText(source)
+    .replace(/^---\n[\s\S]*?\n---\n?/, "")
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/[#*_`>|[\]()]|https?:\/\/\S+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function sidebar(currentHref) {
   return navigation
     .map(
@@ -362,10 +385,30 @@ function sidebar(currentHref) {
         `<section class="nav-section"><h2>${icon(groupIcons[section.group] || "info", "section-icon")}${escapeHtml(section.group)}</h2>${section.pages
           .map(([label, _file, href]) => {
             const active = href === currentHref || (currentHref === "/" && href === "/");
-            return `<a class="${active ? "active" : ""}" href="${href}">${icon(pageIcons[href] || "info", "nav-icon")}<span>${escapeHtml(label)}</span></a>`;
+            return `<a class="${active ? "active" : ""}" href="${href}"><span>${escapeHtml(label)}</span></a>`;
           })
           .join("")}</section>`,
     )
+    .join("");
+}
+
+function extractToc(content) {
+  const headings = [];
+  content.replace(/<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g, (_match, level, id, title) => {
+    const cleanTitle = title.replace(/<[^>]*>/g, "").trim();
+    if (cleanTitle) headings.push({ level: Number(level), id, title: cleanTitle });
+    return "";
+  });
+  return headings;
+}
+
+function tocMarkup(content) {
+  const headings = extractToc(content).slice(0, 12);
+  if (!headings.length) {
+    return `<p class="toc-empty">No sections yet.</p>`;
+  }
+  return headings
+    .map((heading) => `<a class="toc-depth-${heading.level}" href="#${heading.id}">${escapeHtml(heading.title)}</a>`)
     .join("");
 }
 
@@ -388,27 +431,78 @@ function pageShell(page, content, allPages) {
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
-  <aside class="sidebar">
-    <a class="brand" href="/">
-      <span class="brand-mark"><img src="/assets/logo.png" alt="" class="brand-logo"></span>
-      <span><strong>LabelUtils</strong><small>Docs</small></span>
+  <header class="topbar">
+    <a class="top-brand" href="/">
+      <img src="/assets/logo.png" alt="" class="top-logo">
+      <strong>LabelUtils</strong>
+      <span>Docs</span>
     </a>
+    <div class="top-actions">
+      <button class="search-trigger" type="button" data-open-search>${icon("search")}<span>Search...</span><kbd>Ctrl K</kbd></button>
+      <button class="assistant-trigger" type="button" data-open-assistant>${icon("sparkles")}<span>Ask Assistant</span></button>
+    </div>
+    <nav class="top-links" aria-label="Primary">
+      <a href="/support-tickets">Support</a>
+      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+      <button class="theme-button" type="button" aria-label="Dark theme">${icon("moon")}</button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation">${icon("menu")}</button>
+    </nav>
+  </header>
+  <aside class="sidebar">
+    <div class="sidebar-shortcuts">
+      <a href="/">${icon("book", "shortcut-icon")}<span>Documentation</span></a>
+      <a href="/commands">${icon("newspaper", "shortcut-icon")}<span>Commands</span></a>
+    </div>
     <nav>${sidebar(page.href)}</nav>
   </aside>
-  <main class="content">
-    <div class="hero">
-      <span class="hero-icon">${icon(pageIcons[page.href] || groupIcons[page.group] || "info")}</span>
-      <p>${escapeHtml(page.group)}</p>
-      <h1>${escapeHtml(title)}</h1>
-      <span>${escapeHtml(description)}</span>
+  <div class="layout">
+    <main class="content">
+      <article class="article">
+        <p class="eyebrow">${escapeHtml(page.group)}</p>
+        <div class="article-header">
+          <div>
+            <h1>${escapeHtml(title)}</h1>
+            <p class="page-description">${escapeHtml(description)}</p>
+          </div>
+          <button class="copy-page" type="button" data-copy-page>${icon("copy")}<span>Copy page</span></button>
+        </div>
+        ${content}
+      </article>
+      <nav class="pager">
+        ${prev ? `<a href="${prev.href}"><span>Previous</span><strong>${icon("arrow", "pager-icon pager-prev")}${escapeHtml(prev.label)}</strong></a>` : "<span></span>"}
+        ${next ? `<a href="${next.href}"><span>Next</span><strong>${escapeHtml(next.label)}${icon("arrow", "pager-icon")}</strong></a>` : "<span></span>"}
+      </nav>
+      <footer class="footer">
+        <span>LabelUtils Docs</span>
+        <span>Built for labels, artists, and staff teams.</span>
+      </footer>
+    </main>
+    <aside class="toc" aria-label="On this page">
+      <h2>${icon("menu", "toc-icon")}On this page</h2>
+      ${tocMarkup(content)}
+    </aside>
+  </div>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="dialog-backdrop" data-close-dialog></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search docs">
+      <label>${icon("search")}<input type="search" data-search-input placeholder="Search docs..." autocomplete="off"></label>
+      <div class="search-results" data-search-results></div>
+    </section>
+  </div>
+  <section class="assistant-panel" data-assistant-panel hidden aria-label="Ask Assistant">
+    <div class="assistant-header">
+      <strong>Ask Assistant</strong>
+      <button type="button" data-close-assistant>Close</button>
     </div>
-    <article class="article">${content}</article>
-    <nav class="pager">
-      ${prev ? `<a href="${prev.href}"><span>Previous</span><strong>${icon("arrow", "pager-icon pager-prev")}${escapeHtml(prev.label)}</strong></a>` : "<span></span>"}
-      ${next ? `<a href="${next.href}"><span>Next</span><strong>${escapeHtml(next.label)}${icon("arrow", "pager-icon")}</strong></a>` : "<span></span>"}
-    </nav>
-  </main>
+    <div class="assistant-messages" data-assistant-messages>
+      <p class="assistant-empty">Ask about setup, commands, premium tiers, tickets, or artist submissions.</p>
+    </div>
+  </section>
+  <form class="assistant-composer" data-assistant-form>
+    <input name="question" data-assistant-input autocomplete="off" placeholder="Ask a question...">
+    <kbd>Ctrl I</kbd>
+    <button type="submit" aria-label="Send question">${icon("send")}</button>
+  </form>
   <script src="/assets/script.js"></script>
 </body>
 </html>`;
@@ -441,6 +535,21 @@ async function build() {
 
   await writeFile(path.join(outRoot, "assets", "styles.css"), styles, "utf8");
   await writeFile(path.join(outRoot, "assets", "script.js"), clientScript, "utf8");
+  await writeFile(
+    path.join(outRoot, "assets", "search-index.json"),
+    JSON.stringify(
+      pages.map((page) => ({
+        title: page.meta.title || page.label,
+        description: page.meta.description || "",
+        group: page.group,
+        href: page.href,
+        text: plainTextFromMdx(page.body).slice(0, 4000),
+      })),
+      null,
+      2,
+    ),
+    "utf8",
+  );
   await copyFile(logoSource, path.join(outRoot, "assets", "logo.png")).catch(() => {});
   await writeFile(
     path.join(outRoot, "sitemap.txt"),
@@ -807,14 +916,775 @@ td { color: #d6e2db; }
   }
   .card-grid, .pager { grid-template-columns: 1fr; }
 }
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  height: 58px;
+  display: grid;
+  grid-template-columns: 280px minmax(320px, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(38, 51, 45, 0.72);
+  background: rgba(7, 12, 10, 0.92);
+  backdrop-filter: blur(18px);
+}
+.top-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  min-width: 0;
+}
+.top-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  object-fit: cover;
+}
+.top-brand strong {
+  font-size: 22px;
+  line-height: 1;
+}
+.top-brand span {
+  color: var(--muted);
+  font-weight: 700;
+}
+.top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.search-trigger,
+.assistant-trigger,
+.theme-button,
+.menu-toggle,
+.copy-page,
+.assistant-header button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(10, 16, 14, 0.8);
+  color: #d8e4de;
+  font: inherit;
+}
+.search-trigger,
+.assistant-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+}
+.search-trigger {
+  width: min(100%, 340px);
+  justify-content: flex-start;
+  color: var(--muted);
+}
+.search-trigger kbd,
+.assistant-composer kbd {
+  margin-left: auto;
+  color: #87958e;
+  font-size: 12px;
+  font-family: inherit;
+}
+.assistant-trigger:hover,
+.search-trigger:hover,
+.copy-page:hover,
+.theme-button:hover {
+  border-color: #3b4d45;
+  color: var(--text);
+}
+.top-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.top-links a {
+  text-decoration: none;
+  color: #b8c7bf;
+}
+.dashboard-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: #178f48;
+  color: #f3fff8 !important;
+}
+.theme-button {
+  width: 36px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+}
+.menu-toggle {
+  display: none;
+}
+.sidebar {
+  top: 58px;
+  width: 292px;
+  padding: 28px 26px 46px;
+  background: #07100d;
+  border-right-color: rgba(38, 51, 45, 0.72);
+}
+.sidebar-shortcuts {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.sidebar-shortcuts a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #aebbb5;
+  font-weight: 700;
+  text-decoration: none;
+}
+.shortcut-icon {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #c8d4cf;
+  background: #101815;
+}
+.nav-section {
+  margin: 31px 0;
+}
+.nav-section h2 {
+  color: #e5ece8;
+  font-size: 15px;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+.section-icon {
+  color: #f1f7f3;
+}
+.nav-section a {
+  min-height: 36px;
+  padding: 7px 16px;
+  color: #a7b4ad;
+  font-size: 15px;
+  border-radius: 8px;
+}
+.nav-section a.active {
+  color: #00f0a0;
+  background: #062a1e;
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: 700;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 220px;
+  gap: 72px;
+  margin-left: 292px;
+  padding: 88px 56px 96px;
+}
+.content {
+  margin-left: 0;
+  max-width: none;
+  padding: 0 0 78px;
+}
+.article-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 34px;
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: #00f0a0 !important;
+  font-weight: 800;
+  font-size: 14px;
+}
+.article h1 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+.page-description {
+  margin: 0;
+  color: #a7b4ad !important;
+  font-size: 19px;
+}
+.copy-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+.article {
+  font-size: 16px;
+}
+.article h2 {
+  margin-top: 52px;
+  font-size: 27px;
+}
+.article h3 {
+  margin-top: 30px;
+  font-size: 17px;
+}
+.article p,
+.article li {
+  color: #aebbb5;
+  font-size: 17px;
+}
+.article strong {
+  color: #f0f5f2;
+}
+.article code {
+  color: #edf5f1;
+  background: #1b2420;
+  border: 0;
+  font-weight: 700;
+}
+pre {
+  position: relative;
+  border-color: #26332d;
+  border-radius: 8px;
+  background: #080d0b;
+  padding: 18px 54px 18px 18px;
+}
+pre::after {
+  content: "Copy";
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  color: #9eadac;
+  font-size: 12px;
+}
+.callout {
+  display: block;
+  border-radius: 14px;
+  padding: 18px 20px;
+  background: #111a16;
+}
+.callout-info,
+.callout-note {
+  background: #0b1d35;
+  border-color: #245bb3;
+}
+.callout-tip {
+  background: #06351f;
+  border-color: #0d8d4f;
+}
+.callout-warning {
+  background: #2b2110;
+  border-color: #8a6218;
+}
+.callout-title {
+  margin-bottom: 0;
+}
+.callout-title strong {
+  display: none;
+}
+.callout p {
+  color: #d7e4de;
+}
+.card-grid {
+  gap: 16px;
+}
+.doc-card {
+  min-height: 158px;
+  padding: 22px 24px;
+  background: #08110e;
+  border-color: #26332d;
+}
+.doc-card:hover {
+  background: #0a1712;
+}
+.card-icon {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: #00f0a0;
+}
+.steps {
+  gap: 0;
+}
+.step {
+  position: relative;
+  grid-template-columns: 32px 1fr;
+  padding: 0 0 28px;
+  border: 0;
+  background: transparent;
+}
+.step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 36px;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.step-number {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #202a25;
+  color: #dce8e2;
+}
+.table-wrap {
+  border-radius: 0;
+}
+th {
+  background: transparent;
+}
+th,
+td {
+  border-color: #18231f;
+}
+.feature-mark {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  font-size: 16px;
+}
+.feature-yes {
+  color: #20e05d;
+}
+.feature-no {
+  color: #ff432e;
+  border: 0;
+}
+.toc {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  padding-left: 8px;
+}
+.toc h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  color: #dfe8e3;
+  font-size: 14px;
+}
+.toc-icon {
+  width: 15px;
+  height: 15px;
+}
+.toc a,
+.toc-empty {
+  display: block;
+  margin: 0;
+  padding: 5px 0;
+  color: #9eaaa4;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.toc a:hover,
+.toc a.active {
+  color: #00f0a0;
+}
+.toc-depth-3 {
+  padding-left: 14px !important;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 72px;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+  color: #728078;
+}
+.search-dialog[hidden],
+.assistant-panel[hidden] {
+  display: none;
+}
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.55);
+}
+.search-panel {
+  position: fixed;
+  z-index: 90;
+  top: 78px;
+  left: 50%;
+  width: min(640px, calc(100vw - 28px));
+  transform: translateX(-50%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #08100d;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+.search-panel label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.search-panel input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+.search-results {
+  max-height: 420px;
+  overflow: auto;
+  padding: 8px;
+}
+.search-result {
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  color: #dfe8e3;
+  text-decoration: none;
+}
+.search-result:hover,
+.search-result.active {
+  background: #102018;
+}
+.search-result strong {
+  display: block;
+}
+.search-result span {
+  display: block;
+  margin-top: 3px;
+  color: #91a099;
+  font-size: 13px;
+}
+.assistant-panel {
+  position: fixed;
+  z-index: 70;
+  right: 26px;
+  bottom: 104px;
+  width: min(460px, calc(100vw - 28px));
+  max-height: min(620px, calc(100vh - 140px));
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #08100d;
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+.assistant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.assistant-header button {
+  min-height: 30px;
+  padding: 0 10px;
+}
+.assistant-messages {
+  overflow: auto;
+  padding: 14px;
+}
+.assistant-empty {
+  margin: 0;
+  color: #91a099;
+}
+.assistant-message {
+  max-width: 92%;
+  margin: 0 0 12px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  color: #dce8e2;
+  background: #111a16;
+  white-space: pre-wrap;
+}
+.assistant-message.user {
+  margin-left: auto;
+  background: #06351f;
+}
+.assistant-message.error {
+  background: #321616;
+  color: #ffd6d6;
+}
+.assistant-composer {
+  position: fixed;
+  z-index: 75;
+  left: calc(292px + 56px);
+  bottom: 26px;
+  width: min(760px, calc(100vw - 404px));
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px 0 16px;
+  border: 1px solid #506059;
+  border-radius: 15px;
+  background: rgba(8, 16, 13, 0.96);
+  backdrop-filter: blur(14px);
+}
+.assistant-composer:focus-within {
+  border-color: #7a8d84;
+}
+.assistant-composer input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+.assistant-composer button {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  color: #dff9eb;
+  background: #176f43;
+}
+@media (max-width: 1180px) {
+  .topbar {
+    grid-template-columns: auto 1fr auto;
+  }
+  .toc {
+    display: none;
+  }
+  .layout {
+    grid-template-columns: minmax(0, 760px);
+    gap: 0;
+  }
+}
+@media (max-width: 860px) {
+  .topbar {
+    grid-template-columns: 1fr auto;
+    padding: 0 12px;
+  }
+  .top-actions {
+    display: none;
+  }
+  .top-links a:not(.dashboard-link),
+  .theme-button {
+    display: none;
+  }
+  .menu-toggle {
+    position: static;
+    display: inline-grid;
+  }
+  .sidebar {
+    top: 58px;
+  }
+  .layout {
+    margin-left: 0;
+    padding: 82px 20px 108px;
+  }
+  .article-header {
+    grid-template-columns: 1fr;
+  }
+  .copy-page {
+    width: max-content;
+  }
+  .assistant-composer {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+  }
+  .assistant-composer kbd {
+    display: none;
+  }
+}
 `;
 
 const clientScript = `
-const button = document.querySelector(".menu-toggle");
-button?.addEventListener("click", () => document.body.classList.toggle("nav-open"));
+const menuButton = document.querySelector(".menu-toggle");
+const searchDialog = document.querySelector("[data-search-dialog]");
+const searchInput = document.querySelector("[data-search-input]");
+const searchResults = document.querySelector("[data-search-results]");
+const assistantPanel = document.querySelector("[data-assistant-panel]");
+const assistantForm = document.querySelector("[data-assistant-form]");
+const assistantInput = document.querySelector("[data-assistant-input]");
+const assistantMessages = document.querySelector("[data-assistant-messages]");
+let searchIndexPromise;
+let searchItems = [];
+
+menuButton?.addEventListener("click", () => document.body.classList.toggle("nav-open"));
 document.querySelectorAll(".sidebar a").forEach((link) => {
   link.addEventListener("click", () => document.body.classList.remove("nav-open"));
 });
+
+function loadSearchIndex() {
+  if (!searchIndexPromise) {
+    searchIndexPromise = fetch("/assets/search-index.json")
+      .then((response) => (response.ok ? response.json() : []))
+      .then((items) => {
+        searchItems = Array.isArray(items) ? items : [];
+        return searchItems;
+      })
+      .catch(() => []);
+  }
+  return searchIndexPromise;
+}
+
+function scoreItem(item, query) {
+  const words = query.toLowerCase().split(/\\s+/).filter(Boolean);
+  const title = item.title.toLowerCase();
+  const text = (item.group + " " + item.description + " " + item.text).toLowerCase();
+  return words.reduce((score, word) => {
+    if (title.includes(word)) score += 8;
+    if (text.includes(word)) score += 2;
+    return score;
+  }, 0);
+}
+
+function searchDocs(query) {
+  const trimmed = query.trim();
+  if (!trimmed) return searchItems.slice(0, 6);
+  return searchItems
+    .map((item) => ({ item, score: scoreItem(item, trimmed) }))
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 8)
+    .map((entry) => entry.item);
+}
+
+function renderSearchResults(items) {
+  if (!searchResults) return;
+  searchResults.innerHTML = items.length
+    ? items.map((item) => '<a class="search-result" href="' + item.href + '"><strong>' + item.title + '</strong><span>' + item.group + ' - ' + (item.description || "LabelUtils documentation") + '</span></a>').join("")
+    : '<p class="assistant-empty">No matching docs found.</p>';
+}
+
+async function openSearch() {
+  await loadSearchIndex();
+  if (!searchDialog || !searchInput) return;
+  searchDialog.hidden = false;
+  renderSearchResults(searchDocs(searchInput.value));
+  requestAnimationFrame(() => searchInput.focus());
+}
+
+function closeSearch() {
+  if (searchDialog) searchDialog.hidden = true;
+}
+
+document.querySelectorAll("[data-open-search]").forEach((button) => {
+  button.addEventListener("click", openSearch);
+});
+document.querySelectorAll("[data-close-dialog]").forEach((button) => {
+  button.addEventListener("click", closeSearch);
+});
+searchInput?.addEventListener("input", () => renderSearchResults(searchDocs(searchInput.value)));
+searchResults?.addEventListener("click", (event) => {
+  if (event.target.closest("a")) closeSearch();
+});
+
+function openAssistant() {
+  if (assistantPanel) assistantPanel.hidden = false;
+  requestAnimationFrame(() => assistantInput?.focus());
+}
+
+function closeAssistant() {
+  if (assistantPanel) assistantPanel.hidden = true;
+}
+
+document.querySelectorAll("[data-open-assistant]").forEach((button) => {
+  button.addEventListener("click", openAssistant);
+});
+document.querySelector("[data-close-assistant]")?.addEventListener("click", closeAssistant);
+
+function appendAssistantMessage(role, text) {
+  if (!assistantMessages) return null;
+  assistantMessages.querySelector(".assistant-empty")?.remove();
+  const message = document.createElement("div");
+  message.className = "assistant-message " + role;
+  message.textContent = text;
+  assistantMessages.append(message);
+  assistantMessages.scrollTop = assistantMessages.scrollHeight;
+  return message;
+}
+
+async function askAssistant(question) {
+  await loadSearchIndex();
+  const context = searchDocs(question).slice(0, 5).map((item) => ({
+    title: item.title,
+    href: item.href,
+    text: item.text.slice(0, 1200),
+  }));
+  const response = await fetch("/api/assistant", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question, context }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data.error || "Assistant is unavailable right now.");
+  }
+  return data.answer || "I could not find a useful answer.";
+}
+
+assistantForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const question = assistantInput?.value.trim();
+  if (!question) return;
+  openAssistant();
+  assistantInput.value = "";
+  appendAssistantMessage("user", question);
+  const pending = appendAssistantMessage("assistant", "Thinking...");
+  try {
+    pending.textContent = await askAssistant(question);
+  } catch (error) {
+    pending.classList.add("error");
+    pending.textContent = error.message || "Assistant is unavailable right now.";
+  }
+});
+
+document.querySelector("[data-copy-page]")?.addEventListener("click", async () => {
+  const text = document.querySelector(".article")?.innerText || document.title;
+  await navigator.clipboard?.writeText(text);
+});
+
+document.addEventListener("keydown", (event) => {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+    event.preventDefault();
+    openSearch();
+  }
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "i") {
+    event.preventDefault();
+    openAssistant();
+  }
+  if (event.key === "Escape") {
+    closeSearch();
+    closeAssistant();
+  }
+});
+
+const tocLinks = [...document.querySelectorAll(".toc a")];
+const headings = tocLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+const observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+  if (!visible) return;
+  tocLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === "#" + visible.target.id));
+}, { rootMargin: "-90px 0px -70% 0px", threshold: [0, 1] });
+headings.forEach((heading) => observer.observe(heading));
 `;
 
 build().catch((error) => {

@@ -7,7 +7,7 @@ sidebarTitle: "Commands"
 Every public LabelUtils slash command, grouped by who uses it. Run `/help` in Discord to see a shorter command list inside your server.
 
 <Info>
-  Commands marked **Pro** require an active Pro server. Bot-owner-only maintenance commands are intentionally not listed here.
+  Commands marked **Starter** require Starter, Pro, or Pro+. Commands marked **Pro** require Pro or Pro+. Paid commands are synced per server, so lower-tier servers usually will not see commands they cannot use. Bot-owner-only maintenance commands are intentionally not listed here.
 </Info>
 
 ## Everyone
@@ -16,8 +16,8 @@ Every public LabelUtils slash command, grouped by who uses it. Run `/help` in Di
 | --- | --- |
 | `/help` | Show the command list and setup steps inside Discord. |
 | `/invite` | Show a clickable invite link for adding LabelUtils to another server. |
-| `/premium` | See how to buy Pro for the current server. |
-| `/pro_status` | Check whether the current server has Pro. |
+| `/premium` | See how to buy Starter, Pro, or Pro+ for the current server. |
+| `/pro_status` | Check whether the current server has an active premium tier. |
 
 ## Artists
 
@@ -43,7 +43,7 @@ Every public LabelUtils slash command, grouped by who uses it. Run `/help` in Di
 | `/storage region:<region>` | **Pro**: move managed storage to West US, Europe (UK), or South-East Asia. |
 
 <Note>
-  Free servers use managed storage automatically. Pro servers can move regions or connect a custom database. When storage changes, LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching.
+  Free and Starter servers use managed storage automatically. Pro and Pro+ servers can move regions or connect a custom database. When storage changes, LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching.
 </Note>
 
 ## Staff Submissions
@@ -72,24 +72,24 @@ Staff submission cards also include **Approve**, **Reject**, and **DM** buttons.
   DM reply forwarding works when the artist replies directly to the bot's DM message. Attachments are forwarded as Discord attachment links; files are not downloaded or reuploaded by the bot.
 </Note>
 
-## Pro Branding And Customization
+## Starter Branding And Customization
 
 | Command | Description |
 | --- | --- |
-| `/brand` | Open a form to set display name, required submit panel caption, and embed color. |
-| `/brand_info` | Show the current Pro branding and premium state. |
-| `/brand_clear` | Reset custom branding back to server defaults. |
-| `/post_panel` | Post a branded public submit button panel. |
-| `/form label:<text> placeholder:<text>` | Customize the optional submission question. |
-| `/templates` | Edit approval and rejection DM templates. Either template can be changed on its own. |
-| `/extras footer_text:<text> logo_url:<url or none> success_message:<text>` | Customize staff card footers, thumbnails, and submitter confirmation text. |
+| `/brand` | **Starter**: open a form to set display name, required submit panel caption, and embed color. |
+| `/brand_info` | Show the current premium branding and premium state. |
+| `/brand_clear` | **Starter**: reset custom branding back to server defaults. |
+| `/post_panel` | **Starter**: post a branded public submit button panel. |
+| `/form label:<text> placeholder:<text>` | **Starter**: customize the optional submission question. |
+| `/templates` | **Starter**: edit approval and rejection DM templates. Either template can be changed on its own. |
+| `/extras footer_text:<text> logo_url:<url or none> success_message:<text>` | **Starter**: customize staff card footers, thumbnails, and submitter confirmation text. |
 
-## Pro Submission Rules And Routing
+## Starter Submission Rules And Routing
 
 | Command | Description |
 | --- | --- |
-| `/limits cooldown_minutes:<minutes> max_submissions_per_user:<count> duplicate_policy:<policy>` | Configure cooldowns, total user caps, and duplicate-link handling. |
-| `/routing approved_channel:<channel> rejected_channel:<channel>` | Send approved and rejected updates to selected channels. |
+| `/limits cooldown_minutes:<minutes> max_submissions_per_user:<count> duplicate_policy:<policy>` | **Starter**: configure cooldowns, total user caps, and duplicate-link handling. |
+| `/routing approved_channel:<channel> rejected_channel:<channel>` | **Starter**: send approved and rejected updates to selected channels. |
 
 ## Pro A&R Tools
 
@@ -119,6 +119,6 @@ Staff submission cards also include **Approve**, **Reject**, and **DM** buttons.
 
 | Command | Description |
 | --- | --- |
-| `/premium` | See how to buy Pro. |
-| `/pro_status` | Check the server's current Pro status. |
-| `/redeem code:<coupon>` | Redeem a Pro coupon for the current server. |
+| `/premium` | See how to buy Starter, Pro, or Pro+. |
+| `/pro_status` | Check the server's current premium tier. |
+| `/redeem code:<coupon>` | Redeem a premium coupon for the current server. |

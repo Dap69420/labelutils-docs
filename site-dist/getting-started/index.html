@@ -10,22 +10,42 @@
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
-  <aside class="sidebar">
-    <a class="brand" href="/">
-      <span class="brand-mark"><img src="/assets/logo.png" alt="" class="brand-logo"></span>
-      <span><strong>LabelUtils</strong><small>Docs</small></span>
+  <header class="topbar">
+    <a class="top-brand" href="/">
+      <img src="/assets/logo.png" alt="" class="top-logo">
+      <strong>LabelUtils</strong>
+      <span>Docs</span>
     </a>
-    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/></svg><span>Welcome</span></a><a class="active" href="/getting-started"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="" href="/staff-workflow"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg><span>Staff workflow</span></a><a class="" href="/support-tickets"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a3 3 0 0 0 0 6v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a3 3 0 0 0 0-6Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg><span>Support tickets</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg><span>Free vs Pro</span></a><a class="" href="/pro-plus"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Planned Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg><span>Commands</span></a><a class="" href="/faq"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.7 2.7 0 1 1 4.4 2.1c-1.2.9-1.9 1.5-1.9 2.9"/><path d="M12 17h.01"/></svg><span>FAQ</span></a></section></nav>
-  </aside>
-  <main class="content">
-    <div class="hero">
-      <span class="hero-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg></span>
-      <p>Get Started</p>
-      <h1>Getting started</h1>
-      <span>Add LabelUtils to your Discord server and set it up in a few minutes</span>
+    <div class="top-actions">
+      <button class="search-trigger" type="button" data-open-search><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search...</span><kbd>Ctrl K</kbd></button>
+      <button class="assistant-trigger" type="button" data-open-assistant><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Ask Assistant</span></button>
     </div>
-    <article class="article"><p>This guide walks server admins through adding LabelUtils and getting it ready to receive demos.</p>
+    <nav class="top-links" aria-label="Primary">
+      <a href="/support-tickets">Support</a>
+      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+      <button class="theme-button" type="button" aria-label="Dark theme"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/></svg></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+    </nav>
+  </header>
+  <aside class="sidebar">
+    <div class="sidebar-shortcuts">
+      <a href="/"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg><span>Documentation</span></a>
+      <a href="/commands"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/></svg><span>Commands</span></a>
+    </div>
+    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><span>Welcome</span></a><a class="active" href="/getting-started"><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="" href="/staff-workflow"><span>Staff workflow</span></a><a class="" href="/support-tickets"><span>Support tickets</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><span>Free vs Pro</span></a><a class="" href="/pro-plus"><span>Planned Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><span>Commands</span></a><a class="" href="/faq"><span>FAQ</span></a></section></nav>
+  </aside>
+  <div class="layout">
+    <main class="content">
+      <article class="article">
+        <p class="eyebrow">Get Started</p>
+        <div class="article-header">
+          <div>
+            <h1>Getting started</h1>
+            <p class="page-description">Add LabelUtils to your Discord server and set it up in a few minutes</p>
+          </div>
+          <button class="copy-page" type="button" data-copy-page><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/></svg><span>Copy page</span></button>
+        </div>
+        <p>This guide walks server admins through adding LabelUtils and getting it ready to receive demos.</p>
 <h2 id="before-you-start">Before you start</h2>
 <p>You need to be an admin, or have Manage Server permissions, in the Discord server where you want to install LabelUtils.</p>
 <p>LabelUtils also needs permission to send messages, create threads, and send DMs to users who interact with it.</p>
@@ -34,22 +54,53 @@
 <div class="steps"><section class="step"><span class="step-number">1</span><div><h3>Invite the bot</h3><p>Invite LabelUtils to your Discord server using the invite link. When prompted, accept the default permissions so the bot can read channels, send messages, and create threads.</p></div></section><section class="step"><span class="step-number">2</span><div><h3>Initialize storage with your label name</h3><p>In your server, run:</p>
 <pre><code data-language="text">/start label_name:Label Name</code></pre>
 <p>Replace <code>Label Name</code> with your label or collective's name. This creates managed storage for your server and sets your label name, which LabelUtils uses across messages and embeds.</p>
-<aside class="callout callout-info"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><strong>Info</strong></div><p>Free servers are automatically assigned managed storage. Pro servers can choose a storage region or connect their own Neon database. See <a href="/free-vs-pro">Free vs Pro</a>.</p></aside></div></section><section class="step"><span class="step-number">3</span><div><h3>Pick a staff channel</h3><p>Choose where staff-only submission cards should appear:</p>
+<aside class="callout callout-info"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><strong>Info</strong></div><p>Free and Starter servers are automatically assigned managed storage. Pro and Pro+ servers can choose a storage region or connect their own Neon database. See <a href="/free-vs-pro">Plans</a>.</p></aside></div></section><section class="step"><span class="step-number">3</span><div><h3>Pick a staff channel</h3><p>Choose where staff-only submission cards should appear:</p>
 <pre><code data-language="text">/setup_staff channel:#staff-demos</code></pre>
 <p>Pick a private channel that only your reviewers can see. This is where incoming demo cards with Approve, Reject, and DM buttons will appear.</p></div></section><section class="step"><span class="step-number">4</span><div><h3>Verify setup</h3><p>Run:</p>
 <pre><code data-language="text">/setup</code></pre>
-<p>LabelUtils confirms your storage, Pro status, branding, staff channel, ticket channel, and thread permissions.</p>
+<p>LabelUtils confirms your storage, premium status, branding, staff channel, ticket channel, and thread permissions.</p>
 <p>You can also use:</p>
 <ul><li><code>/db_status</code> to check storage connection</li><li><code>/staff_status</code> to check staff channel connection</li></ul></div></section><section class="step"><span class="step-number">5</span><div><h3>Tell artists how to submit</h3><p>Artists run <code>/submit</code> anywhere in your server to open the demo submission form. Pin a message or post in your submissions channel so artists know what to do.</p></div></section></div>
 <h2 id="recommended-channel-setup">Recommended channel setup</h2>
-<ul><li>A public channel where artists can learn how to submit.</li><li>A private staff channel for demo cards.</li><li>A private staff ticket channel if you use Pro support tickets.</li><li>Optional approved and rejected routing channels for Pro servers.</li></ul>
+<ul><li>A public channel where artists can learn how to submit.</li><li>A private staff channel for demo cards.</li><li>A private staff ticket channel if you use Pro support tickets.</li><li>Optional approved and rejected routing channels for Starter, Pro, or Pro+ servers.</li></ul>
 <h2 id="next-steps">Next steps</h2>
-<div class="card-grid"><a class="doc-card" href="/artist-guide"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></span><strong>Artist guide</strong><span>Share this page with your artists.</span></a><a class="doc-card" href="/staff-workflow"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><strong>Staff workflow</strong><span>Learn how to review submissions efficiently.</span></a><a class="doc-card" href="/free-vs-pro"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg></span><strong>Unlock Pro features</strong><span>Branding, templates, analytics, and more.</span></a><a class="doc-card" href="/faq"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span><strong>Need help?</strong><span>Check the FAQ or run <code>/help</code> in Discord.</span></a></div></article>
-    <nav class="pager">
-      <a href="/"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Welcome</strong></a>
-      <a href="/artist-guide"><span>Next</span><strong>Artist guide<svg class="pager-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></strong></a>
-    </nav>
-  </main>
+<div class="card-grid"><a class="doc-card" href="/artist-guide"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></span><strong>Artist guide</strong><span>Share this page with your artists.</span></a><a class="doc-card" href="/staff-workflow"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><strong>Staff workflow</strong><span>Learn how to review submissions efficiently.</span></a><a class="doc-card" href="/free-vs-pro"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg></span><strong>Compare plans</strong><span>Starter branding, Pro workflow tools, and more.</span></a><a class="doc-card" href="/faq"><span class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span><strong>Need help?</strong><span>Check the FAQ or run <code>/help</code> in Discord.</span></a></div>
+      </article>
+      <nav class="pager">
+        <a href="/"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Welcome</strong></a>
+        <a href="/artist-guide"><span>Next</span><strong>Artist guide<svg class="pager-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></strong></a>
+      </nav>
+      <footer class="footer">
+        <span>LabelUtils Docs</span>
+        <span>Built for labels, artists, and staff teams.</span>
+      </footer>
+    </main>
+    <aside class="toc" aria-label="On this page">
+      <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
+      <a class="toc-depth-2" href="#before-you-start">Before you start</a><a class="toc-depth-2" href="#setup-steps">Setup steps</a><a class="toc-depth-2" href="#recommended-channel-setup">Recommended channel setup</a><a class="toc-depth-2" href="#next-steps">Next steps</a>
+    </aside>
+  </div>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="dialog-backdrop" data-close-dialog></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search docs">
+      <label><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="search" data-search-input placeholder="Search docs..." autocomplete="off"></label>
+      <div class="search-results" data-search-results></div>
+    </section>
+  </div>
+  <section class="assistant-panel" data-assistant-panel hidden aria-label="Ask Assistant">
+    <div class="assistant-header">
+      <strong>Ask Assistant</strong>
+      <button type="button" data-close-assistant>Close</button>
+    </div>
+    <div class="assistant-messages" data-assistant-messages>
+      <p class="assistant-empty">Ask about setup, commands, premium tiers, tickets, or artist submissions.</p>
+    </div>
+  </section>
+  <form class="assistant-composer" data-assistant-form>
+    <input name="question" data-assistant-input autocomplete="off" placeholder="Ask a question...">
+    <kbd>Ctrl I</kbd>
+    <button type="submit" aria-label="Send question"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+  </form>
   <script src="/assets/script.js"></script>
 </body>
 </html>

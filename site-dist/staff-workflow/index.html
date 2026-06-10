@@ -10,22 +10,42 @@
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-  <button class="menu-toggle" type="button" aria-label="Open navigation">Menu</button>
-  <aside class="sidebar">
-    <a class="brand" href="/">
-      <span class="brand-mark"><img src="/assets/logo.png" alt="" class="brand-logo"></span>
-      <span><strong>LabelUtils</strong><small>Docs</small></span>
+  <header class="topbar">
+    <a class="top-brand" href="/">
+      <img src="/assets/logo.png" alt="" class="top-logo">
+      <strong>LabelUtils</strong>
+      <span>Docs</span>
     </a>
-    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/></svg><span>Welcome</span></a><a class="" href="/getting-started"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="active" href="/staff-workflow"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg><span>Staff workflow</span></a><a class="" href="/support-tickets"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a3 3 0 0 0 0 6v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a3 3 0 0 0 0-6Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg><span>Support tickets</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg><span>Free vs Pro</span></a><a class="" href="/pro-plus"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Planned Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg><span>Commands</span></a><a class="" href="/faq"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.7 2.7 0 1 1 4.4 2.1c-1.2.9-1.9 1.5-1.9 2.9"/><path d="M12 17h.01"/></svg><span>FAQ</span></a></section></nav>
-  </aside>
-  <main class="content">
-    <div class="hero">
-      <span class="hero-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
-      <p>For staff</p>
-      <h1>Staff Workflow</h1>
-      <span>Review, approve, reject, and DM artists from Discord</span>
+    <div class="top-actions">
+      <button class="search-trigger" type="button" data-open-search><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search...</span><kbd>Ctrl K</kbd></button>
+      <button class="assistant-trigger" type="button" data-open-assistant><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Ask Assistant</span></button>
     </div>
-    <article class="article"><p>LabelUtils gives staff a structured way to handle incoming demos without leaving Discord.</p>
+    <nav class="top-links" aria-label="Primary">
+      <a href="/support-tickets">Support</a>
+      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+      <button class="theme-button" type="button" aria-label="Dark theme"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/></svg></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+    </nav>
+  </header>
+  <aside class="sidebar">
+    <div class="sidebar-shortcuts">
+      <a href="/"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg><span>Documentation</span></a>
+      <a href="/commands"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/></svg><span>Commands</span></a>
+    </div>
+    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><span>Welcome</span></a><a class="" href="/getting-started"><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="active" href="/staff-workflow"><span>Staff workflow</span></a><a class="" href="/support-tickets"><span>Support tickets</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><span>Free vs Pro</span></a><a class="" href="/pro-plus"><span>Planned Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><span>Commands</span></a><a class="" href="/faq"><span>FAQ</span></a></section></nav>
+  </aside>
+  <div class="layout">
+    <main class="content">
+      <article class="article">
+        <p class="eyebrow">For staff</p>
+        <div class="article-header">
+          <div>
+            <h1>Staff Workflow</h1>
+            <p class="page-description">Review, approve, reject, and DM artists from Discord</p>
+          </div>
+          <button class="copy-page" type="button" data-copy-page><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/></svg><span>Copy page</span></button>
+        </div>
+        <p>LabelUtils gives staff a structured way to handle incoming demos without leaving Discord.</p>
 <h2 id="how-submissions-appear">How submissions appear</h2>
 <p>When an artist runs <code>/submit</code>, a <strong>submission card</strong> is posted to your staff channel. Each card includes:</p>
 <ul><li>The artist's submitted info</li><li>Buttons for <strong>Approve</strong>, <strong>Reject</strong>, and <strong>DM</strong></li><li>Pro quick-status buttons for common label workflow steps</li><li>A private staff discussion thread for that submission</li></ul>
@@ -35,7 +55,7 @@
 <h3 id="submission-statuses">Submission statuses</h3>
 <ul><li><strong>In Queue</strong>: not yet reviewed</li><li><strong>Needs Review</strong>: flagged for a second listen</li><li><strong>Shortlisted</strong>: on the shortlist</li><li><strong>Processed</strong>: reviewed and handled internally</li><li><strong>Contacted</strong>: staff has reached out to the artist</li><li><strong>Signed</strong>: artist signed</li><li><strong>Approved</strong>: demo accepted</li><li><strong>Rejected</strong>: demo declined</li></ul>
 <h2 id="actions-on-a-submission-card">Actions on a submission card</h2>
-<div class="accordion"><details><summary>Approve</summary><div><p>Marks the submission as accepted. If you've set up approval routing with <code>/routing</code> (Pro), it is automatically posted to your approved channel. The artist gets the configured approval DM (Pro: customize with <code>/templates</code>).</p></div></details><details><summary>Reject</summary><div><p>Marks the submission as rejected. Pro servers can use saved rejection reasons (<code>/reasons</code>) and custom rejection DM templates (<code>/templates</code>).</p></div></details><details><summary>DM</summary><div><p>Opens a DM to the artist directly from the bot. When the artist replies to that DM, their message and attachments are forwarded back into the matching staff thread. The DM button stays available after a submission is approved, rejected, or moved to another status.</p></div></details><details><summary>Pro quick statuses</summary><div><p>Pro submission cards include quick buttons for Review, Shortlist, Processed, Contacted, and Signed. These update the submission status without sending an approval or rejection DM.</p></div></details></div>
+<div class="accordion"><details><summary>Approve</summary><div><p>Marks the submission as accepted. If you've set up approval routing with <code>/routing</code> (Starter), it is automatically posted to your approved channel. The artist gets the configured approval DM (Starter: customize with <code>/templates</code>).</p></div></details><details><summary>Reject</summary><div><p>Marks the submission as rejected. Pro servers can use saved rejection reasons (<code>/reasons</code>), while Starter and above can customize rejection DM templates (<code>/templates</code>).</p></div></details><details><summary>DM</summary><div><p>Opens a DM to the artist directly from the bot. When the artist replies to that DM, their message and attachments are forwarded back into the matching staff thread. The DM button stays available after a submission is approved, rejected, or moved to another status.</p></div></details><details><summary>Pro quick statuses</summary><div><p>Pro submission cards include quick buttons for Review, Shortlist, Processed, Contacted, and Signed. These update the submission status without sending an approval or rejection DM.</p></div></details></div>
 <h2 id="keeping-release-logs">Keeping release logs</h2>
 <p>Use the <strong>staff thread</strong> attached to each submission to log:</p>
 <ul><li>Decisions and reasoning</li><li>Mastering or release dates</li><li>Contracts sent</li><li>Anything else tied to that artist or track</li></ul>
@@ -45,13 +65,44 @@
 <aside class="callout callout-warning"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20Z"/><path d="M12 9v5"/><path d="M12 17h.01"/></svg><strong>Warning</strong></div><p>If an artist sends a brand-new DM to the bot instead of replying to the bot's message, it will not be forwarded. Always start contact from the <strong>DM</strong> button on a submission card.</p></aside>
 <h2 id="pro-only-staff-tools">Pro-only staff tools</h2>
 <p>Pro unlocks deeper A&amp;R tooling:</p>
-<ul><li>Staff notes (<code>/note</code>)</li><li>Reviewer assignment (<code>/reviewer</code>)</li><li>Shortlists (<code>/shortlist</code>, <code>/shortlisted</code>)</li><li>Quick status buttons for Review, Shortlist, Processed, Contacted, and Signed</li><li>Priority flags (<code>/priority</code>)</li><li>Demo ratings (<code>/rate</code>)</li><li>Saved rejection reasons (<code>/reasons</code>)</li><li>Weekly digest (<code>/digest</code>)</li><li>Analytics (<code>/analytics</code>)</li><li>CSV export (<code>/export</code>)</li><li>Approved/rejected routing channels (<code>/routing</code>)</li><li>Submission rules: cooldowns, caps, duplicate handling (<code>/limits</code>)</li></ul>
-<p>See <a href="/free-vs-pro">Free vs Pro</a> for the full breakdown.</p></article>
-    <nav class="pager">
-      <a href="/artist-guide"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Artist guide</strong></a>
-      <a href="/support-tickets"><span>Next</span><strong>Support tickets<svg class="pager-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></strong></a>
-    </nav>
-  </main>
+<ul><li>Staff notes (<code>/note</code>)</li><li>Reviewer assignment (<code>/reviewer</code>)</li><li>Shortlists (<code>/shortlist</code>, <code>/shortlisted</code>)</li><li>Quick status buttons for Review, Shortlist, Processed, Contacted, and Signed</li><li>Priority flags (<code>/priority</code>)</li><li>Demo ratings (<code>/rate</code>)</li><li>Saved rejection reasons (<code>/reasons</code>)</li><li>Weekly digest (<code>/digest</code>)</li><li>Analytics (<code>/analytics</code>)</li><li>CSV export (<code>/export</code>)</li></ul>
+<p>Starter unlocks branding, custom panels, templates, routing, and submission rules. See <a href="/free-vs-pro">Plans</a> for the full breakdown.</p>
+      </article>
+      <nav class="pager">
+        <a href="/artist-guide"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Artist guide</strong></a>
+        <a href="/support-tickets"><span>Next</span><strong>Support tickets<svg class="pager-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></strong></a>
+      </nav>
+      <footer class="footer">
+        <span>LabelUtils Docs</span>
+        <span>Built for labels, artists, and staff teams.</span>
+      </footer>
+    </main>
+    <aside class="toc" aria-label="On this page">
+      <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
+      <a class="toc-depth-2" href="#how-submissions-appear">How submissions appear</a><a class="toc-depth-2" href="#browsing-submissions">Browsing submissions</a><a class="toc-depth-3" href="#submission-statuses">Submission statuses</a><a class="toc-depth-2" href="#actions-on-a-submission-card">Actions on a submission card</a><a class="toc-depth-2" href="#keeping-release-logs">Keeping release logs</a><a class="toc-depth-2" href="#dm-reply-forwarding">DM reply forwarding</a><a class="toc-depth-2" href="#pro-only-staff-tools">Pro-only staff tools</a>
+    </aside>
+  </div>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="dialog-backdrop" data-close-dialog></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search docs">
+      <label><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="search" data-search-input placeholder="Search docs..." autocomplete="off"></label>
+      <div class="search-results" data-search-results></div>
+    </section>
+  </div>
+  <section class="assistant-panel" data-assistant-panel hidden aria-label="Ask Assistant">
+    <div class="assistant-header">
+      <strong>Ask Assistant</strong>
+      <button type="button" data-close-assistant>Close</button>
+    </div>
+    <div class="assistant-messages" data-assistant-messages>
+      <p class="assistant-empty">Ask about setup, commands, premium tiers, tickets, or artist submissions.</p>
+    </div>
+  </section>
+  <form class="assistant-composer" data-assistant-form>
+    <input name="question" data-assistant-input autocomplete="off" placeholder="Ask a question...">
+    <kbd>Ctrl I</kbd>
+    <button type="submit" aria-label="Send question"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+  </form>
   <script src="/assets/script.js"></script>
 </body>
 </html>
