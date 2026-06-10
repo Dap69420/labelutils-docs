@@ -47,6 +47,16 @@ LabelUtils also needs permission to send messages, create threads, and send DMs 
     Pick a private channel that only your reviewers can see. This is where incoming demo cards with Approve, Reject, and DM buttons will appear.
   </Step>
 
+  <Step title="Pick a ticket staff channel if you use tickets">
+    Pro and Pro+ servers can run private support tickets. Tickets need their own staff channel:
+
+    ```text
+    /ticket_channel channel:#staff-tickets
+    ```
+
+    This channel must be different from your demo submission staff channel.
+  </Step>
+
   <Step title="Verify setup">
     Run:
 
@@ -66,6 +76,21 @@ LabelUtils also needs permission to send messages, create threads, and send DMs 
     Artists run `/submit` anywhere in your server to open the demo submission form. Pin a message or post in your submissions channel so artists know what to do.
   </Step>
 </Steps>
+
+## Dashboard setup
+
+Pro and Pro+ servers can manage LabelUtils from the web dashboard.
+
+1. Log in with Discord.
+2. Choose a server from the custom server picker.
+3. Confirm LabelUtils is installed and that you have Admin or Manage Server permission.
+4. Edit branding, templates, ticket settings, storage, and panel posting from the dashboard.
+
+<Info>
+  The dashboard only shows servers you can manage and where LabelUtils is installed. Dashboard review tools require an active Pro or Pro+ tier.
+</Info>
+
+When posting panels from the dashboard, the channel list comes from channels visible to the bot. If a panel fails to post, check that LabelUtils can view the channel and send messages there.
 
 ## Recommended channel setup
 

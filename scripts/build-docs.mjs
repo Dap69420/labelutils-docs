@@ -257,10 +257,10 @@ function renderTableCell(value) {
     return '<span class="feature-mark feature-no" aria-label="Not included">&times;</span>';
   }
   if (value === "Yes") {
-    return '<span class="feature-mark feature-yes" aria-label="Included">✓</span>';
+    return '<span class="feature-mark feature-yes" aria-label="Included">&check;</span>';
   }
   if (value === "No") {
-    return '<span class="feature-mark feature-no" aria-label="Not included">×</span>';
+    return '<span class="feature-mark feature-no" aria-label="Not included">&times;</span>';
   }
   return renderInline(value);
 }

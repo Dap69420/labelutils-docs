@@ -46,6 +46,8 @@ Every public LabelUtils slash command, grouped by who uses it. Run `/help` in Di
   Free and Starter servers use managed storage automatically. Pro and Pro+ servers can move regions or connect a custom database. When storage changes, LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching.
 </Note>
 
+Pro and Pro+ servers can also edit storage, branding, templates, routing, ticket settings, and panel posting from the dashboard.
+
 ## Staff Submissions
 
 | Command | Description |
@@ -67,6 +69,8 @@ Available submission statuses:
 - Rejected
 
 Staff submission cards also include **Approve**, **Reject**, and **DM** buttons. Each submission can open a private staff discussion thread so notes, DM replies, and release logs stay attached to the right ticket.
+
+Pro and Pro+ staff can review submissions from the dashboard too. Web approvals and rejections update the submission, DM the artist, and update the Discord staff card for submissions that have stored message references.
 
 <Note>
   DM reply forwarding works when the artist replies directly to the bot's DM message. Attachments are forwarded as Discord attachment links; files are not downloaded or reuploaded by the bot.
@@ -114,6 +118,20 @@ Staff submission cards also include **Approve**, **Reject**, and **DM** buttons.
 | `/ticket_panel channel:<channel>` | Post the public button panel users click to open tickets. Requires `/ticket_channel` first. |
 | `/tickets status:<optional>` | List recent support tickets, optionally filtered by Open, Waiting, Answered, or Resolved. |
 | `/ticket_set ticket_id:<id> new_status:<status>` | Update a support ticket to Open, Waiting, Answered, or Resolved. |
+
+Tickets can also be reviewed in the dashboard. Staff can resolve tickets and DM users from the web while keeping the private Discord ticket channel as the staff record.
+
+## Pro Dashboard
+
+The dashboard is not a slash command, but it is part of the Pro and Pro+ workflow.
+
+| Area | What it does |
+| --- | --- |
+| Home | Shows server overview, recent activity, and daily analytics cards. |
+| Submissions | Review demos, change status, approve, reject, DM artists, and export CSV. |
+| Tickets | Review support tickets, change status, resolve, and DM users. |
+| Analytics | View submission and decision trends with graphs. |
+| Settings | Edit branding, templates, storage region or custom database, ticket channels, and panel posting. |
 
 ## Premium
 

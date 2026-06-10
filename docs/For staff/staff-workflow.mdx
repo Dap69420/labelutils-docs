@@ -6,6 +6,8 @@ sidebarTitle: "Staff workflow"
 
 LabelUtils gives staff a structured way to handle incoming demos without leaving Discord.
 
+Pro and Pro+ teams can also review from the LabelUtils dashboard. Dashboard decisions update the database, DM the artist when approving or rejecting, and update the original staff card when the submission has Discord message references stored.
+
 ## How submissions appear
 
 When an artist runs `/submit`, a **submission card** is posted to your staff channel. Each card includes:
@@ -26,6 +28,21 @@ The staff thread is where your team keeps notes, release logs, and any back-and-
 | `/panel` | Admin browser with filters, pages, and refresh controls |
 | `/status ticket_id:<id> new_status:<status>` | Update a submission's status |
 
+## Reviewing from the dashboard
+
+The dashboard is useful when staff wants a larger view of submissions, analytics, and tickets.
+
+- Approve or reject submissions from the web.
+- Send DMs to the submitter from a submission.
+- Export submission data as CSV.
+- Filter recent submissions and view analytics graphs.
+
+When a dashboard approval or rejection is sent, the artist receives the same kind of DM they would receive from Discord buttons. For new submissions, LabelUtils also updates the original staff card in Discord so the decision buttons are no longer active.
+
+<Note>
+  Older submissions created before staff-card references were stored may still show old Discord buttons, even though the database status is already updated.
+</Note>
+
 ### Submission statuses
 
 - **In Queue**: not yet reviewed
@@ -41,11 +58,11 @@ The staff thread is where your team keeps notes, release logs, and any back-and-
 
 <AccordionGroup>
   <Accordion title="Approve">
-    Marks the submission as accepted. If you've set up approval routing with `/routing` (Starter), it is automatically posted to your approved channel. The artist gets the configured approval DM (Starter: customize with `/templates`).
+    Marks the submission as accepted. If you've set up approval routing with `/routing` (Starter), it is automatically posted to your approved channel. The artist gets the configured approval DM (Starter: customize with `/templates`). Dashboard approvals behave the same way.
   </Accordion>
 
   <Accordion title="Reject">
-    Marks the submission as rejected. Pro servers can use saved rejection reasons (`/reasons`), while Starter and above can customize rejection DM templates (`/templates`).
+    Marks the submission as rejected. Pro servers can use saved rejection reasons (`/reasons`), while Starter and above can customize rejection DM templates (`/templates`). Dashboard rejections also DM the artist.
   </Accordion>
 
   <Accordion title="DM">

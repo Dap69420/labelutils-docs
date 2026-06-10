@@ -4,7 +4,7 @@ description: "What's included in Free, Starter, Pro, and Pro+"
 sidebarTitle: "Plans"
 ---
 
-LabelUtils is free to use for any server. **Starter** adds branding and customization, **Pro** unlocks the full A&R workflow, and **Pro+** currently has the same bot features as Pro while deeper white-label hosting is prepared.
+LabelUtils is free to use for any server. **Starter** adds branding and customization, **Pro** unlocks the full A&R workflow and dashboard, and **Pro+** currently has the same bot features as Pro while deeper white-label hosting is prepared.
 
 <Info>
   LabelUtils keeps each server's slash command list tier-aware. Free servers see the core commands, Starter servers see Starter tools, and Pro or Pro+ servers see the full workflow commands after premium is redeemed.
@@ -14,34 +14,38 @@ LabelUtils is free to use for any server. **Starter** adds branding and customiz
 
 | Feature | Free | Starter | Pro | Pro+ |
 | --- | --- | --- | --- | --- |
-| Demo submissions via `/submit` | ✓ | ✓ | ✓ | ✓ |
-| Staff submission cards with Approve, Reject, and DM | ✓ | ✓ | ✓ | ✓ |
-| Private staff threads per submission | ✓ | ✓ | ✓ | ✓ |
-| Submission queue, recent, and panel views | ✓ | ✓ | ✓ | ✓ |
-| Status updates with `/status` | ✓ | ✓ | ✓ | ✓ |
-| Artist commands and leaderboard | ✓ | ✓ | ✓ | ✓ |
-| Managed storage | ✓ | ✓ | ✓ | ✓ |
-| DM reply forwarding from artists | ✕ | ✓ | ✓ | ✓ |
-| Custom branding | ✕ | ✓ | ✓ | ✓ |
-| Custom submit panel | ✕ | ✓ | ✓ | ✓ |
-| Custom approval and rejection DM templates | ✕ | ✓ | ✓ | ✓ |
-| Custom form prompt | ✕ | ✓ | ✓ | ✓ |
-| Cooldowns, duplicate rules, and submission limits | ✕ | ✓ | ✓ | ✓ |
-| Approved and rejected routing channels | ✕ | ✓ | ✓ | ✓ |
-| Footer, logo, and success-message customization | ✕ | ✓ | ✓ | ✓ |
-| Choose storage region with `/storage` | ✕ | ✕ | ✓ | ✓ |
-| Bring your own Neon database with `/setup_db` | ✕ | ✕ | ✓ | ✓ |
-| Staff notes | ✕ | ✕ | ✓ | ✓ |
-| Reviewer assignment | ✕ | ✕ | ✓ | ✓ |
-| Shortlist tools | ✕ | ✕ | ✓ | ✓ |
-| Quick status buttons | ✕ | ✕ | ✓ | ✓ |
-| Priority flags | ✕ | ✕ | ✓ | ✓ |
-| Demo ratings | ✕ | ✕ | ✓ | ✓ |
-| Saved rejection reasons | ✕ | ✕ | ✓ | ✓ |
-| Weekly digest | ✕ | ✕ | ✓ | ✓ |
-| Analytics | ✕ | ✕ | ✓ | ✓ |
-| CSV export | ✕ | ✕ | ✓ | ✓ |
-| Support tickets | ✕ | ✕ | ✓ | ✓ |
+| Demo submissions via `/submit` | Yes | Yes | Yes | Yes |
+| Staff submission cards with Approve, Reject, and DM | Yes | Yes | Yes | Yes |
+| Private staff threads per submission | Yes | Yes | Yes | Yes |
+| Submission queue, recent, and panel views | Yes | Yes | Yes | Yes |
+| Status updates with `/status` | Yes | Yes | Yes | Yes |
+| Artist commands and leaderboard | Yes | Yes | Yes | Yes |
+| Managed storage | Yes | Yes | Yes | Yes |
+| DM reply forwarding from artists | No | Yes | Yes | Yes |
+| Custom branding | No | Yes | Yes | Yes |
+| Custom submit panel | No | Yes | Yes | Yes |
+| Custom approval and rejection DM templates | No | Yes | Yes | Yes |
+| Custom form prompt | No | Yes | Yes | Yes |
+| Cooldowns, duplicate rules, and submission limits | No | Yes | Yes | Yes |
+| Approved and rejected routing channels | No | Yes | Yes | Yes |
+| Footer, logo, and success-message customization | No | Yes | Yes | Yes |
+| Choose storage region with `/storage` | No | No | Yes | Yes |
+| Bring your own Neon database with `/setup_db` | No | No | Yes | Yes |
+| Dashboard login and server picker | No | No | Yes | Yes |
+| Review submissions from the dashboard | No | No | Yes | Yes |
+| Review support tickets from the dashboard | No | No | Yes | Yes |
+| Dashboard analytics graphs and CSV export | No | No | Yes | Yes |
+| Staff notes | No | No | Yes | Yes |
+| Reviewer assignment | No | No | Yes | Yes |
+| Shortlist tools | No | No | Yes | Yes |
+| Quick status buttons | No | No | Yes | Yes |
+| Priority flags | No | No | Yes | Yes |
+| Demo ratings | No | No | Yes | Yes |
+| Saved rejection reasons | No | No | Yes | Yes |
+| Weekly digest | No | No | Yes | Yes |
+| Analytics | No | No | Yes | Yes |
+| CSV export | No | No | Yes | Yes |
+| Support tickets | No | No | Yes | Yes |
 
 ## Starter features
 
@@ -70,6 +74,7 @@ Make LabelUtils feel closer to your label.
 
 ## Pro features
 
+- The web dashboard lets staff review submissions and tickets, approve or reject demos, DM users, export CSV files, and view analytics graphs.
 - `/note ticket_id:<id> note:<text>` adds private staff notes.
 - `/reviewer ticket_id:<id> reviewer:<member>` assigns a reviewer.
 - `/shortlist ticket_id:<id> enabled:<true or false>` adds or removes from the shortlist.
@@ -89,9 +94,25 @@ Make LabelUtils feel closer to your label.
   Pro+ currently unlocks the same features as Pro. It exists now so buyers can be tracked separately before future white-label hosting is added.
 </Note>
 
+## Dashboard
+
+The dashboard uses Discord login. After login, LabelUtils only shows servers where:
+
+- You are a server admin or have Manage Server permission.
+- LabelUtils is installed in that server.
+- The server has an active Pro or Pro+ tier for dashboard-only tools.
+
+From the dashboard you can edit branding, templates, storage, ticket settings, submission statuses, ticket statuses, and post panels into channels the bot can see.
+
+<Warning>
+  When posting panels from the dashboard, make sure the bot can view the selected channel and has Send Messages permission there.
+</Warning>
+
 ## Storage changes
 
 When you change storage region or connect a custom database, LabelUtils migrates existing submissions, tickets, branding, and Pro settings before switching. Old managed storage is cleaned up after a successful move.
+
+Pro and Pro+ servers can also change storage from the dashboard. Use this when you want to move from one custom Neon database to another without asking staff to run commands in Discord.
 
 ## How to upgrade
 

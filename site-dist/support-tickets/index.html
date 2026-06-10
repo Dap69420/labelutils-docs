@@ -50,6 +50,7 @@
 <h2 id="how-tickets-work">How tickets work</h2>
 <ol><li>Staff chooses a private ticket channel.</li><li>Staff posts a public ticket panel.</li><li>A user clicks <strong>Open Ticket</strong> and fills out the form.</li><li>LabelUtils posts the ticket card in the private staff channel.</li><li>Staff can resolve the ticket or DM the user from the card.</li></ol>
 <p>The submitter cannot see the staff ticket card or staff discussion thread. They only receive a confirmation that the ticket was opened.</p>
+<p>Pro and Pro+ staff can also review tickets from the dashboard, change ticket status, and DM the user from the ticket detail view.</p>
 <h2 id="setup">Setup</h2>
 <p>Set the private staff ticket channel:</p>
 <pre><code data-language="text">/ticket_channel channel:#staff-tickets</code></pre>
@@ -62,6 +63,10 @@
 <ul><li><strong>Resolved</strong>: marks the ticket as resolved.</li><li><strong>DM</strong>: sends a message to the user through LabelUtils.</li></ul>
 <p>When staff uses the DM button, the user's direct reply to that bot message is forwarded back into the matching ticket thread. The DM button stays available after a ticket is resolved.</p>
 <aside class="callout callout-note"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4Z"/><path d="M15 4v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg><strong>Note</strong></div><p>Attachments in user replies are forwarded as Discord attachment links. LabelUtils does not download or reupload files.</p></aside>
+<h2 id="dashboard-review">Dashboard review</h2>
+<p>In the dashboard, tickets appear separately from demo submissions so staff can keep support work out of the A&amp;R queue.</p>
+<ul><li>Change ticket status to Open, Waiting, Answered, or Resolved.</li><li>DM the ticket opener from the web.</li><li>Keep the private staff channel as the source of truth for the ticket card and thread.</li></ul>
+<p>The user never sees the private staff card. Replies still route back through the bot when they reply directly to the bot's DM.</p>
 <h2 id="ticket-commands">Ticket commands</h2>
 <div class="table-wrap"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/ticket_channel channel:&lt;channel&gt;</code></td><td>Set the private staff channel where ticket cards appear.</td></tr><tr><td><code>/ticket_panel channel:&lt;channel&gt;</code></td><td>Post the public button panel users click to open tickets.</td></tr><tr><td><code>/tickets status:&lt;optional&gt;</code></td><td>List recent support tickets.</td></tr><tr><td><code>/ticket_set ticket_id:&lt;id&gt; new_status:&lt;status&gt;</code></td><td>Update a support ticket status.</td></tr></tbody></table></div>
 <p>Available ticket statuses:</p>
@@ -80,7 +85,7 @@
     </main>
     <aside class="toc" aria-label="On this page">
       <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
-      <a class="toc-depth-2" href="#how-tickets-work">How tickets work</a><a class="toc-depth-2" href="#setup">Setup</a><a class="toc-depth-2" href="#staff-actions">Staff actions</a><a class="toc-depth-2" href="#ticket-commands">Ticket commands</a><a class="toc-depth-2" href="#best-practices">Best practices</a>
+      <a class="toc-depth-2" href="#how-tickets-work">How tickets work</a><a class="toc-depth-2" href="#setup">Setup</a><a class="toc-depth-2" href="#staff-actions">Staff actions</a><a class="toc-depth-2" href="#dashboard-review">Dashboard review</a><a class="toc-depth-2" href="#ticket-commands">Ticket commands</a><a class="toc-depth-2" href="#best-practices">Best practices</a>
     </aside>
   </div>
   <div class="search-dialog" data-search-dialog hidden>
