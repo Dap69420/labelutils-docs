@@ -442,7 +442,7 @@ function pageShell(page, content, allPages) {
       <button class="assistant-trigger" type="button" data-open-assistant>${icon("sparkles")}<span>Ask Assistant</span></button>
     </div>
     <nav class="top-links" aria-label="Primary">
-      <a href="/support-tickets">Support</a>
+      <a href="https://discord.gg/Hysd3GSQxQ">Support</a>
       <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
       <button class="theme-button" type="button" aria-label="Dark theme">${icon("moon")}</button>
       <button class="menu-toggle" type="button" aria-label="Open navigation">${icon("menu")}</button>
@@ -1459,6 +1459,110 @@ td {
   border-radius: 999px;
   color: #dff9eb;
   background: #176f43;
+}
+.search-trigger,
+.assistant-trigger,
+.theme-button,
+.copy-page,
+.assistant-header button,
+.dashboard-link,
+.article .doc-button,
+.assistant-composer button,
+.doc-card,
+.search-result {
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.assistant-trigger:hover,
+.search-trigger:hover,
+.copy-page:hover,
+.theme-button:hover {
+  border-color: #16d977;
+  color: var(--text);
+  background: rgba(11, 35, 24, 0.9);
+  box-shadow: 0 0 0 3px rgba(22, 217, 119, 0.08);
+  transform: translateY(-1px);
+}
+.dashboard-link,
+.article .doc-button,
+.assistant-composer button {
+  background: #16a34a;
+  color: #03120a;
+  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.22);
+}
+.dashboard-link {
+  color: #f3fff8 !important;
+}
+.dashboard-link:hover,
+.article .doc-button:hover {
+  background: #22c55e;
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.3);
+  transform: translateY(-1px);
+}
+.assistant-composer:focus-within {
+  border-color: #18d174;
+  box-shadow: 0 0 0 4px rgba(24, 209, 116, 0.09), 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+.assistant-composer button:hover {
+  background: #22c55e;
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+  transform: translateY(-1px) scale(1.03);
+}
+.doc-card:hover {
+  border-color: #15995a;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+.dialog-backdrop {
+  animation: backdrop-fade 150ms ease both;
+}
+.search-panel {
+  transform-origin: top center;
+  animation: search-pop 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.search-result:hover,
+.search-result.active {
+  transform: translateX(2px);
+}
+.assistant-panel {
+  transform-origin: bottom right;
+  animation: assistant-slide 210ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.assistant-message {
+  animation: message-pop 170ms ease both;
+}
+@keyframes backdrop-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes search-pop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+@keyframes assistant-slide {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes message-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media (max-width: 1180px) {
   .topbar {
