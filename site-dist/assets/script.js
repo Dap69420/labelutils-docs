@@ -53,7 +53,7 @@ function searchDocs(query) {
 function renderSearchResults(items) {
   if (!searchResults) return;
   searchResults.innerHTML = items.length
-    ? items.map((item) => '<a class="search-result" href="' + item.href + '"><strong>' + item.title + '</strong><span>' + item.group + ' - ' + (item.description || "LabelUtils documentation") + '</span></a>').join("")
+    ? items.map((item) => '<a class="search-result" href="' + item.href + '"><strong>' + item.title + '</strong><span>' + item.group + ' - ' + (item.description || "Vektra documentation") + '</span></a>').join("")
     : '<p class="assistant-empty">No matching docs found.</p>';
 }
 

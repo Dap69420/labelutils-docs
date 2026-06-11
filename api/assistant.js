@@ -79,7 +79,7 @@ export default async function handler(req, res) {
           {
             role: "system",
             content:
-              "You are the LabelUtils docs assistant. Answer only from the provided docs context. Be concise, practical, and mention exact commands when useful. If the docs do not contain the answer, say you are not sure and suggest checking the full docs or contacting support.",
+              "You are the Vektra docs assistant. Answer only from the provided docs context. Be concise, practical, and mention exact commands when useful. If the docs do not contain the answer, say you are not sure and suggest checking the full docs or contacting support.",
           },
           {
             role: "user",

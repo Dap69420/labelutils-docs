@@ -417,14 +417,14 @@ function pageShell(page, content, allPages) {
   const prev = allPages[currentIndex - 1];
   const next = allPages[currentIndex + 1];
   const title = page.meta.title || page.label;
-  const description = page.meta.description || "LabelUtils documentation";
+  const description = page.meta.description || "Vektra documentation";
 
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(title)} - LabelUtils Docs</title>
+  <title>${escapeHtml(title)} - Vektra Docs</title>
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="icon" type="image/png" href="/assets/logo.png">
   <link rel="apple-touch-icon" href="/assets/logo.png">
@@ -434,7 +434,7 @@ function pageShell(page, content, allPages) {
   <header class="topbar">
     <a class="top-brand" href="/">
       <img src="/assets/logo.png" alt="" class="top-logo">
-      <strong>LabelUtils</strong>
+      <strong>Vektra</strong>
       <span>Docs</span>
     </a>
     <div class="top-actions">
@@ -442,6 +442,7 @@ function pageShell(page, content, allPages) {
       <button class="assistant-trigger" type="button" data-open-assistant>${icon("sparkles")}<span>Ask Assistant</span></button>
     </div>
     <nav class="top-links" aria-label="Primary">
+      <a href="https://vektra.games">Dashboard</a>
       <a href="https://discord.gg/Hysd3GSQxQ">Support</a>
       <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
       <button class="theme-button" type="button" aria-label="Dark theme">${icon("moon")}</button>
@@ -473,7 +474,7 @@ function pageShell(page, content, allPages) {
         ${next ? `<a href="${next.href}"><span>Next</span><strong>${escapeHtml(next.label)}${icon("arrow", "pager-icon")}</strong></a>` : "<span></span>"}
       </nav>
       <footer class="footer">
-        <span>LabelUtils Docs</span>
+        <span>Vektra Docs</span>
         <span>Built for labels, artists, and staff teams.</span>
       </footer>
     </main>
@@ -1672,7 +1673,7 @@ function searchDocs(query) {
 function renderSearchResults(items) {
   if (!searchResults) return;
   searchResults.innerHTML = items.length
-    ? items.map((item) => '<a class="search-result" href="' + item.href + '"><strong>' + item.title + '</strong><span>' + item.group + ' - ' + (item.description || "LabelUtils documentation") + '</span></a>').join("")
+    ? items.map((item) => '<a class="search-result" href="' + item.href + '"><strong>' + item.title + '</strong><span>' + item.group + ' - ' + (item.description || "Vektra documentation") + '</span></a>').join("")
     : '<p class="assistant-empty">No matching docs found.</p>';
 }
 
