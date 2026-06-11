@@ -6,7 +6,7 @@ sidebarTitle: "Staff workflow"
 
 Vektra gives staff a structured way to handle incoming demos without leaving Discord.
 
-Pro and Pro+ teams can also review from the Vektra dashboard. Dashboard decisions update the database, DM the artist when approving or rejecting, and update the original staff card when the submission has Discord message references stored.
+Pro and Pro+ teams can also review from the Vektra dashboard. Dashboard decisions update the database, DM the artist when approving or rejecting, and update the original staff card when the submission has Discord message references stored. See the [Dashboard guide](/dashboard) for the full web workflow.
 
 ## How submissions appear
 
@@ -84,6 +84,28 @@ Use the **staff thread** attached to each submission to log:
 - Anything else tied to that artist or track
 
 Because the thread is linked to the submission, you can always find this history later.
+
+## Release requests
+
+Release requests are separate from demo submissions. They are for labels that want Vektra QC before Labelcaster delivery.
+
+Server admins can submit a release request:
+
+```text
+/make-release
+```
+
+Admins can check the status of release requests submitted by the current server:
+
+```text
+/check-releases
+```
+
+Each release request stores its accepted or rejected status and decision reason. Accepted and rejected updates can also be sent to the submitter by DM from the owner review flow.
+
+<Info>
+  `/make-release` and `/check-releases` are admin-only commands. Dashboard release submission also requires server admin access.
+</Info>
 
 ## DM reply forwarding
 

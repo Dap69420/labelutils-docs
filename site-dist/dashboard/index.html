@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Vektra Docs</title>
+  <meta name="description" content="Manage submissions, tickets, releases, branding, storage, and analytics from the web">
+  <link rel="icon" type="image/png" href="/assets/logo.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="top-brand" href="/">
+      <img src="/assets/logo.png" alt="" class="top-logo">
+      <strong>Vektra</strong>
+      <span>Docs</span>
+    </a>
+    <div class="top-actions">
+      <button class="search-trigger" type="button" data-open-search><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search...</span><kbd>Ctrl K</kbd></button>
+      <button class="assistant-trigger" type="button" data-open-assistant><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Ask Assistant</span></button>
+    </div>
+    <nav class="top-links" aria-label="Primary">
+      <a href="https://vektra.games">Dashboard</a>
+      <a href="https://discord.gg/Hysd3GSQxQ">Support</a>
+      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+      <button class="theme-button" type="button" aria-label="Dark theme"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/></svg></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+    </nav>
+  </header>
+  <aside class="sidebar">
+    <div class="sidebar-shortcuts">
+      <a href="/"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg><span>Documentation</span></a>
+      <a href="/commands"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/></svg><span>Commands</span></a>
+    </div>
+    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><span>Welcome</span></a><a class="" href="/getting-started"><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="" href="/staff-workflow"><span>Staff workflow</span></a><a class="" href="/support-tickets"><span>Support tickets</span></a><a class="active" href="/dashboard"><span>Dashboard</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><span>Free vs Pro</span></a><a class="" href="/pro-plus"><span>Planned Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><span>Commands</span></a><a class="" href="/faq"><span>FAQ</span></a></section></nav>
+  </aside>
+  <div class="layout">
+    <main class="content">
+      <article class="article">
+        <p class="eyebrow">For staff</p>
+        <div class="article-header">
+          <div>
+            <h1>Dashboard</h1>
+            <p class="page-description">Manage submissions, tickets, releases, branding, storage, and analytics from the web</p>
+          </div>
+          <button class="copy-page" type="button" data-copy-page><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/></svg><span>Copy page</span></button>
+        </div>
+        <p>The Vektra dashboard is the web control surface for Pro and Pro+ servers. It uses Discord login, then shows the servers where you can manage Vektra.</p>
+<aside class="callout callout-info"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><strong>Info</strong></div><p>Dashboard access requires Discord OAuth, Vektra installed in the server, and an active Pro or Pro+ tier. The server picker only shows servers you can manage.</p></aside>
+<h2 id="what-the-dashboard-can-do">What the dashboard can do</h2>
+<div class="table-wrap"><table><thead><tr><th>Area</th><th>What it does</th></tr></thead><tbody><tr><td>Overview</td><td>Shows recent activity, demo counts, open ticket counts, and daily charts.</td></tr><tr><td>Submissions</td><td>Review demos, update status, approve, reject, DM artists, and open track links.</td></tr><tr><td>Tickets</td><td>Review support tickets, change ticket status, resolve tickets, and DM users.</td></tr><tr><td>Releases</td><td>Submit releases for Vektra QC and track accepted or rejected release status.</td></tr><tr><td>Analytics</td><td>View submission and decision trends with line charts and staff workload data.</td></tr><tr><td>Branding</td><td>Edit display name, submit panel caption, and embed color.</td></tr><tr><td>Settings</td><td>Change storage, staff channels, templates, ticket channels, and post panels.</td></tr></tbody></table></div>
+<h2 id="login-and-server-access">Login and server access</h2>
+<ol><li>Open the dashboard at <a href="https://vektra.games">vektra.games</a>.</li><li>Log in with Discord.</li><li>Pick a server from the server dropdown.</li></ol>
+<p>The dashboard checks your Discord permissions. You need to be the server owner, an admin, or have Manage Server permission to see the server in the dashboard.</p>
+<aside class="callout callout-note"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4Z"/><path d="M15 4v5h5"/><path d="M8 13h8"/><path d="M8 17h5"/></svg><strong>Note</strong></div><p>Some release actions are stricter. Submitting release requests from the dashboard requires server admin access, matching the <code>/make-release</code> Discord command.</p></aside>
+<h2 id="reviewing-submissions">Reviewing submissions</h2>
+<p>From the <strong>Submissions</strong> page, staff can:</p>
+<ul><li>Change a demo's status.</li><li>Open a review form with rating, reviewer, shortlist, priority, decision reason, and staff notes.</li><li>Approve or reject a submission.</li><li>DM the artist from the dashboard.</li><li>Open the submitted demo link.</li></ul>
+<p>When a dashboard approval or rejection is saved, Vektra can DM the artist and update the original Discord staff card if the submission has stored message references.</p>
+<aside class="callout callout-warning"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20Z"/><path d="M12 9v5"/><path d="M12 17h.01"/></svg><strong>Warning</strong></div><p>Very old submissions created before Discord message references were stored may update in the database without disabling the old Discord buttons.</p></aside>
+<h2 id="reviewing-tickets">Reviewing tickets</h2>
+<p>The <strong>Tickets</strong> page keeps support work separate from the demo queue.</p>
+<ul><li>Move tickets between Open, Waiting, Answered, and Resolved.</li><li>Send a DM reply to the ticket opener.</li><li>Keep the private Discord ticket channel as the staff record.</li></ul>
+<p>User replies still route back through Vektra when the user replies directly to the bot's DM message.</p>
+<h2 id="release-requests">Release requests</h2>
+<p>Release requests are for labels that want Vektra QC before Labelcaster delivery.</p>
+<p>From Discord, admins can use:</p>
+<pre><code data-language="text">/make-release
+/check-releases</code></pre>
+<p>From the dashboard, server admins can use the <strong>Releases</strong> page to submit a release with separate fields instead of a single AI-parsed paragraph. Dashboard release submissions do not use SambaNova metadata checks because the form asks for the required metadata directly.</p>
+<p>Required release fields:</p>
+<ul><li>Label name</li><li>Album title</li><li>Artists</li><li>Label owner legal name</li><li>Email IDs for every artist and the label owner, clearly mapped to each person</li><li>C line</li><li>P line</li><li>Composers and producers legal names</li><li>Drive or downloadable file link</li></ul>
+<p>Optional fields can be left blank and treated as Auto:</p>
+<ul><li>UPC code</li><li>Number of tracks</li><li>Version titles or names</li><li>Track titles</li><li>Release date</li><li>Genre</li><li>Explicit content</li><li>ISRCs</li></ul>
+<p>The release appears in the configured Vektra QC channel with a private discussion thread. Accepted or rejected status, decision notes, and rejection reasons are shown back in the dashboard and through <code>/check-releases</code>.</p>
+<h2 id="distribution-fee">Distribution fee</h2>
+<p>Free servers can submit release requests, but Vektra takes a <strong>10% service fee</strong> on distribution handled through Vektra. The label keeps <strong>90%</strong>.</p>
+<p>Paid tiers keep <strong>100%</strong> of distribution earnings.</p>
+<h2 id="accepting-or-rejecting-releases">Accepting or rejecting releases</h2>
+<p>The Vektra owner review workspace can accept or reject release requests from the dashboard. A dashboard decision:</p>
+<ul><li>Updates the release request database.</li><li>Updates the Discord QC card.</li><li>Removes the Discord review buttons from that card.</li><li>Logs the decision in the release thread.</li><li>Can DM the submitter with the acceptance note or rejection reason.</li></ul>
+<p>Discord QC cards also include <strong>Accept</strong> and <strong>Reject</strong> buttons for owner-side review.</p>
+<h2 id="posting-panels">Posting panels</h2>
+<p>The dashboard can post submit panels and ticket panels into channels the bot can see.</p>
+<aside class="callout callout-warning"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20Z"/><path d="M12 9v5"/><path d="M12 17h.01"/></svg><strong>Warning</strong></div><p>If panel posting fails, give Vektra View Channel, Send Messages, and Embed Links permission in the selected channel.</p></aside>
+<h2 id="storage-and-settings">Storage and settings</h2>
+<p>Pro and Pro+ servers can use the dashboard to:</p>
+<ul><li>Move between managed storage regions.</li><li>Connect a custom Neon or Postgres database.</li><li>Switch from one custom database to another.</li><li>Edit approval and rejection DM templates.</li><li>Edit saved rejection reasons.</li><li>Set the demo staff channel and ticket staff channel.</li></ul>
+<p>When storage changes, Vektra migrates existing server data before switching.</p>
+      </article>
+      <nav class="pager">
+        <a href="/support-tickets"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Support tickets</strong></a>
+        <a href="/free-vs-pro"><span>Next</span><strong>Free vs Pro<svg class="pager-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></strong></a>
+      </nav>
+      <footer class="footer">
+        <span>Vektra Docs</span>
+        <span>Built for labels, artists, and staff teams.</span>
+      </footer>
+    </main>
+    <aside class="toc" aria-label="On this page">
+      <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
+      <a class="toc-depth-2" href="#what-the-dashboard-can-do">What the dashboard can do</a><a class="toc-depth-2" href="#login-and-server-access">Login and server access</a><a class="toc-depth-2" href="#reviewing-submissions">Reviewing submissions</a><a class="toc-depth-2" href="#reviewing-tickets">Reviewing tickets</a><a class="toc-depth-2" href="#release-requests">Release requests</a><a class="toc-depth-2" href="#distribution-fee">Distribution fee</a><a class="toc-depth-2" href="#accepting-or-rejecting-releases">Accepting or rejecting releases</a><a class="toc-depth-2" href="#posting-panels">Posting panels</a><a class="toc-depth-2" href="#storage-and-settings">Storage and settings</a>
+    </aside>
+  </div>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="dialog-backdrop" data-close-dialog></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search docs">
+      <label><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="search" data-search-input placeholder="Search docs..." autocomplete="off"></label>
+      <div class="search-results" data-search-results></div>
+    </section>
+  </div>
+  <section class="assistant-panel" data-assistant-panel hidden aria-label="Ask Assistant">
+    <div class="assistant-header">
+      <strong>Ask Assistant</strong>
+      <button type="button" data-close-assistant>Close</button>
+    </div>
+    <div class="assistant-messages" data-assistant-messages>
+      <p class="assistant-empty">Ask about setup, commands, premium tiers, tickets, or artist submissions.</p>
+    </div>
+  </section>
+  <form class="assistant-composer" data-assistant-form>
+    <input name="question" data-assistant-input autocomplete="off" placeholder="Ask a question...">
+    <kbd>Ctrl I</kbd>
+    <button type="submit" aria-label="Send question"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+  </form>
+  <script src="/assets/script.js"></script>
+</body>
+</html>

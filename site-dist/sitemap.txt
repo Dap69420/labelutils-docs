@@ -3,6 +3,7 @@
 /artist-guide
 /staff-workflow
 /support-tickets
+/dashboard
 /free-vs-pro
 /pro-plus
 /commands

@@ -47,6 +47,22 @@ sidebarTitle: "FAQ"
     Yes, on Pro and Pro+. You can approve, reject, update status, DM artists, export CSV files, and view analytics from the dashboard. Approval and rejection actions also DM the artist.
   </Accordion>
 
+  <Accordion title="Who can submit release requests?">
+    Server admins can submit release requests with `/make-release`, and admins can check that server's release status with `/check-releases`. Pro and Pro+ servers can also submit release requests from the dashboard Releases page.
+  </Accordion>
+
+  <Accordion title="Why do release emails need names beside them?">
+    Release requests require email IDs for all artists and the label owner. Vektra needs the form to clearly show which email belongs to which person, for example `Owner - owner@email.com` and `Artist Name - artist@email.com`.
+  </Accordion>
+
+  <Accordion title="Does the dashboard use AI to check release metadata?">
+    No. The dashboard release form asks for each required field separately, so it validates the fields directly. The Discord `/make-release` modal still uses the metadata checker because Discord modals have fewer fields.
+  </Accordion>
+
+  <Accordion title="Does Vektra take a distribution fee?">
+    On the free tier, release distribution handled through Vektra has a **10% service fee**, so the label keeps **90%**. Paid tiers keep **100%**.
+  </Accordion>
+
   <Accordion title="Can users see each other's submissions?">
     No. Submission cards appear in your private staff channel. Submitters only see their own submissions via `/my_subs`, `/my_demos`, `/my_stats`, and `/submission`.
   </Accordion>

@@ -1,0 +1,138 @@
+---
+title: "Dashboard"
+description: "Manage submissions, tickets, releases, branding, storage, and analytics from the web"
+sidebarTitle: "Dashboard"
+---
+
+The Vektra dashboard is the web control surface for Pro and Pro+ servers. It uses Discord login, then shows the servers where you can manage Vektra.
+
+<Info>
+  Dashboard access requires Discord OAuth, Vektra installed in the server, and an active Pro or Pro+ tier. The server picker only shows servers you can manage.
+</Info>
+
+## What the dashboard can do
+
+| Area | What it does |
+| --- | --- |
+| Overview | Shows recent activity, demo counts, open ticket counts, and daily charts. |
+| Submissions | Review demos, update status, approve, reject, DM artists, and open track links. |
+| Tickets | Review support tickets, change ticket status, resolve tickets, and DM users. |
+| Releases | Submit releases for Vektra QC and track accepted or rejected release status. |
+| Analytics | View submission and decision trends with line charts and staff workload data. |
+| Branding | Edit display name, submit panel caption, and embed color. |
+| Settings | Change storage, staff channels, templates, ticket channels, and post panels. |
+
+## Login and server access
+
+1. Open the dashboard at [vektra.games](https://vektra.games).
+2. Log in with Discord.
+3. Pick a server from the server dropdown.
+
+The dashboard checks your Discord permissions. You need to be the server owner, an admin, or have Manage Server permission to see the server in the dashboard.
+
+<Note>
+  Some release actions are stricter. Submitting release requests from the dashboard requires server admin access, matching the `/make-release` Discord command.
+</Note>
+
+## Reviewing submissions
+
+From the **Submissions** page, staff can:
+
+- Change a demo's status.
+- Open a review form with rating, reviewer, shortlist, priority, decision reason, and staff notes.
+- Approve or reject a submission.
+- DM the artist from the dashboard.
+- Open the submitted demo link.
+
+When a dashboard approval or rejection is saved, Vektra can DM the artist and update the original Discord staff card if the submission has stored message references.
+
+<Warning>
+  Very old submissions created before Discord message references were stored may update in the database without disabling the old Discord buttons.
+</Warning>
+
+## Reviewing tickets
+
+The **Tickets** page keeps support work separate from the demo queue.
+
+- Move tickets between Open, Waiting, Answered, and Resolved.
+- Send a DM reply to the ticket opener.
+- Keep the private Discord ticket channel as the staff record.
+
+User replies still route back through Vektra when the user replies directly to the bot's DM message.
+
+## Release requests
+
+Release requests are for labels that want Vektra QC before Labelcaster delivery.
+
+From Discord, admins can use:
+
+```text
+/make-release
+/check-releases
+```
+
+From the dashboard, server admins can use the **Releases** page to submit a release with separate fields instead of a single AI-parsed paragraph. Dashboard release submissions do not use SambaNova metadata checks because the form asks for the required metadata directly.
+
+Required release fields:
+
+- Label name
+- Album title
+- Artists
+- Label owner legal name
+- Email IDs for every artist and the label owner, clearly mapped to each person
+- C line
+- P line
+- Composers and producers legal names
+- Drive or downloadable file link
+
+Optional fields can be left blank and treated as Auto:
+
+- UPC code
+- Number of tracks
+- Version titles or names
+- Track titles
+- Release date
+- Genre
+- Explicit content
+- ISRCs
+
+The release appears in the configured Vektra QC channel with a private discussion thread. Accepted or rejected status, decision notes, and rejection reasons are shown back in the dashboard and through `/check-releases`.
+
+## Distribution fee
+
+Free servers can submit release requests, but Vektra takes a **10% service fee** on distribution handled through Vektra. The label keeps **90%**.
+
+Paid tiers keep **100%** of distribution earnings.
+
+## Accepting or rejecting releases
+
+The Vektra owner review workspace can accept or reject release requests from the dashboard. A dashboard decision:
+
+- Updates the release request database.
+- Updates the Discord QC card.
+- Removes the Discord review buttons from that card.
+- Logs the decision in the release thread.
+- Can DM the submitter with the acceptance note or rejection reason.
+
+Discord QC cards also include **Accept** and **Reject** buttons for owner-side review.
+
+## Posting panels
+
+The dashboard can post submit panels and ticket panels into channels the bot can see.
+
+<Warning>
+  If panel posting fails, give Vektra View Channel, Send Messages, and Embed Links permission in the selected channel.
+</Warning>
+
+## Storage and settings
+
+Pro and Pro+ servers can use the dashboard to:
+
+- Move between managed storage regions.
+- Connect a custom Neon or Postgres database.
+- Switch from one custom database to another.
+- Edit approval and rejection DM templates.
+- Edit saved rejection reasons.
+- Set the demo staff channel and ticket staff channel.
+
+When storage changes, Vektra migrates existing server data before switching.

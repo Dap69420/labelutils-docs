@@ -23,6 +23,7 @@ const navigation = [
     pages: [
       ["Staff workflow", "For staff/staff-workflow.mdx", "/staff-workflow"],
       ["Support tickets", "For staff/support-tickets.mdx", "/support-tickets"],
+      ["Dashboard", "For staff/dashboard.mdx", "/dashboard"],
     ],
   },
   {
@@ -52,6 +53,7 @@ const pageIcons = {
   "/artist-guide": "music",
   "/staff-workflow": "users",
   "/support-tickets": "ticket",
+  "/dashboard": "terminal",
   "/free-vs-pro": "star",
   "/pro-plus": "sparkles",
   "/commands": "terminal",

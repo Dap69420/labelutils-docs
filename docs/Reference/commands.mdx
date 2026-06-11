@@ -76,6 +76,19 @@ Pro and Pro+ staff can review submissions from the dashboard too. Web approvals 
   DM reply forwarding works when the artist replies directly to the bot's DM message. Attachments are forwarded as Discord attachment links; files are not downloaded or reuploaded by the bot.
 </Note>
 
+## Release Requests
+
+| Command | Description |
+| --- | --- |
+| `/make-release` | Admin: submit a release request for Vektra QC and Labelcaster delivery. Opens a form for release metadata, C/P lines, composers/producers, and file link. |
+| `/check-releases` | Admin: show release requests submitted by the current server, including accepted or rejected status and decision reason. |
+
+Required release metadata includes label name, album title, artists, label owner legal name, mapped artist and owner emails, C line, P line, composer/producer legal names, and a Drive or downloadable link.
+
+<Info>
+  Discord release requests use the metadata checker for the paragraph field. Dashboard release requests use separate fields and validate required metadata directly.
+</Info>
+
 ## Starter Branding And Customization
 
 | Command | Description |
@@ -130,6 +143,7 @@ The dashboard is not a slash command, but it is part of the Pro and Pro+ workflo
 | Home | Shows server overview, recent activity, and daily analytics cards. |
 | Submissions | Review demos, change status, approve, reject, DM artists, and export CSV. |
 | Tickets | Review support tickets, change status, resolve, and DM users. |
+| Releases | Submit release requests and view accepted or rejected status with decision reason. |
 | Analytics | View submission and decision trends with graphs. |
 | Settings | Edit branding, templates, storage region or custom database, ticket channels, and panel posting. |
 

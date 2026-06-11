@@ -84,13 +84,31 @@ Pro and Pro+ servers can manage Vektra from the web dashboard.
 1. Log in with Discord.
 2. Choose a server from the custom server picker.
 3. Confirm Vektra is installed and that you have Admin or Manage Server permission.
-4. Edit branding, templates, ticket settings, storage, and panel posting from the dashboard.
+4. Edit branding, templates, ticket settings, storage, release requests, and panel posting from the dashboard.
 
 <Info>
   The dashboard only shows servers you can manage and where Vektra is installed. Dashboard review tools require an active Pro or Pro+ tier.
 </Info>
 
 When posting panels from the dashboard, the channel list comes from channels visible to the bot. If a panel fails to post, check that Vektra can view the channel and send messages there.
+
+## Release requests
+
+Server admins can submit release requests for Vektra QC before Labelcaster delivery.
+
+In Discord:
+
+```text
+/make-release
+```
+
+To check releases submitted by this server:
+
+```text
+/check-releases
+```
+
+Dashboard users on Pro and Pro+ can also submit release requests from the **Releases** page. The dashboard form uses separate metadata fields, so it does not need the AI metadata check used by the Discord modal.
 
 ## Recommended channel setup
 
@@ -108,6 +126,10 @@ When posting panels from the dashboard, the channel list comes from channels vis
 
   <Card title="Staff workflow" icon="users" href="/staff-workflow">
     Learn how to review submissions efficiently.
+  </Card>
+
+  <Card title="Dashboard" icon="terminal" href="/dashboard">
+    Use the Pro dashboard for submissions, tickets, releases, and settings.
   </Card>
 
   <Card title="Compare plans" icon="star" href="/free-vs-pro">

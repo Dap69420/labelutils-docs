@@ -21,6 +21,8 @@ Vektra is free to use for any server. **Starter** adds branding and customizatio
 | Status updates with `/status` | Yes | Yes | Yes | Yes |
 | Artist commands and leaderboard | Yes | Yes | Yes | Yes |
 | Managed storage | Yes | Yes | Yes | Yes |
+| Release requests via `/make-release` and `/check-releases` | Yes | Yes | Yes | Yes |
+| Release distribution payout | 90% to label / 10% service fee | 100% to label | 100% to label | 100% to label |
 | DM reply forwarding from artists | No | Yes | Yes | Yes |
 | Custom branding | No | Yes | Yes | Yes |
 | Custom submit panel | No | Yes | Yes | Yes |
@@ -34,6 +36,7 @@ Vektra is free to use for any server. **Starter** adds branding and customizatio
 | Dashboard login and server picker | No | No | Yes | Yes |
 | Review submissions from the dashboard | No | No | Yes | Yes |
 | Review support tickets from the dashboard | No | No | Yes | Yes |
+| Submit and track release requests from the dashboard | No | No | Yes | Yes |
 | Dashboard analytics graphs and CSV export | No | No | Yes | Yes |
 | Staff notes | No | No | Yes | Yes |
 | Reviewer assignment | No | No | Yes | Yes |
@@ -46,6 +49,16 @@ Vektra is free to use for any server. **Starter** adds branding and customizatio
 | Analytics | No | No | Yes | Yes |
 | CSV export | No | No | Yes | Yes |
 | Support tickets | No | No | Yes | Yes |
+
+## Release distribution fee
+
+Free servers can still submit release requests for Vektra QC and Labelcaster delivery. On the free tier, Vektra keeps a **10% service fee**, so the label keeps **90%**.
+
+Paid tiers keep **100%** of distribution earnings.
+
+<Info>
+  The service fee only applies to release distribution handled through Vektra. It does not affect normal demo submissions.
+</Info>
 
 ## Starter features
 
@@ -74,7 +87,7 @@ Make Vektra feel closer to your label.
 
 ## Pro features
 
-- The web dashboard lets staff review submissions and tickets, approve or reject demos, DM users, export CSV files, and view analytics graphs.
+- The web dashboard lets staff review submissions and tickets, submit and track release requests, approve or reject demos, DM users, export CSV files, and view analytics graphs.
 - `/note ticket_id:<id> note:<text>` adds private staff notes.
 - `/reviewer ticket_id:<id> reviewer:<member>` assigns a reviewer.
 - `/shortlist ticket_id:<id> enabled:<true or false>` adds or removes from the shortlist.
@@ -102,7 +115,7 @@ The dashboard uses Discord login. After login, Vektra only shows servers where:
 - Vektra is installed in that server.
 - The server has an active Pro or Pro+ tier for dashboard-only tools.
 
-From the dashboard you can edit branding, templates, storage, ticket settings, submission statuses, ticket statuses, and post panels into channels the bot can see.
+From the dashboard you can edit branding, templates, storage, ticket settings, submission statuses, ticket statuses, release requests, and post panels into channels the bot can see.
 
 <Warning>
   When posting panels from the dashboard, make sure the bot can view the selected channel and has Send Messages permission there.
