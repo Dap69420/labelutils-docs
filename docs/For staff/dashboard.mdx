@@ -19,8 +19,9 @@ The Vektra dashboard is the web control surface for Pro and Pro+ servers. It use
 | Tickets | Review support tickets, change ticket status, resolve tickets, and DM users. |
 | Releases | Submit releases for Vektra QC and track accepted or rejected release status. |
 | Analytics | View submission and decision trends with line charts and staff workload data. |
-| Branding | Edit display name, submit panel caption, and embed color. |
-| Settings | Change storage, staff channels, templates, ticket channels, and post panels. |
+| Branding | Edit display name, submit panel caption, embed color, tutorial panel templates, footer, and logo. |
+| Messages | Post custom embeds or plain messages to any channel the bot can access. |
+| Settings | Change demo intake, storage, staff channels, templates, ticket channels, and post panels. |
 | Pro+ Bot | Configure hosted white-label bot identity for Pro+ servers. |
 
 ## Login and server access
@@ -116,6 +117,33 @@ The Vektra owner review workspace can accept or reject release requests from the
 - Can DM the submitter with the acceptance note or rejection reason.
 
 Discord QC cards also include **Accept** and **Reject** buttons for owner-side review.
+
+## Demo intake
+
+From **Settings -> Demo intake**, admins can open or close demo submissions for the whole server. This applies to every tier and blocks `/submit` plus submit-panel buttons while intake is closed.
+
+You can also use the Discord command:
+
+```text
+/intake open:false message:Submissions are closed while we review the current queue.
+```
+
+## Branding and panel templates
+
+The **Branding** page supports two submit panel styles:
+
+- **Simple caption panel** uses your display name, tagline, and embed color.
+- **Tutorial panel** adds a custom title, intro text, numbered steps, tips, button label, footer, and logo/thumbnail.
+
+Saved branding is used when you post submit panels from Discord with `/post_panel` or from the dashboard.
+
+## Custom embed posting
+
+The **Messages** page lets Pro and Pro+ admins compose a custom embed or plain message and post it to any channel the bot can access.
+
+<Warning>
+  If posting fails, give Vektra View Channel, Send Messages, and Embed Links permission in the selected channel.
+</Warning>
 
 ## Posting panels
 

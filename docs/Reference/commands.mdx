@@ -36,7 +36,8 @@ Every public Vektra slash command, grouped by who uses it. Run `/help` in Discor
 | --- | --- |
 | `/start label_name:<name>` | Create managed Vektra storage and set the server's label name. |
 | `/setup_staff channel:<channel>` | Set the private staff channel where new submission cards are posted. |
-| `/setup` | Check storage, Pro status, branding, staff channel, ticket channel, and thread permissions. |
+| `/setup` | Check storage, Pro status, branding, staff channel, ticket channel, demo intake, and thread permissions. |
+| `/intake open:<true or false> message:<optional>` | Admin: open or close demo submissions for the server. Works on every tier. |
 | `/db_status` | Check which storage is connected. Managed storage shows the region and schema. |
 | `/staff_status` | Check which staff channel is connected. |
 | `/setup_db` | **Pro**: connect a custom Neon database. |
@@ -96,7 +97,7 @@ Required release metadata includes label name, album title, artists, label owner
 | `/brand` | **Starter**: open a form to set display name, required submit panel caption, and embed color. |
 | `/brand_info` | Show the current premium branding and premium state. |
 | `/brand_clear` | **Starter**: reset custom branding back to server defaults. |
-| `/post_panel` | **Starter**: post a branded public submit button panel. |
+| `/post_panel` | **Starter**: post a branded public submit button panel. Uses simple or tutorial panel templates. |
 | `/form label:<text> placeholder:<text>` | **Starter**: customize the optional submission question. |
 | `/templates` | **Starter**: edit approval and rejection DM templates. Either template can be changed on its own. |
 | `/extras footer_text:<text> logo_url:<url or none> success_message:<text>` | **Starter**: customize staff card footers, thumbnails, and submitter confirmation text. |
@@ -145,7 +146,9 @@ The dashboard is not a slash command, but it is part of the Pro and Pro+ workflo
 | Tickets | Review support tickets, change status, resolve, and DM users. |
 | Releases | Submit release requests and view accepted or rejected status with decision reason. |
 | Analytics | View submission and decision trends with graphs. |
-| Settings | Edit branding, templates, storage region or custom database, ticket channels, and panel posting. |
+| Branding | Edit display name, tagline, embed color, tutorial panel templates, footer, and logo. |
+| Messages | Post custom embeds or plain messages to any channel the bot can access. |
+| Settings | Edit demo intake, templates, storage region or custom database, ticket channels, and panel posting. |
 | Pro+ Bot | Pro+ only: configure a hosted white-label bot token, client ID, status, invite link, and manager status. |
 
 ## Premium
