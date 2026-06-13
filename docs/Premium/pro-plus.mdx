@@ -1,18 +1,18 @@
 ---
 title: "Pro+"
-description: "A future white-label tier for labels that want their own bot identity"
+description: "White-label bot hosting for labels that want their own Discord bot identity"
 sidebarTitle: "Pro+"
 ---
 
-Pro+ is available as a separate premium tier, but it currently unlocks the same bot features as Pro.
+Pro+ includes everything in Pro plus **white-label bot hosting**. A Pro+ server can connect its own Discord bot application so artists and staff interact with that label's own bot identity instead of only the shared Vektra bot.
 
-<Warning>
-  The future white-label bot identity features are not live yet. Pro+ exists now so Pro+ buyers can be tracked separately while the hosting side is prepared.
-</Warning>
+<Info>
+  Pro+ white-label hosting is self-serve from the dashboard. The server still uses Vektra's workflow, storage, commands, panels, and dashboard, but the hosted bot can use the buyer's own Discord bot token and status.
+</Info>
 
-## Current features
+## Included features
 
-Right now, Pro+ includes the same Vektra features as Pro:
+Pro+ includes everything from Pro:
 
 - Starter branding and customization
 - Pro A&R workflow tools
@@ -20,20 +20,68 @@ Right now, Pro+ includes the same Vektra features as Pro:
 - Pro dashboard access
 - Pro support tickets
 - Pro analytics and exports
+- Release requests and dashboard release tracking
 
-## Future idea
+It also adds:
 
-A Pro+ server would connect its own Discord bot token, so the bot can use that label's own bot identity instead of the shared Vektra identity. This unlocks:
+- A dedicated hosted Discord bot worker for that server
+- Custom bot token supplied by the buyer
+- Custom bot online status from the dashboard
+- A custom invite link based on the buyer's bot client ID
+- Automatic shutdown when Pro+ expires or the hosted bot is disabled
 
-- Custom **bot name**
-- Custom **avatar**
-- Custom **online status**
-- Custom **profile description**
-- Custom **invite identity** for that label
+## What the buyer needs
+
+The buyer creates a Discord application in the Discord Developer Portal and provides:
+
+- Bot token
+- Bot client ID
+- Desired status type and status text
+
+The bot name, avatar, and profile description are managed in the buyer's Discord Developer Portal. Vektra hosts the bot connection and workflow.
+
+<Warning>
+  A Discord bot token is like a password. Only paste tokens from Discord applications you own. If a token is exposed, reset it in the Discord Developer Portal and update it in the dashboard.
+</Warning>
+
+## Dashboard setup
+
+1. Buy or redeem Pro+ for the server.
+2. Open [vektra.games](https://vektra.games) and log in with Discord.
+3. Choose the Pro+ server.
+4. Open **Pro+ Bot**.
+5. Paste the custom bot client ID and token.
+6. Choose the status type and status text.
+7. Enable the hosted bot and save.
+8. Use **Invite custom bot** to add that bot to the same server.
+
+The VPS manager checks for changes roughly every 30 seconds. The dashboard will show manager status such as `pending_restart`, `starting`, `online`, `stopped`, or `error`.
+
+## Server lock
+
+Discord's invite screen may let someone choose any server where they have permission to add bots. Vektra still locks each white-label worker to the configured Pro+ server.
+
+If the custom bot is invited to the wrong server, it leaves automatically. On startup, it also checks existing guilds and leaves any server that does not match the configured Pro+ server.
+
+## Expiry and removal
+
+When Pro+ expires, the white-label worker stops automatically on the next manager check. The stored configuration remains in the dashboard so it can be reused after renewal.
+
+To remove or stop a custom bot:
+
+- Disable it from **Dashboard -> Pro+ Bot**.
+- Or remove premium with the owner-side premium controls.
+- Or stop the Pro+ manager service if all hosted custom bots need to be paused.
+
+## Current hosting limit
+
+Vektra currently runs Pro+ hosting as a controlled beta. The default manager limit is **5 active white-label bots** on the VPS.
+
+This limit keeps memory usage predictable. It can be adjusted later when hosting capacity increases.
 
 ## How is this different from Pro branding?
 
-Current Pro branding already customizes:
+Pro branding customizes:
 
 - Server-specific messages and embeds
 - Submit panel captions and colors
@@ -41,21 +89,4 @@ Current Pro branding already customizes:
 - Footers, success messages, and thumbnails
 - The bot's **server nickname** where Discord permissions allow it
 
-Pro+ goes further by running a **separate branded bot connection** for the buyer, so the bot's profile is fully theirs across Discord, not just inside their server messages.
-
-## Why isn't it available yet?
-
-Pro+ requires stronger hosting because every custom bot needs its own:
-
-- Discord gateway connection
-- Memory and process overhead
-
-Pro purchases help fund better VPS capacity so Pro+ can be built and supported properly.
-
-## Security plans
-
-When Pro+ launches, Discord bot tokens will be treated like passwords:
-
-- Stored securely
-- Never shown in public messages or logs
-- Removable or replaceable by the server owner at any time
+Pro+ goes further by running a **separate Discord bot connection** for the buyer. That gives the label its own bot identity, invite identity, and online status while still using the Vektra workflow.

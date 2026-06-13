@@ -4,7 +4,7 @@ description: "What's included in Free, Starter, Pro, and Pro+"
 sidebarTitle: "Plans"
 ---
 
-Vektra is free to use for any server. **Starter** adds branding and customization, **Pro** unlocks the full A&R workflow and dashboard, and **Pro+** currently has the same bot features as Pro while deeper white-label hosting is prepared.
+Vektra is free to use for any server. **Starter** adds branding and customization, **Pro** unlocks the full A&R workflow and dashboard, and **Pro+** adds hosted white-label bot identity for labels that want their own Discord bot.
 
 <Info>
   Vektra keeps each server's slash command list tier-aware. Free servers see the core commands, Starter servers see Starter tools, and Pro or Pro+ servers see the full workflow commands after premium is redeemed.
@@ -38,6 +38,10 @@ Vektra is free to use for any server. **Starter** adds branding and customizatio
 | Review support tickets from the dashboard | No | No | Yes | Yes |
 | Submit and track release requests from the dashboard | No | No | Yes | Yes |
 | Dashboard analytics graphs and CSV export | No | No | Yes | Yes |
+| Hosted white-label bot identity | No | No | No | Yes |
+| Custom hosted bot status | No | No | No | Yes |
+| Custom bot token and client ID from dashboard | No | No | No | Yes |
+| Wrong-server invite auto-leave protection | No | No | No | Yes |
 | Staff notes | No | No | Yes | Yes |
 | Reviewer assignment | No | No | Yes | Yes |
 | Shortlist tools | No | No | Yes | Yes |
@@ -103,8 +107,14 @@ Make Vektra feel closer to your label.
 - `/setup_db` connects your own Neon database.
 - Support ticket commands: `/ticket_channel`, `/ticket_panel`, `/tickets`, and `/ticket_set`.
 
+## Pro+ white-label hosting
+
+Pro+ servers can connect their own Discord bot application from the dashboard. The custom bot runs as a dedicated worker on the Vektra VPS, uses that server's Vektra setup, and can have its own Discord identity and online status.
+
+The Pro+ Bot page stores the bot token encrypted, shows manager status, and gives an invite link based on the buyer's bot client ID. If the custom bot is invited to the wrong server, it leaves automatically.
+
 <Note>
-  Pro+ currently unlocks the same features as Pro. It exists now so buyers can be tracked separately before future white-label hosting is added.
+  The current Pro+ hosting limit is 5 active white-label bots while the service is in controlled beta.
 </Note>
 
 ## Dashboard
@@ -142,5 +152,5 @@ Premium access is handled manually:
 5. Check status anytime with `/pro_status`.
 
 <Warning>
-  When premium expires, saved paid settings are kept but inactive. Existing branded submit panels and ticket panels may still be visible in Discord, but paid workflows stop opening until the server renews.
+  When premium expires, saved paid settings are kept but inactive. Existing branded submit panels and ticket panels may still be visible in Discord, but paid workflows stop opening until the server renews. Pro+ custom bots stop automatically when Pro+ expires.
 </Warning>

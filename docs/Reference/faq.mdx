@@ -14,9 +14,25 @@ sidebarTitle: "FAQ"
   </Accordion>
 
   <Accordion title="Can Vektra have a custom avatar or online status per server?">
-    Not on the current shared bot plans. Discord does not let a shared bot use a different avatar or online status per server. Starter and Pro branding applies to messages, embeds, panels, and the bot's server nickname where permissions allow it.
+    Not on Free, Starter, or Pro shared-bot plans. Discord does not let one shared bot use a different avatar or online status per server. Starter and Pro branding applies to messages, embeds, panels, and the bot's server nickname where permissions allow it.
 
-    Pro+ is already tracked as a tier, but it currently has the same bot features as Pro while separate branded bot hosting is prepared.
+    Pro+ adds hosted white-label bot identity. A Pro+ server can connect its own Discord bot application from the dashboard, including a custom hosted status.
+  </Accordion>
+
+  <Accordion title="How does Pro+ white-label bot hosting work?">
+    Pro+ servers get a **Pro+ Bot** page in the dashboard. Admins paste their custom Discord bot client ID and token, choose status text, enable hosting, and invite the custom bot. Vektra stores the token encrypted and the VPS manager starts a dedicated worker for that server.
+  </Accordion>
+
+  <Accordion title="Can the Pro+ custom bot be invited to the wrong server?">
+    Discord's invite screen may show any server where the user can add bots. The hosted worker is still locked to the configured Pro+ server. If the custom bot joins another server, it leaves automatically.
+  </Accordion>
+
+  <Accordion title="What happens when Pro+ expires?">
+    The white-label bot worker stops automatically when Pro+ expires or is removed. Saved configuration remains stored so it can be reused after renewal, but the custom bot will not stay online without active Pro+.
+  </Accordion>
+
+  <Accordion title="How many Pro+ custom bots can Vektra host right now?">
+    Pro+ white-label hosting is currently a controlled beta with a default limit of **5 active custom bots** on the VPS.
   </Accordion>
 
   <Accordion title="Why does the submission form only have five fields?">

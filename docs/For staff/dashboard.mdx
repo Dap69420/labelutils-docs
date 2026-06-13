@@ -21,6 +21,7 @@ The Vektra dashboard is the web control surface for Pro and Pro+ servers. It use
 | Analytics | View submission and decision trends with line charts and staff workload data. |
 | Branding | Edit display name, submit panel caption, and embed color. |
 | Settings | Change storage, staff channels, templates, ticket channels, and post panels. |
+| Pro+ Bot | Configure hosted white-label bot identity for Pro+ servers. |
 
 ## Login and server access
 
@@ -136,3 +137,36 @@ Pro and Pro+ servers can use the dashboard to:
 - Set the demo staff channel and ticket staff channel.
 
 When storage changes, Vektra migrates existing server data before switching.
+
+## Pro+ Bot
+
+The **Pro+ Bot** page only appears for servers with an active Pro+ plan. It lets the server connect a custom Discord bot application to Vektra hosting.
+
+From this page, Pro+ admins can:
+
+- Enable or disable the hosted custom bot.
+- Save the bot client ID.
+- Paste or rotate the bot token.
+- Set the hosted bot's status type and status text.
+- Open an invite link for the custom bot.
+- View manager status from the VPS.
+
+The dashboard never shows the stored token again after it is saved. Tokens are stored encrypted.
+
+Manager statuses:
+
+| Status | Meaning |
+| --- | --- |
+| `pending_restart` | Settings were saved and the VPS manager has not applied them yet. |
+| `starting` | The manager started the custom bot worker. |
+| `online` | The worker process is running. |
+| `stopped` | The bot was disabled or Pro+ expired. |
+| `error` | The manager could not start the worker. Check the token and VPS logs. |
+
+<Info>
+  The VPS manager checks for Pro+ bot changes about every 30 seconds.
+</Info>
+
+<Warning>
+  Discord may let users choose any server in the invite screen. The hosted bot is still locked to the configured Pro+ server and leaves automatically if invited somewhere else.
+</Warning>

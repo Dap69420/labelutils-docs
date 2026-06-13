@@ -30,7 +30,7 @@ const navigation = [
     group: "Premium",
     pages: [
       ["Free vs Pro", "Premium/free-vs-pro.mdx", "/free-vs-pro"],
-      ["Planned Pro+", "Premium/pro-plus.mdx", "/pro-plus"],
+      ["Pro+", "Premium/pro-plus.mdx", "/pro-plus"],
     ],
   },
   {
