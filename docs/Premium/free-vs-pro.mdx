@@ -27,7 +27,7 @@ Vektra is free to use for any server. **Starter** adds branding and customizatio
 | Custom branding | No | Yes | Yes | Yes |
 | Custom submit panel | No | Yes | Yes | Yes |
 | Tutorial-style submit panel templates | No | Yes | Yes | Yes |
-| Demo intake open/close toggle | No | Yes | Yes | Yes |
+| Demo intake open/close toggle | Yes | Yes | Yes | Yes |
 | Post custom embeds from dashboard | No | No | Yes | Yes |
 | Custom approval and rejection DM templates | No | Yes | Yes | Yes |
 | Custom form prompt | No | Yes | Yes | Yes |
@@ -44,6 +44,8 @@ Vektra is free to use for any server. **Starter** adds branding and customizatio
 | Hosted white-label bot identity | No | No | No | Yes |
 | Custom hosted bot status | No | No | No | Yes |
 | Custom bot token and client ID from dashboard | No | No | No | Yes |
+| Dashboard hosted bot restart | No | No | No | Yes |
+| Discord hosted bot status and pause controls | No | No | No | Yes |
 | Wrong-server invite auto-leave protection | No | No | No | Yes |
 | Staff notes | No | No | Yes | Yes |
 | Reviewer assignment | No | No | Yes | Yes |
@@ -115,6 +117,8 @@ Make Vektra feel closer to your label.
 Pro+ servers can connect their own Discord bot application from the dashboard. The custom bot runs as a dedicated worker on the Vektra VPS, uses that server's Vektra setup, and can have its own Discord identity and online status.
 
 The Pro+ Bot page stores the bot token encrypted, shows manager status, and gives an invite link based on the buyer's bot client ID. If the custom bot is invited to the wrong server, it leaves automatically.
+
+Admins can also use `/white_label_status` to check worker health from Discord, or `/white_label` to pause, resume, or update the hosted bot's status text. The dashboard includes status presets and a restart request button for quick operations.
 
 <Note>
   The current Pro+ hosting limit is 5 active white-label bots while the service is in controlled beta.

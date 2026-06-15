@@ -38,6 +38,8 @@ Every public Vektra slash command, grouped by who uses it. Run `/help` in Discor
 | `/setup_staff channel:<channel>` | Set the private staff channel where new submission cards are posted. |
 | `/setup` | Check storage, Pro status, branding, staff channel, ticket channel, demo intake, and thread permissions. |
 | `/intake open:<true or false> message:<optional>` | Admin: open or close demo submissions for the server. Works on every tier. |
+| `/open_submissions` | Admin: open demo submissions. Works on every tier. |
+| `/close_submissions message:<optional>` | Admin: close demo submissions and optionally set the message artists see. Works on every tier. |
 | `/db_status` | Check which storage is connected. Managed storage shows the region and schema. |
 | `/staff_status` | Check which staff channel is connected. |
 | `/setup_db` | **Pro**: connect a custom Neon database. |
@@ -74,7 +76,7 @@ Staff submission cards also include **Approve**, **Reject**, and **DM** buttons.
 Pro and Pro+ staff can review submissions from the dashboard too. Web approvals and rejections update the submission, DM the artist, and update the Discord staff card for submissions that have stored message references.
 
 <Note>
-  DM reply forwarding works when the artist replies directly to the bot's DM message. Attachments are forwarded as Discord attachment links; files are not downloaded or reuploaded by the bot.
+  DM reply forwarding works when the artist replies directly to the bot's DM message. Attachments are reuploaded into the staff thread when they fit Discord's upload limit; oversized files fall back to temporary Discord links.
 </Note>
 
 ## Release Requests
@@ -135,6 +137,13 @@ Required release metadata includes label name, album title, artists, label owner
 
 Tickets can also be reviewed in the dashboard. Staff can resolve tickets and DM users from the web while keeping the private Discord ticket channel as the staff record.
 
+## Pro+ Hosting
+
+| Command | Description |
+| --- | --- |
+| `/white_label_status` | **Pro+**: show hosted bot configuration, worker status, last seen time, and invite link. |
+| `/white_label enabled:<true or false> status_type:<optional> status_text:<optional>` | **Pro+**: enable, pause, or update the hosted bot runtime without opening the dashboard. Token and client ID setup still happens in the dashboard. |
+
 ## Pro Dashboard
 
 The dashboard is not a slash command, but it is part of the Pro and Pro+ workflow.
@@ -149,7 +158,7 @@ The dashboard is not a slash command, but it is part of the Pro and Pro+ workflo
 | Branding | Edit display name, tagline, embed color, tutorial panel templates, footer, and logo. |
 | Messages | Post custom embeds or plain messages to any channel the bot can access. |
 | Settings | Edit demo intake, templates, storage region or custom database, ticket channels, and panel posting. |
-| Pro+ Bot | Pro+ only: configure a hosted white-label bot token, client ID, status, invite link, and manager status. |
+| Pro+ Bot | Pro+ only: configure a hosted white-label bot token, client ID, status presets, invite link, manager status, and restart requests. |
 
 ## Premium
 

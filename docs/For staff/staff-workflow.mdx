@@ -109,7 +109,7 @@ Each release request stores its accepted or rejected status and decision reason.
 
 ## DM reply forwarding
 
-DM reply forwarding only works when the artist **replies directly** to the bot's DM message. Attachments are forwarded as Discord attachment links; the bot does not download or reupload files.
+DM reply forwarding only works when the artist **replies directly** to the bot's DM message. Attachments are downloaded immediately and reuploaded into the staff thread so staff keeps a durable copy. If a file is too large for the server's upload limit, Vektra includes the original temporary Discord link as a fallback.
 
 <Warning>
   If an artist sends a brand-new DM to the bot instead of replying to the bot's message, it will not be forwarded. Always start contact from the **DM** button on a submission card.

@@ -52,15 +52,19 @@
 <p>Pro+ includes everything from Pro:</p>
 <ul><li>Starter branding and customization</li><li>Pro A&amp;R workflow tools</li><li>Pro storage options</li><li>Pro dashboard access</li><li>Pro support tickets</li><li>Pro analytics and exports</li><li>Release requests and dashboard release tracking</li></ul>
 <p>It also adds:</p>
-<ul><li>A dedicated hosted Discord bot worker for that server</li><li>Custom bot token supplied by the buyer</li><li>Custom bot online status from the dashboard</li><li>A custom invite link based on the buyer's bot client ID</li><li>Automatic shutdown when Pro+ expires or the hosted bot is disabled</li></ul>
+<ul><li>A dedicated hosted Discord bot worker for that server</li><li>Custom bot token supplied by the buyer</li><li>Custom bot online status from the dashboard</li><li>A custom invite link based on the buyer's bot client ID</li><li>Dashboard restart requests for the hosted worker</li><li>Discord-side hosting controls with <code>/white_label</code> and <code>/white_label_status</code></li><li>Automatic shutdown when Pro+ expires or the hosted bot is disabled</li></ul>
 <h2 id="what-the-buyer-needs">What the buyer needs</h2>
 <p>The buyer creates a Discord application in the Discord Developer Portal and provides:</p>
 <ul><li>Bot token</li><li>Bot client ID</li><li>Desired status type and status text</li></ul>
 <p>The bot name, avatar, and profile description are managed in the buyer's Discord Developer Portal. Vektra hosts the bot connection and workflow.</p>
 <aside class="callout callout-warning"><div class="callout-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 21h20Z"/><path d="M12 9v5"/><path d="M12 17h.01"/></svg><strong>Warning</strong></div><p>A Discord bot token is like a password. Only paste tokens from Discord applications you own. If a token is exposed, reset it in the Discord Developer Portal and update it in the dashboard.</p></aside>
 <h2 id="dashboard-setup">Dashboard setup</h2>
-<ol><li>Buy or redeem Pro+ for the server.</li><li>Open <a href="https://vektra.games">vektra.games</a> and log in with Discord.</li><li>Choose the Pro+ server.</li><li>Open <strong>Pro+ Bot</strong>.</li><li>Paste the custom bot client ID and token.</li><li>Choose the status type and status text.</li><li>Enable the hosted bot and save.</li><li>Use <strong>Invite custom bot</strong> to add that bot to the same server.</li></ol>
+<ol><li>Buy or redeem Pro+ for the server.</li><li>Open <a href="https://vektra.games">vektra.games</a> and log in with Discord.</li><li>Choose the Pro+ server.</li><li>Open <strong>Pro+ Bot</strong>.</li><li>Paste the custom bot client ID and token.</li><li>Choose the status type and status text.</li><li>Enable the hosted bot and save.</li><li>Use the status presets or <strong>Restart hosted bot</strong> when changing runtime behavior.</li><li>Use <strong>Invite custom bot</strong> to add that bot to the same server.</li></ol>
 <p>The VPS manager checks for changes roughly every 30 seconds. The dashboard will show manager status such as <code>pending_restart</code>, <code>starting</code>, <code>online</code>, <code>stopped</code>, or <code>error</code>.</p>
+<h2 id="discord-controls">Discord controls</h2>
+<p>Pro+ admins can manage the hosted worker from Discord too:</p>
+<div class="table-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody><tr><td><code>/white_label_status</code></td><td>Shows enabled state, token presence, worker status, last seen time, and the invite link.</td></tr><tr><td><code>/white_label enabled:&lt;true or false&gt;</code></td><td>Starts or pauses the hosted worker.</td></tr><tr><td><code>/white_label enabled:&lt;true or false&gt; status_type:&lt;type&gt; status_text:&lt;text&gt;</code></td><td>Updates the hosted bot status and queues a manager restart.</td></tr></tbody></table></div>
+<p>Token and client ID setup stays in the dashboard so sensitive token entry only happens in one place.</p>
 <h2 id="server-lock">Server lock</h2>
 <p>Discord's invite screen may let someone choose any server where they have permission to add bots. Vektra still locks each white-label worker to the configured Pro+ server.</p>
 <p>If the custom bot is invited to the wrong server, it leaves automatically. On startup, it also checks existing guilds and leaves any server that does not match the configured Pro+ server.</p>
@@ -87,7 +91,7 @@
     </main>
     <aside class="toc" aria-label="On this page">
       <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
-      <a class="toc-depth-2" href="#included-features">Included features</a><a class="toc-depth-2" href="#what-the-buyer-needs">What the buyer needs</a><a class="toc-depth-2" href="#dashboard-setup">Dashboard setup</a><a class="toc-depth-2" href="#server-lock">Server lock</a><a class="toc-depth-2" href="#expiry-and-removal">Expiry and removal</a><a class="toc-depth-2" href="#current-hosting-limit">Current hosting limit</a><a class="toc-depth-2" href="#how-is-this-different-from-pro-branding">How is this different from Pro branding?</a>
+      <a class="toc-depth-2" href="#included-features">Included features</a><a class="toc-depth-2" href="#what-the-buyer-needs">What the buyer needs</a><a class="toc-depth-2" href="#dashboard-setup">Dashboard setup</a><a class="toc-depth-2" href="#discord-controls">Discord controls</a><a class="toc-depth-2" href="#server-lock">Server lock</a><a class="toc-depth-2" href="#expiry-and-removal">Expiry and removal</a><a class="toc-depth-2" href="#current-hosting-limit">Current hosting limit</a><a class="toc-depth-2" href="#how-is-this-different-from-pro-branding">How is this different from Pro branding?</a>
     </aside>
   </div>
   <div class="search-dialog" data-search-dialog hidden>

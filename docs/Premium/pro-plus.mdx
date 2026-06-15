@@ -28,6 +28,8 @@ It also adds:
 - Custom bot token supplied by the buyer
 - Custom bot online status from the dashboard
 - A custom invite link based on the buyer's bot client ID
+- Dashboard restart requests for the hosted worker
+- Discord-side hosting controls with `/white_label` and `/white_label_status`
 - Automatic shutdown when Pro+ expires or the hosted bot is disabled
 
 ## What the buyer needs
@@ -53,9 +55,22 @@ The bot name, avatar, and profile description are managed in the buyer's Discord
 5. Paste the custom bot client ID and token.
 6. Choose the status type and status text.
 7. Enable the hosted bot and save.
-8. Use **Invite custom bot** to add that bot to the same server.
+8. Use the status presets or **Restart hosted bot** when changing runtime behavior.
+9. Use **Invite custom bot** to add that bot to the same server.
 
 The VPS manager checks for changes roughly every 30 seconds. The dashboard will show manager status such as `pending_restart`, `starting`, `online`, `stopped`, or `error`.
+
+## Discord controls
+
+Pro+ admins can manage the hosted worker from Discord too:
+
+| Command | What it does |
+| --- | --- |
+| `/white_label_status` | Shows enabled state, token presence, worker status, last seen time, and the invite link. |
+| `/white_label enabled:<true or false>` | Starts or pauses the hosted worker. |
+| `/white_label enabled:<true or false> status_type:<type> status_text:<text>` | Updates the hosted bot status and queues a manager restart. |
+
+Token and client ID setup stays in the dashboard so sensitive token entry only happens in one place.
 
 ## Server lock
 
