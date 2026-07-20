@@ -8,3 +8,4 @@
 /pro-plus
 /commands
 /faq
+/api

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developer API - Vektra Docs</title>
+  <meta name="description" content="Vektra documentation">
+  <link rel="icon" type="image/png" href="/assets/logo.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="top-brand" href="/">
+      <img src="/assets/logo.png" alt="" class="top-logo">
+      <strong>Vektra</strong>
+      <span>Docs</span>
+    </a>
+    <div class="top-actions">
+      <button class="search-trigger" type="button" data-open-search><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search...</span><kbd>Ctrl K</kbd></button>
+      <button class="assistant-trigger" type="button" data-open-assistant><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Ask Assistant</span></button>
+    </div>
+    <nav class="top-links" aria-label="Primary">
+      <a href="https://vektra.games">Dashboard</a>
+      <a href="https://discord.gg/Hysd3GSQxQ">Support</a>
+      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+      <button class="theme-button" type="button" aria-label="Dark theme"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/></svg></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+    </nav>
+  </header>
+  <aside class="sidebar">
+    <div class="sidebar-shortcuts">
+      <a href="/"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg><span>Documentation</span></a>
+      <a href="/commands"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/></svg><span>Commands</span></a>
+    </div>
+    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><span>Welcome</span></a><a class="" href="/getting-started"><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="" href="/staff-workflow"><span>Staff workflow</span></a><a class="" href="/support-tickets"><span>Support tickets</span></a><a class="" href="/dashboard"><span>Dashboard</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><span>Free vs Pro</span></a><a class="" href="/pro-plus"><span>Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><span>Commands</span></a><a class="" href="/faq"><span>FAQ</span></a><a class="active" href="/api"><span>Developer API</span></a></section></nav>
+  </aside>
+  <div class="layout">
+    <main class="content">
+      <article class="article">
+        <p class="eyebrow">Reference</p>
+        <div class="article-header">
+          <div>
+            <h1>Developer API</h1>
+            <p class="page-description">Vektra documentation</p>
+          </div>
+          <button class="copy-page" type="button" data-copy-page><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/></svg><span>Copy page</span></button>
+        </div>
+        <h1 id="vektra-api-documentation">Vektra API Documentation</h1>
+<p>Welcome to the <strong>Vektra Developer API</strong> — the official API for receiving and managing demo submissions through your own website or app.</p>
+<p>---</p>
+<h2 id="base-url">Base URL</h2>
+<pre><code data-language="text">https://dashboard.vektra.games/api/v1</code></pre>
+<p>---</p>
+<h2 id="authentication">Authentication</h2>
+<p>All API requests must include your API key in the request headers.</p>
+<pre><code data-language="http">X-API-Key: vk_your_key_here</code></pre>
+<p>Or as a Bearer token:</p>
+<pre><code data-language="http">Authorization: Bearer vk_your_key_here</code></pre>
+<p>&gt; <strong>Generate your API key</strong> from the Dashboard → Developer → API Keys tab.</p>
+<p>---</p>
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="get-v1submissions"><code>GET /v1/submissions</code></h3>
+<p>Fetch demo submissions from your label's database.</p>
+<p><strong>Query Parameters:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>limit</code></td><td>number</td><td>20</td><td>Max results (max: 100)</td></tr><tr><td><code>offset</code></td><td>number</td><td>0</td><td>Pagination offset</td></tr></tbody></table></div>
+<p><strong>Example Request:</strong></p>
+<pre><code data-language="bash">curl https://dashboard.vektra.games/api/v1/submissions \
+  -H &quot;X-API-Key: vk_your_key_here&quot;</code></pre>
+<p><strong>Example Response:</strong></p>
+<pre><code data-language="json">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;track_title&quot;: &quot;Midnight Drive&quot;,
+      &quot;artist_name&quot;: &quot;DJ Nova&quot;,
+      &quot;genre&quot;: &quot;House&quot;,
+      &quot;status&quot;: &quot;In Queue&quot;,
+      &quot;created_at&quot;: &quot;2026-07-20T10:00:00Z&quot;
+    }
+  ],
+  &quot;limit&quot;: 20,
+  &quot;offset&quot;: 0
+}</code></pre>
+<p>---</p>
+<h3 id="post-v1submissions"><code>POST /v1/submissions</code></h3>
+<p>Submit a new demo from your website into your label's queue.</p>
+<p><strong>Request Body (JSON):</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>track_title</code></td><td>string</td><td>✅</td><td>Track title</td></tr><tr><td><code>artist_name</code></td><td>string</td><td>✅</td><td>Artist or band name</td></tr><tr><td><code>demo_url</code></td><td>string</td><td>✅</td><td>Direct link to the demo (SoundCloud, Drive, etc.)</td></tr><tr><td><code>genre</code></td><td>string</td><td></td><td>Genre (e.g. &quot;House&quot;, &quot;Trap&quot;)</td></tr><tr><td><code>notes</code></td><td>string</td><td></td><td>Extra notes from the artist</td></tr><tr><td><code>email</code></td><td>string</td><td></td><td>Artist's email for status update notifications</td></tr></tbody></table></div>
+<p><strong>Example Request:</strong></p>
+<pre><code data-language="bash">curl -X POST https://dashboard.vektra.games/api/v1/submissions \
+  -H &quot;X-API-Key: vk_your_key_here&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;track_title&quot;: &quot;Midnight Drive&quot;,
+    &quot;artist_name&quot;: &quot;DJ Nova&quot;,
+    &quot;demo_url&quot;: &quot;https://soundcloud.com/djnova/midnight-drive&quot;,
+    &quot;genre&quot;: &quot;House&quot;,
+    &quot;email&quot;: &quot;djnova@example.com&quot;
+  }'</code></pre>
+<p><strong>Example Response:</strong></p>
+<pre><code data-language="json">{
+  &quot;success&quot;: true,
+  &quot;submission_id&quot;: 42,
+  &quot;created_at&quot;: &quot;2026-07-20T10:00:00Z&quot;
+}</code></pre>
+<p>&gt; <strong>Tip:</strong> If you include an <code>email</code>, the artist will automatically receive email updates when your team approves or rejects their demo. They'll also get a one-time secure reply link.</p>
+<p>---</p>
+<h3 id="get-v1analytics"><code>GET /v1/analytics</code></h3>
+<p>Fetch chart-ready analytics for your label's submissions.</p>
+<p><strong>Example Request:</strong></p>
+<pre><code data-language="bash">curl https://dashboard.vektra.games/api/v1/analytics \
+  -H &quot;X-API-Key: vk_your_key_here&quot;</code></pre>
+<p><strong>Example Response:</strong></p>
+<pre><code data-language="json">{
+  &quot;status_breakdown&quot;: [
+    { &quot;status&quot;: &quot;In Queue&quot;, &quot;count&quot;: &quot;120&quot; },
+    { &quot;status&quot;: &quot;Approved&quot;, &quot;count&quot;: &quot;34&quot; },
+    { &quot;status&quot;: &quot;Rejected&quot;, &quot;count&quot;: &quot;89&quot; }
+  ],
+  &quot;rating_breakdown&quot;: [
+    { &quot;rating&quot;: 8, &quot;count&quot;: &quot;12&quot; },
+    { &quot;rating&quot;: 9, &quot;count&quot;: &quot;7&quot; }
+  ],
+  &quot;recent_activity&quot;: [
+    { &quot;day&quot;: &quot;2026-07-19T00:00:00Z&quot;, &quot;count&quot;: &quot;14&quot; }
+  ],
+  &quot;top_genres&quot;: [
+    { &quot;genre&quot;: &quot;house&quot;, &quot;count&quot;: &quot;45&quot; },
+    { &quot;genre&quot;: &quot;trap&quot;, &quot;count&quot;: &quot;30&quot; }
+  ]
+}</code></pre>
+<p>---</p>
+<h2 id="email-notifications">Email Notifications</h2>
+<p>When you approve or reject a submission from the Dashboard and the submission has an <code>email</code> field:</p>
+<ol><li>Vektra first tries to <strong>DM the artist</strong> on Discord (if they are in your server).</li><li>If they aren't in the server, Vektra sends a <strong>branded email</strong> from your label's reply address (configured in Dashboard → Developer → Domains).</li><li>The email includes a <strong>one-time secure reply link</strong> — the artist can click it, type a response, and Vektra forwards that reply directly to your staff Discord channel.</li></ol>
+<p>---</p>
+<h2 id="custom-domains">Custom Domains</h2>
+<p>You can serve Vektra's submission portal from your own domain (e.g. <code>demos.yourlabel.com</code>).</p>
+<ol><li>Add a <strong>CNAME record</strong> at your DNS provider:</li></ol>
+<ul><li><strong>Name:</strong> <code>demos</code> (or whatever subdomain you want)</li><li><strong>Value:</strong> <code>cname.vercel-dns.com</code></li></ul>
+<ol><li>Go to <strong>Dashboard → Developer → Custom Domain</strong> and enter your domain.</li></ol>
+<ol><li>Vektra will verify the DNS and provision an SSL certificate automatically.</li></ol>
+<p>Your free subdomain is also always available at <code>yourlabelname.vektra.games</code>.</p>
+<p>---</p>
+<h2 id="rate-limits">Rate Limits</h2>
+<div class="table-wrap"><table><thead><tr><th>Plan</th><th>Requests per minute</th></tr></thead><tbody><tr><td>Pro</td><td>60</td></tr><tr><td>Pro+</td><td>300</td></tr></tbody></table></div>
+<p>---</p>
+<h2 id="error-codes">Error Codes</h2>
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>401</code></td><td>Missing API Key</td></tr><tr><td><code>403</code></td><td>Invalid or expired API Key</td></tr><tr><td><code>400</code></td><td>Missing required fields</td></tr><tr><td><code>409</code></td><td>Conflict (e.g. domain already taken)</td></tr><tr><td><code>503</code></td><td>Storage unavailable for this workspace</td></tr><tr><td><code>500</code></td><td>Internal Server Error</td></tr></tbody></table></div>
+      </article>
+      <nav class="pager">
+        <a href="/faq"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>FAQ</strong></a>
+        <span></span>
+      </nav>
+      <footer class="footer">
+        <span>Vektra Docs</span>
+        <span>Built for labels, artists, and staff teams.</span>
+      </footer>
+    </main>
+    <aside class="toc" aria-label="On this page">
+      <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
+      <a class="toc-depth-2" href="#base-url">Base URL</a><a class="toc-depth-2" href="#authentication">Authentication</a><a class="toc-depth-2" href="#endpoints">Endpoints</a><a class="toc-depth-3" href="#get-v1submissions">GET /v1/submissions</a><a class="toc-depth-3" href="#post-v1submissions">POST /v1/submissions</a><a class="toc-depth-3" href="#get-v1analytics">GET /v1/analytics</a><a class="toc-depth-2" href="#email-notifications">Email Notifications</a><a class="toc-depth-2" href="#custom-domains">Custom Domains</a><a class="toc-depth-2" href="#rate-limits">Rate Limits</a><a class="toc-depth-2" href="#error-codes">Error Codes</a>
+    </aside>
+  </div>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="dialog-backdrop" data-close-dialog></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search docs">
+      <label><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="search" data-search-input placeholder="Search docs..." autocomplete="off"></label>
+      <div class="search-results" data-search-results></div>
+    </section>
+  </div>
+  <section class="assistant-panel" data-assistant-panel hidden aria-label="Ask Assistant">
+    <div class="assistant-header">
+      <strong>Ask Assistant</strong>
+      <button type="button" data-close-assistant>Close</button>
+    </div>
+    <div class="assistant-messages" data-assistant-messages>
+      <p class="assistant-empty">Ask about setup, commands, premium tiers, tickets, or artist submissions.</p>
+    </div>
+  </section>
+  <form class="assistant-composer" data-assistant-form>
+    <input name="question" data-assistant-input autocomplete="off" placeholder="Ask a question...">
+    <kbd>Ctrl I</kbd>
+    <button type="submit" aria-label="Send question"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+  </form>
+  <script src="/assets/script.js"></script>
+</body>
+</html>

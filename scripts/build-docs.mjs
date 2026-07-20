@@ -38,6 +38,7 @@ const navigation = [
     pages: [
       ["Commands", "Reference/commands.mdx", "/commands"],
       ["FAQ", "Reference/faq.mdx", "/faq"],
+      ["Developer API", "Reference/api.md", "/api"],
     ],
   },
 ];
@@ -58,6 +59,7 @@ const pageIcons = {
   "/pro-plus": "sparkles",
   "/commands": "terminal",
   "/faq": "help",
+  "/api": "terminal",
 };
 
 const groupIcons = {
