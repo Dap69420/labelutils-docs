@@ -430,6 +430,24 @@ function tocMarkup(content) {
     .join("");
 }
 
+
+const sectionTabs = [
+  ["Get Started", "/getting-started"],
+  ["For artists", "/artist-guide"],
+  ["For staff", "/staff-workflow"],
+  ["Premium", "/free-vs-pro"],
+  ["Reference", "/commands"],
+];
+
+function navTabs(group, href) {
+  return sectionTabs
+    .map(([label, tabHref]) => {
+      const active = group === label || (group === "Get Started" && (href === "/" || href === "/welcome"));
+      return `<a class="${active ? "active" : ""}" href="${tabHref}">${label}</a>`;
+    })
+    .join("");
+}
+
 function pageShell(page, content, allPages) {
   const currentIndex = allPages.findIndex((item) => item.href === page.href);
   const prev = allPages[currentIndex - 1];
@@ -444,28 +462,48 @@ function pageShell(page, content, allPages) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)} - Vektra Docs</title>
   <meta name="description" content="${escapeHtml(description)}">
-  <link rel="icon" type="image/png" href="/assets/logo.png">
-  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="top-brand" href="/">
-      <img src="/assets/logo.png" alt="" class="top-logo">
-      <strong>Vektra</strong>
-      <span>Docs</span>
-    </a>
-    <div class="top-actions">
-      <button class="search-trigger" type="button" data-open-search>${icon("search")}<span>Search...</span><kbd>Ctrl K</kbd></button>
-      <button class="assistant-trigger" type="button" data-open-assistant>${icon("sparkles")}<span>Ask Assistant</span></button>
+    <div class="topbar-inner">
+      <div class="topbar-row">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="" class="brand-logo" width="29" height="29">
+          <strong>Vektra</strong>
+          <span class="brand-divider">/</span>
+          <span class="brand-badge">Docs</span>
+        </a>
+        <div class="search-shell" data-open-search>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" placeholder="Search docs..." readonly data-top-search-input autocomplete="off">
+          <kbd>Ctrl K</kbd>
+        </div>
+        <nav class="top-actions" aria-label="Primary">
+          <a class="discord-button" href="https://discord.gg/Hysd3GSQxQ" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.9 3l-.5 1a18.3 18.3 0 0 0-6.8 0L8.1 3a19.7 19.7 0 0 0-4.4 1.5A20.4 20.4 0 0 0 .1 18.1a19.9 19.9 0 0 0 6 3l1.2-2a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.4 0l.5.4a12.9 12.9 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6-3A20.3 20.3 0 0 0 20.3 4.4ZM8.7 15.1c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm6.6 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>
+            <span>Support</span>
+          </a>
+          <a class="outline-button" href="https://vektra.games">Dashboard</a>
+          <a class="green-button" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+          <button class="icon-button" type="button" data-open-assistant aria-label="Ask Assistant">${icon("sparkles")}</button>
+          <button class="icon-button theme-button" type="button" aria-label="Dark theme">${icon("moon")}</button>
+          <button class="icon-button menu-toggle" type="button" aria-label="Open navigation">${icon("menu")}</button>
+        </nav>
+      </div>
+      <div class="topbar-nav-row">
+        <nav class="nav-tabs" aria-label="Documentation">
+          ${navTabs(page.group, page.href)}
+        </nav>
+        <span class="plan-pill"><span>Docs</span><strong>Vektra</strong></span>
+      </div>
     </div>
-    <nav class="top-links" aria-label="Primary">
-      <a href="https://vektra.games">Dashboard</a>
-      <a href="https://discord.gg/Hysd3GSQxQ">Support</a>
-      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
-      <button class="theme-button" type="button" aria-label="Dark theme">${icon("moon")}</button>
-      <button class="menu-toggle" type="button" aria-label="Open navigation">${icon("menu")}</button>
-    </nav>
   </header>
   <aside class="sidebar">
     <div class="sidebar-shortcuts">
@@ -570,6 +608,9 @@ async function build() {
     "utf8",
   );
   await copyFile(logoSource, path.join(outRoot, "assets", "logo.png")).catch(() => {});
+  await copyFile(path.join(docsRoot, "favicon.ico"), path.join(outRoot, "favicon.ico")).catch(() => {});
+  await copyFile(path.join(docsRoot, "favicon.png"), path.join(outRoot, "assets", "favicon.png")).catch(() => {});
+  await copyFile(path.join(docsRoot, "apple-touch-icon.png"), path.join(outRoot, "assets", "apple-touch-icon.png")).catch(() => {});
   await writeFile(
     path.join(outRoot, "sitemap.txt"),
     pages.map((page) => page.href).join("\n") + "\n",
@@ -591,14 +632,21 @@ const styles = `
   --brand-soft: #34d399;
   --warn: #f59e0b;
   --radius: 12px;
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", monospace;
 }
 * { box-sizing: border-box; }
+code, pre, kbd { font-family: var(--font-mono); }
+::selection { background: rgba(34, 197, 94, 0.25); }
 body {
   margin: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 75% -10%, rgba(34, 197, 94, 0.07), transparent 34rem),
+    var(--bg);
   color: var(--text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.65;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; }
 .icon {
@@ -947,9 +995,9 @@ td { color: #d6e2db; }
   align-items: center;
   gap: 22px;
   padding: 0 28px;
-  border-bottom: 1px solid rgba(38, 51, 45, 0.72);
-  background: rgba(7, 12, 10, 0.92);
-  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(10, 13, 12, 0.9);
+  backdrop-filter: blur(16px);
 }
 .top-brand {
   display: inline-flex;
@@ -965,8 +1013,10 @@ td { color: #d6e2db; }
   object-fit: cover;
 }
 .top-brand strong {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1;
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
 }
 .top-brand span {
   color: var(--muted);
@@ -1050,8 +1100,8 @@ td { color: #d6e2db; }
   top: 58px;
   width: 292px;
   padding: 28px 26px 46px;
-  background: #07100d;
-  border-right-color: rgba(38, 51, 45, 0.72);
+  background: #0b100e;
+  border-right-color: var(--line);
 }
 .sidebar-shortcuts {
   display: grid;
@@ -1647,6 +1697,390 @@ td {
     display: none;
   }
 }
+
+
+/* ── Vektra Dashboard alignment ───────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  height: auto;
+  display: block;
+  padding: 0;
+  background: rgba(10, 13, 12, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+.topbar-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.topbar .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  min-width: 0;
+}
+.topbar .brand-logo {
+  width: 29px;
+  height: 29px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.topbar .brand strong {
+  font-size: 19px;
+  line-height: 1;
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+.brand-divider {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.brand-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--brand-soft);
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(6, 78, 59, 0.4);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+.search-shell {
+  flex: 1;
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+  cursor: text;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+.search-shell:focus-within,
+.search-shell:hover {
+  border-color: var(--brand-light);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.08);
+}
+.search-shell svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.search-shell input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+.search-shell input::placeholder {
+  color: var(--muted);
+}
+.search-shell kbd {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+.topbar .top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.discord-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+.discord-button svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+.discord-button:hover {
+  color: var(--text);
+  border-color: var(--brand-light);
+  background: var(--panel-2);
+}
+.green-button,
+.outline-button,
+.ghost-button,
+.icon-button {
+  min-height: 36px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease, box-shadow 160ms ease, color 160ms ease;
+}
+.green-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  color: #fff;
+  padding: 0 15px;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.28);
+  text-decoration: none;
+}
+.green-button:hover {
+  background: var(--brand-light);
+  border-color: var(--brand-light);
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.32);
+  transform: translateY(-1px);
+}
+.outline-button,
+.ghost-button,
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0 13px;
+  font-size: 13px;
+  text-decoration: none;
+}
+.outline-button:hover,
+.ghost-button:hover,
+.icon-button:hover {
+  border-color: var(--brand-light);
+  background: var(--panel-2);
+  transform: translateY(-1px);
+}
+.icon-button {
+  width: 36px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+.topbar-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+.nav-tabs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+.nav-tabs a:hover {
+  color: var(--text);
+}
+.nav-tabs a.active {
+  background: var(--panel-2);
+  color: var(--text);
+  border-color: var(--line);
+  font-weight: 600;
+}
+.plan-pill {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.plan-pill span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.plan-pill strong {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--brand-soft);
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(6, 78, 59, 0.4);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Sticky header clearance */
+.sidebar {
+  top: 100px;
+}
+.layout {
+  padding-top: 122px;
+}
+
+/* Buttons / cards / panels — dashboard motion language */
+.article .doc-button {
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.28);
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.article .doc-button:hover {
+  background: var(--brand-light);
+  border-color: var(--brand-light);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.32);
+}
+.doc-card,
+.step,
+.callout,
+.pager a {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+}
+.doc-card,
+.step,
+.callout,
+.accordion details,
+.pager a,
+pre,
+.table-wrap {
+  animation: card-enter 210ms ease both;
+}
+.card-grid .doc-card:nth-child(2) { animation-delay: 40ms; }
+.card-grid .doc-card:nth-child(3) { animation-delay: 80ms; }
+.card-grid .doc-card:nth-child(4) { animation-delay: 120ms; }
+.article {
+  animation: view-enter 180ms ease both;
+}
+.search-panel {
+  animation: doc-pop 190ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.dialog-backdrop {
+  animation: fade-in 150ms ease both;
+}
+@keyframes doc-pop {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+@keyframes view-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-enter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Focus rings */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1180px) {
+  .search-shell {
+    max-width: none;
+  }
+  .topbar .top-actions .discord-button span,
+  .topbar .top-actions .outline-button {
+    display: none;
+  }
+}
+@media (max-width: 860px) {
+  .topbar .top-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+  }
+  .topbar .top-actions .discord-button,
+  .topbar .top-actions .outline-button,
+  .topbar .top-actions .green-button,
+  .topbar .top-actions [data-open-assistant],
+  .topbar .top-actions .theme-button,
+  .search-shell {
+    display: none;
+  }
+  .menu-toggle {
+    display: inline-grid !important;
+  }
+  .sidebar {
+    top: 60px;
+  }
+  .layout {
+    margin-left: 0;
+    padding: 88px 20px 108px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 `;
 
 const clientScript = `
@@ -1723,6 +2157,7 @@ function closeSearch() {
 document.querySelectorAll("[data-open-search]").forEach((button) => {
   button.addEventListener("click", openSearch);
 });
+document.querySelector("[data-top-search-input]")?.addEventListener("focus", openSearch);
 document.querySelectorAll("[data-close-dialog]").forEach((button) => {
   button.addEventListener("click", closeSearch);
 });

@@ -72,6 +72,7 @@ function closeSearch() {
 document.querySelectorAll("[data-open-search]").forEach((button) => {
   button.addEventListener("click", openSearch);
 });
+document.querySelector("[data-top-search-input]")?.addEventListener("focus", openSearch);
 document.querySelectorAll("[data-close-dialog]").forEach((button) => {
   button.addEventListener("click", closeSearch);
 });
