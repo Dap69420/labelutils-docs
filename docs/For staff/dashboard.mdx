@@ -23,6 +23,7 @@ The Vektra dashboard is the web control surface for Pro and Pro+ servers. It use
 | Messages | Post custom embeds or plain messages to any channel the bot can access. |
 | Settings | Change demo intake, storage, staff channels, templates, ticket channels, and post panels. |
 | Pro+ Bot | Configure hosted white-label bot identity for Pro+ servers. |
+| Developer | API keys, custom sender domains, email templates, and the AI/MCP connector. |
 
 ## Login and server access
 
@@ -165,6 +166,23 @@ Pro and Pro+ servers can use the dashboard to:
 - Set the demo staff channel and ticket staff channel.
 
 When storage changes, Vektra migrates existing server data before switching.
+
+
+## Developer tools
+
+The **Developer** tab (marked with an API badge) is where Pro and Pro+ admins manage API keys, custom domains, email templates, and the AI connector.
+
+- **API Keys** — Create a **workspace key** (full access) or a **person key** (bound to one artist's email, so it only sees that person's own submissions, analytics, and tickets). Keys are shown once when created — store them somewhere safe.
+- **Custom Domain & Sender Email** — Serve the submission portal from your own domain and add your Resend API key so artist emails are sent from your label's address.
+- **Email Template** — Write a custom HTML email template with placeholder support and preview it before saving.
+- **MCP Connector** — Connect AI assistants such as Claude Desktop, claude.ai, or Cowork by adding `https://dashboard.vektra.games/api/mcp` as a custom connector and signing in with Discord. Staff can also connect with a workspace or person API key.
+
+<Info>
+  The Developer tab is only visible to admins with Manage Server permission on the connected server.
+</Info>
+
+See [MCP & AI Assistants](/mcp), [Email & Notifications](/email), and the [Developer API](/api) for full details.
+
 
 ## Pro+ Bot
 

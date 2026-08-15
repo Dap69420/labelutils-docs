@@ -39,6 +39,8 @@ const navigation = [
       ["Commands", "Reference/commands.mdx", "/commands"],
       ["FAQ", "Reference/faq.mdx", "/faq"],
       ["Developer API", "Reference/api.md", "/api"],
+      ["MCP & AI Assistants", "Reference/mcp.md", "/mcp"],
+      ["Email & Notifications", "Reference/email.md", "/email"],
     ],
   },
 ];
@@ -60,6 +62,8 @@ const pageIcons = {
   "/commands": "terminal",
   "/faq": "help",
   "/api": "terminal",
+  "/mcp": "sparkles",
+  "/email": "send",
 };
 
 const groupIcons = {
@@ -304,6 +308,16 @@ function renderBlocks(source) {
       }
       index += 1;
       htmlBlocks.push(`<pre><code data-language="${escapeHtml(language)}">${escapeHtml(code.join("\n"))}</code></pre>`);
+      continue;
+    }
+
+    if (line.trim().startsWith(">")) {
+      const quote = [];
+      while (index < lines.length && lines[index].trim().startsWith(">")) {
+        quote.push(lines[index].replace(/^\s*>\s?/, ""));
+        index += 1;
+      }
+      htmlBlocks.push(`<blockquote class="doc-quote">${renderInline(quote.join(" "))}</blockquote>`);
       continue;
     }
 
@@ -566,16 +580,17 @@ async function build() {
 const styles = `
 :root {
   color-scheme: dark;
-  --bg: #090d0d;
-  --panel: #0f1513;
-  --panel-2: #141c18;
-  --text: #eef5f1;
-  --muted: #96a79f;
-  --line: #26332d;
+  --bg: #0a0d0c;
+  --panel: #11161a;
+  --panel-2: #161c22;
+  --text: #e7edf3;
+  --muted: #9aa6b2;
+  --line: #1f2730;
   --brand: #16a34a;
   --brand-light: #22c55e;
+  --brand-soft: #34d399;
   --warn: #f59e0b;
-  --radius: 8px;
+  --radius: 12px;
 }
 * { box-sizing: border-box; }
 body {
@@ -720,12 +735,13 @@ a { color: inherit; }
   border: 1px solid var(--brand);
   border-radius: var(--radius);
   background: var(--brand);
-  color: #04130a;
+  color: #fff;
   font-weight: 700;
   text-decoration: none;
 }
 .article .doc-button:hover {
   background: var(--brand-light);
+  color: #fff;
 }
 .article code {
   background: #121a16;
@@ -1079,7 +1095,7 @@ td { color: #d6e2db; }
   border-radius: 8px;
 }
 .nav-section a.active {
-  color: #00f0a0;
+  color: #34d399;
   background: #062a1e;
   border-color: transparent;
   box-shadow: none;
@@ -1106,7 +1122,7 @@ td { color: #d6e2db; }
 }
 .eyebrow {
   margin: 0 0 8px;
-  color: #00f0a0 !important;
+  color: #34d399 !important;
   font-weight: 800;
   font-size: 14px;
 }
@@ -1155,7 +1171,7 @@ td { color: #d6e2db; }
 }
 pre {
   position: relative;
-  border-color: #26332d;
+  border-color: #1f2730;
   border-radius: 8px;
   background: #080d0b;
   padding: 18px 54px 18px 18px;
@@ -1167,6 +1183,17 @@ pre::after {
   right: 14px;
   color: #9eadac;
   font-size: 12px;
+}
+.doc-quote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--brand-light);
+  border-radius: 0 10px 10px 0;
+  background: var(--panel);
+  color: #d7e4de;
+}
+.doc-quote p {
+  margin: 0;
 }
 .callout {
   display: block;
@@ -1203,7 +1230,7 @@ pre::after {
   min-height: 158px;
   padding: 22px 24px;
   background: #08110e;
-  border-color: #26332d;
+  border-color: #1f2730;
 }
 .doc-card:hover {
   background: #0a1712;
@@ -1213,7 +1240,7 @@ pre::after {
   height: 32px;
   border: 0;
   background: transparent;
-  color: #00f0a0;
+  color: #34d399;
 }
 .steps {
   gap: 0;
@@ -1299,7 +1326,7 @@ td {
 }
 .toc a:hover,
 .toc a.active {
-  color: #00f0a0;
+  color: #34d399;
 }
 .toc-depth-3 {
   padding-left: 14px !important;
@@ -1490,12 +1517,12 @@ td {
 .dashboard-link,
 .article .doc-button,
 .assistant-composer button {
-  background: #16a34a;
-  color: #03120a;
+  background: var(--brand);
+  color: #fff;
   box-shadow: 0 10px 24px rgba(22, 163, 74, 0.22);
 }
 .dashboard-link {
-  color: #f3fff8 !important;
+  color: #fff !important;
 }
 .dashboard-link:hover,
 .article .doc-button:hover {

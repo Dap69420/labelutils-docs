@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email &amp; Artist Notifications - Vektra Docs</title>
+  <meta name="description" content="How Vektra emails artists: Resend setup, custom sender domains, templates, and one-time reply links">
+  <link rel="icon" type="image/png" href="/assets/logo.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="top-brand" href="/">
+      <img src="/assets/logo.png" alt="" class="top-logo">
+      <strong>Vektra</strong>
+      <span>Docs</span>
+    </a>
+    <div class="top-actions">
+      <button class="search-trigger" type="button" data-open-search><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search...</span><kbd>Ctrl K</kbd></button>
+      <button class="assistant-trigger" type="button" data-open-assistant><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Ask Assistant</span></button>
+    </div>
+    <nav class="top-links" aria-label="Primary">
+      <a href="https://vektra.games">Dashboard</a>
+      <a href="https://discord.gg/Hysd3GSQxQ">Support</a>
+      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+      <button class="theme-button" type="button" aria-label="Dark theme"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/></svg></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+    </nav>
+  </header>
+  <aside class="sidebar">
+    <div class="sidebar-shortcuts">
+      <a href="/"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg><span>Documentation</span></a>
+      <a href="/commands"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/></svg><span>Commands</span></a>
+    </div>
+    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><span>Welcome</span></a><a class="" href="/getting-started"><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="" href="/staff-workflow"><span>Staff workflow</span></a><a class="" href="/support-tickets"><span>Support tickets</span></a><a class="" href="/dashboard"><span>Dashboard</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><span>Free vs Pro</span></a><a class="" href="/pro-plus"><span>Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><span>Commands</span></a><a class="" href="/faq"><span>FAQ</span></a><a class="" href="/api"><span>Developer API</span></a><a class="" href="/mcp"><span>MCP &amp; AI Assistants</span></a><a class="active" href="/email"><span>Email &amp; Notifications</span></a></section></nav>
+  </aside>
+  <div class="layout">
+    <main class="content">
+      <article class="article">
+        <p class="eyebrow">Reference</p>
+        <div class="article-header">
+          <div>
+            <h1>Email &amp; Artist Notifications</h1>
+            <p class="page-description">How Vektra emails artists: Resend setup, custom sender domains, templates, and one-time reply links</p>
+          </div>
+          <button class="copy-page" type="button" data-copy-page><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/></svg><span>Copy page</span></button>
+        </div>
+        <p>Vektra can email artists status updates on their demos, with branded templates and secure one-time reply links. Everything is configured from the <strong>Dashboard → Developer</strong> tab.</p>
+<h2 id="how-mailing-works">How mailing works</h2>
+<p>Artist emails are sent through <strong>Resend</strong>. Each workspace stores its own Resend API key, sender domain, reply address, and optional custom HTML template.</p>
+<p>When a submission's status changes (Approved / Rejected / In Queue):</p>
+<ol><li>Vektra first tries to <strong>DM the artist on Discord</strong> if they're in your server.</li><li>If they aren't in the server, Vektra sends a <strong>branded email</strong> with the new status, the submission ID, track title, and any message from your A&amp;R team.</li><li>Every status email includes a <strong>one-time reply link</strong> — the artist clicks it, writes back, and Vektra forwards the reply to your staff Discord thread.</li></ol>
+<h2 id="setting-it-up">Setting it up</h2>
+<ol><li>Open <strong>Dashboard → Developer</strong>.</li><li>Add a <strong>Resend API key</strong> in the &quot;Sender Email &amp; Resend API&quot; section.</li><li>Add a <strong>custom sender domain</strong> (e.g. <code>demos.yourlabel.com</code>) and verify it with Resend — emails are sent from <code>&quot;Your Label&quot; &lt;demos@yourlabel.com&gt;</code>.</li><li>Set a <strong>reply-to address</strong> if you want replies to go somewhere specific.</li></ol>
+<p>Without a Resend key, emails cannot be sent — the Developer tab (and <code>GET /v1/settings/email</code>) reports <code>resend_key_set: false</code>.</p>
+<h2 id="custom-sender-domain">Custom sender domain</h2>
+<p>Use your own domain so emails come from your label, not a Vektra address:</p>
+<ol><li>Add a <strong>CNAME record</strong> at your DNS provider pointing to Vektra.</li><li>Enter the domain in <strong>Dashboard → Developer → Custom Domain</strong>.</li><li>Verify the DNS records with Resend from the same screen.</li></ol>
+<p>Once verified, emails are sent from <code>demos@yourdomain.com</code>. A default <code>yourlabel.vektra.games</code> address is always available if you don't set a custom domain.</p>
+<h2 id="custom-email-templates">Custom email templates</h2>
+<p>You can supply your own HTML template — write it in the <strong>Developer → Email Template</strong> editor, or let an AI assistant do it through the <a href="/mcp">MCP connector</a> (<code>update_email_template</code>). When a template is set, every artist email is rendered from it; when it's empty, Vektra's built-in template is used.</p>
+<p><strong>Allowed placeholders:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Placeholder</th><th>Replaced with</th></tr></thead><tbody><tr><td><code>{label_name}</code></td><td>Your label's name</td></tr><tr><td><code>{subject}</code></td><td>The email subject</td></tr><tr><td><code>{artist_name}</code></td><td>The artist's name</td></tr><tr><td><code>{headline}</code></td><td>A short headline line</td></tr><tr><td><code>{accent_color}</code></td><td>The status color (green / red / amber)</td></tr><tr><td><code>{status}</code></td><td>The new submission status</td></tr><tr><td><code>{submission_id}</code></td><td>The submission ticket ID</td></tr><tr><td><code>{track_title}</code></td><td>The track title</td></tr><tr><td><code>{message}</code></td><td>The A&amp;R team's message text</td></tr><tr><td><code>{reply_url}</code></td><td>The one-time reply link URL</td></tr><tr><td><code>{reply_button}</code></td><td>The reply button <strong>label</strong></td></tr><tr><td><code>{year}</code></td><td>The current year</td></tr></tbody></table></div>
+<p>Rules to follow:</p>
+<ul><li><code>{reply_button}</code> is only the button text — wrap it yourself: <code>&lt;a href=&quot;{reply_url}&quot;&gt;{reply_button}&lt;/a&gt;</code>.</li><li>Keep the template fully self-contained with <strong>inline CSS on every element</strong> — email clients strip <code>&lt;style&gt;</code> blocks.</li><li>Don't invent placeholders beyond the ones listed.</li></ul>
+<h2 id="reply-links">Reply links</h2>
+<ul><li>Every status email includes a reply link valid for <strong>72 hours</strong>, single use.</li><li>Clicking it opens a reply page where the artist writes back.</li><li>The reply is stored and your <strong>staff Discord thread is notified</strong> so your team can follow up.</li></ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="table-wrap"><table><thead><tr><th>Symptom</th><th>Cause</th></tr></thead><tbody><tr><td>Emails not sending, <code>resend_key_set: false</code></td><td>No Resend API key configured in Developer tab (or env not loaded on the deployed server — redeploy after changing env).</td></tr><tr><td>&quot;Could not reach the artist&quot;</td><td>The submission has no email stored (e.g. submitted via Discord without a contact email).</td></tr><tr><td>Emails show Vektra's default sender</td><td>Custom sender domain not added or DNS not verified yet.</td></tr><tr><td>Template changes not visible</td><td>Make sure you save in the Developer tab (or via the API) and redeploy isn't needed — the template is stored per-workspace in the database.</td></tr><tr><td>Artist never got the email</td><td>They may be in your Discord server (then Vektra DMs instead of emailing), or their email was missing at submission time.</td></tr></tbody></table></div>
+<h2 id="see-also">See also</h2>
+<ul><li><a href="/api">Developer API</a> — <code>GET</code>/<code>PUT /v1/settings/email</code> and the email notification flow.</li><li><a href="/mcp">MCP &amp; AI Assistants</a> — have an AI assistant read or edit your email template.</li></ul>
+      </article>
+      <nav class="pager">
+        <a href="/mcp"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>MCP &amp; AI Assistants</strong></a>
+        <span></span>
+      </nav>
+      <footer class="footer">
+        <span>Vektra Docs</span>
+        <span>Built for labels, artists, and staff teams.</span>
+      </footer>
+    </main>
+    <aside class="toc" aria-label="On this page">
+      <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
+      <a class="toc-depth-2" href="#how-mailing-works">How mailing works</a><a class="toc-depth-2" href="#setting-it-up">Setting it up</a><a class="toc-depth-2" href="#custom-sender-domain">Custom sender domain</a><a class="toc-depth-2" href="#custom-email-templates">Custom email templates</a><a class="toc-depth-2" href="#reply-links">Reply links</a><a class="toc-depth-2" href="#troubleshooting">Troubleshooting</a><a class="toc-depth-2" href="#see-also">See also</a>
+    </aside>
+  </div>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="dialog-backdrop" data-close-dialog></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search docs">
+      <label><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="search" data-search-input placeholder="Search docs..." autocomplete="off"></label>
+      <div class="search-results" data-search-results></div>
+    </section>
+  </div>
+  <section class="assistant-panel" data-assistant-panel hidden aria-label="Ask Assistant">
+    <div class="assistant-header">
+      <strong>Ask Assistant</strong>
+      <button type="button" data-close-assistant>Close</button>
+    </div>
+    <div class="assistant-messages" data-assistant-messages>
+      <p class="assistant-empty">Ask about setup, commands, premium tiers, tickets, or artist submissions.</p>
+    </div>
+  </section>
+  <form class="assistant-composer" data-assistant-form>
+    <input name="question" data-assistant-input autocomplete="off" placeholder="Ask a question...">
+    <kbd>Ctrl I</kbd>
+    <button type="submit" aria-label="Send question"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+  </form>
+  <script src="/assets/script.js"></script>
+</body>
+</html>

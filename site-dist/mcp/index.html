@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCP &amp; AI Assistants - Vektra Docs</title>
+  <meta name="description" content="Connect Claude and other AI tools to your Vektra workspace through the hosted MCP connector">
+  <link rel="icon" type="image/png" href="/assets/logo.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="top-brand" href="/">
+      <img src="/assets/logo.png" alt="" class="top-logo">
+      <strong>Vektra</strong>
+      <span>Docs</span>
+    </a>
+    <div class="top-actions">
+      <button class="search-trigger" type="button" data-open-search><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search...</span><kbd>Ctrl K</kbd></button>
+      <button class="assistant-trigger" type="button" data-open-assistant><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="m19 15 .7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9Z"/><path d="m5 3 .7 2.1L8 6l-2.3.9L5 9l-.7-2.1L2 6l2.3-.9Z"/></svg><span>Ask Assistant</span></button>
+    </div>
+    <nav class="top-links" aria-label="Primary">
+      <a href="https://vektra.games">Dashboard</a>
+      <a href="https://discord.gg/Hysd3GSQxQ">Support</a>
+      <a class="dashboard-link" href="https://discord.com/oauth2/authorize?client_id=1513286315201007737&permissions=4503926112110592&integration_type=0&scope=bot%20applications.commands">Invite</a>
+      <button class="theme-button" type="button" aria-label="Dark theme"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/></svg></button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+    </nav>
+  </header>
+  <aside class="sidebar">
+    <div class="sidebar-shortcuts">
+      <a href="/"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg><span>Documentation</span></a>
+      <a href="/commands"><svg class="shortcut-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/></svg><span>Commands</span></a>
+    </div>
+    <nav><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1 1.1-1.5 2.6-1.5 4.5 1.9 0 3.4-.5 4.5-1.5"/><path d="M9 15 7 17l-2-2 2-2"/><path d="M14 10l-4 4 4 4 4-4c2.5-2.5 3.6-6 3-11-5-.6-8.5.5-11 3Z"/><circle cx="15" cy="9" r="1.5"/></svg>Get Started</h2><a class="" href="/"><span>Welcome</span></a><a class="" href="/getting-started"><span>Getting started</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>For artists</h2><a class="" href="/artist-guide"><span>Artist guide</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>For staff</h2><a class="" href="/staff-workflow"><span>Staff workflow</span></a><a class="" href="/support-tickets"><span>Support tickets</span></a><a class="" href="/dashboard"><span>Dashboard</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>Premium</h2><a class="" href="/free-vs-pro"><span>Free vs Pro</span></a><a class="" href="/pro-plus"><span>Pro+</span></a></section><section class="nav-section"><h2><svg class="section-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-5-6-5"/><path d="M12 19h8"/></svg>Reference</h2><a class="" href="/commands"><span>Commands</span></a><a class="" href="/faq"><span>FAQ</span></a><a class="" href="/api"><span>Developer API</span></a><a class="active" href="/mcp"><span>MCP &amp; AI Assistants</span></a><a class="" href="/email"><span>Email &amp; Notifications</span></a></section></nav>
+  </aside>
+  <div class="layout">
+    <main class="content">
+      <article class="article">
+        <p class="eyebrow">Reference</p>
+        <div class="article-header">
+          <div>
+            <h1>MCP &amp; AI Assistants</h1>
+            <p class="page-description">Connect Claude and other AI tools to your Vektra workspace through the hosted MCP connector</p>
+          </div>
+          <button class="copy-page" type="button" data-copy-page><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/></svg><span>Copy page</span></button>
+        </div>
+        <p>Vektra ships a <strong>hosted MCP connector</strong> that lets AI assistants like Claude read and manage your workspace directly — list submissions, review tickets, update email templates, and more — without any local setup.</p>
+<h2 id="what-is-mcp">What is MCP?</h2>
+<p>MCP (Model Context Protocol) is the standard way AI assistants connect to external tools. Vektra exposes its public API as MCP tools over a hosted endpoint, so an assistant can act on your label's data with your permission.</p>
+<p>Everything runs from the Dashboard deployment — no extra server to host, no local process.</p>
+<h2 id="connecting-claude-one-click">Connecting Claude (one click)</h2>
+<p>The connector uses <strong>OAuth with Discord</strong>, so staff can sign in without copying keys around.</p>
+<ol><li>Open <strong>Claude</strong> (Desktop, claude.ai, or Cowork) and add a custom connector.</li><li>Enter the connector URL:</li></ol>
+<p>``<code> https://dashboard.vektra.games/api/mcp </code>``</p>
+<ol><li>Sign in with <strong>Discord</strong> and pick the workspace (server) you manage.</li><li>The connector appears with Vektra's tools ready to use.</li></ol>
+<h2 id="connecting-with-an-api-key">Connecting with an API key</h2>
+<p>Prefer a plain key? Use the same URL with bearer-token auth:</p>
+<pre><code data-language="http">Authorization: Bearer vk_your_key_here</code></pre>
+<p>Generate the key in <strong>Dashboard → Developer → API Keys</strong>. A <strong>workspace key</strong> unlocks every tool; a <strong>person key</strong> is scoped to one artist's own submissions, analytics, and tickets.</p>
+<h2 id="available-tools">Available tools</h2>
+<div class="table-wrap"><table><thead><tr><th>Tool</th><th>What it does</th></tr></thead><tbody><tr><td><code>list_submissions</code></td><td>List demo submissions, newest first.</td></tr><tr><td><code>create_submission</code></td><td>Submit a demo on behalf of an artist.</td></tr><tr><td><code>delete_submission</code></td><td>Permanently delete a submission by ID.</td></tr><tr><td><code>get_analytics</code></td><td>Status/rating breakdowns, activity, top artists.</td></tr><tr><td><code>list_releases</code></td><td>List release packages queued for QC.</td></tr><tr><td><code>list_tickets</code></td><td>List support tickets.</td></tr><tr><td><code>create_ticket</code></td><td>Open a support ticket.</td></tr><tr><td><code>delete_ticket</code></td><td>Permanently delete a ticket by ID.</td></tr><tr><td><code>list_webhooks</code></td><td>List webhook subscriptions and delivery status.</td></tr><tr><td><code>subscribe_webhook</code></td><td>Subscribe a URL to workspace events.</td></tr><tr><td><code>unsubscribe_webhook</code></td><td>Remove a webhook subscription.</td></tr><tr><td><code>get_email_settings</code></td><td>Read the workspace email template, reply address, and Resend status.</td></tr><tr><td><code>update_email_template</code></td><td>Set the custom HTML email template and/or reply address.</td></tr><tr><td><code>get_api_guide</code></td><td>Return the full public API reference.</td></tr><tr><td><code>get_mailing_guide</code></td><td>Explain how artist emailing works (Resend, reply links, placeholders).</td></tr></tbody></table></div>
+<h2 id="scoping-and-security">Scoping and security</h2>
+<ul><li>Every MCP request is authenticated with your bearer token — the same credential the tools use to call the API, so a connection can only see what its key is allowed to see.</li><li><strong>Workspace keys</strong> see the whole label; <strong>person keys</strong> only see the bound person's data. Workspace-level tools (webhooks, releases, email settings) are rejected for person keys.</li><li>The OAuth flow binds the connection to the logged-in user's chosen label with the same scoping rules.</li><li>Connections are stateless — nothing is installed on your machine and no local process is needed.</li></ul>
+<h2 id="oauth-details-for-advanced-setups">OAuth details (for advanced setups)</h2>
+<p>The connector is a standard MCP streamable-HTTP server with RFC 8414 authorization-server metadata:</p>
+<pre><code data-language="text">https://dashboard.vektra.games/.well-known/oauth-authorization-server</code></pre>
+<p>Clients that support OAuth discovery (Claude Desktop, claude.ai, Cowork) use it automatically. Everything else can authenticate with a bearer API key.</p>
+<h2 id="see-also">See also</h2>
+<ul><li><a href="/api">Developer API</a> — the full HTTP API reference these tools are built on.</li><li><a href="/email">Email &amp; artist notifications</a> — how artist emails, reply links, and templates work.</li></ul>
+      </article>
+      <nav class="pager">
+        <a href="/api"><span>Previous</span><strong><svg class="pager-icon pager-prev" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Developer API</strong></a>
+        <a href="/email"><span>Next</span><strong>Email &amp; Notifications<svg class="pager-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></strong></a>
+      </nav>
+      <footer class="footer">
+        <span>Vektra Docs</span>
+        <span>Built for labels, artists, and staff teams.</span>
+      </footer>
+    </main>
+    <aside class="toc" aria-label="On this page">
+      <h2><svg class="toc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>On this page</h2>
+      <a class="toc-depth-2" href="#what-is-mcp">What is MCP?</a><a class="toc-depth-2" href="#connecting-claude-one-click">Connecting Claude (one click)</a><a class="toc-depth-2" href="#connecting-with-an-api-key">Connecting with an API key</a><a class="toc-depth-2" href="#available-tools">Available tools</a><a class="toc-depth-2" href="#scoping-and-security">Scoping and security</a><a class="toc-depth-2" href="#oauth-details-for-advanced-setups">OAuth details (for advanced setups)</a><a class="toc-depth-2" href="#see-also">See also</a>
+    </aside>
+  </div>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="dialog-backdrop" data-close-dialog></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search docs">
+      <label><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="search" data-search-input placeholder="Search docs..." autocomplete="off"></label>
+      <div class="search-results" data-search-results></div>
+    </section>
+  </div>
+  <section class="assistant-panel" data-assistant-panel hidden aria-label="Ask Assistant">
+    <div class="assistant-header">
+      <strong>Ask Assistant</strong>
+      <button type="button" data-close-assistant>Close</button>
+    </div>
+    <div class="assistant-messages" data-assistant-messages>
+      <p class="assistant-empty">Ask about setup, commands, premium tiers, tickets, or artist submissions.</p>
+    </div>
+  </section>
+  <form class="assistant-composer" data-assistant-form>
+    <input name="question" data-assistant-input autocomplete="off" placeholder="Ask a question...">
+    <kbd>Ctrl I</kbd>
+    <button type="submit" aria-label="Send question"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+  </form>
+  <script src="/assets/script.js"></script>
+</body>
+</html>
