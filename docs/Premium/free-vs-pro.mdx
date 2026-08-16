@@ -1,63 +1,71 @@
 ---
-title: "Plans"
-description: "What's included in Free, Starter, Pro, and Pro+"
+title: "Plans & Pricing"
+description: "Free, Starter, Pro, and Pro+ — what's included and how to buy"
 sidebarTitle: "Plans"
 ---
 
-Vektra is free to use for any server. **Starter** adds branding and customization, **Pro** unlocks the full A&R workflow and dashboard, and **Pro+** adds hosted white-label bot identity for labels that want their own Discord bot.
+Vektra is free to use for any server. **Starter** adds branding and customization, **Pro** unlocks the full A&R workflow and web dashboard, and **Pro+** adds a hosted white-label Discord bot for labels that want their own bot identity.
 
 <Info>
-  Vektra keeps each server's slash command list tier-aware. Free servers see the core commands, Starter servers see Starter tools, and Pro or Pro+ servers see the full workflow commands after premium is redeemed.
+  Vektra keeps each server's slash command list tier-aware. Free servers see the core commands, Starter servers see Starter tools, and Pro or Pro+ servers see the full workflow after premium is redeemed.
 </Info>
 
-## At a glance
+## Pricing
 
-| Feature | Free | Starter | Pro | Pro+ |
-| --- | --- | --- | --- | --- |
-| Demo submissions via `/submit` | Yes | Yes | Yes | Yes |
-| Staff submission cards with Approve, Reject, and DM | Yes | Yes | Yes | Yes |
-| Private staff threads per submission | Yes | Yes | Yes | Yes |
-| Submission queue, recent, and panel views | Yes | Yes | Yes | Yes |
-| Status updates with `/status` | Yes | Yes | Yes | Yes |
-| Artist commands and leaderboard | Yes | Yes | Yes | Yes |
-| Managed storage | Yes | Yes | Yes | Yes |
-| Release requests via `/make-release` and `/check-releases` | Yes | Yes | Yes | Yes |
-| Release distribution payout | 90% to label / 10% service fee | 100% to label | 100% to label | 100% to label |
-| DM reply forwarding from artists | No | Yes | Yes | Yes |
-| Custom branding | No | Yes | Yes | Yes |
-| Custom submit panel | No | Yes | Yes | Yes |
-| Tutorial-style submit panel templates | No | Yes | Yes | Yes |
-| Demo intake open/close toggle | Yes | Yes | Yes | Yes |
-| Post custom embeds from dashboard | No | No | Yes | Yes |
-| Custom approval and rejection DM templates | No | Yes | Yes | Yes |
-| Custom form prompt | No | Yes | Yes | Yes |
-| Cooldowns, duplicate rules, and submission limits | No | Yes | Yes | Yes |
-| Approved and rejected routing channels | No | Yes | Yes | Yes |
-| Footer, logo, and success-message customization | No | Yes | Yes | Yes |
-| Choose storage region with `/storage` | No | No | Yes | Yes |
-| Bring your own Neon database with `/setup_db` | No | No | Yes | Yes |
-| Dashboard login and server picker | No | No | Yes | Yes |
-| Review submissions from the dashboard | No | No | Yes | Yes |
-| Review support tickets from the dashboard | No | No | Yes | Yes |
-| Submit and track release requests from the dashboard | No | No | Yes | Yes |
-| Dashboard analytics graphs and CSV export | No | No | Yes | Yes |
-| Hosted white-label bot identity | No | No | No | Yes |
-| Custom hosted bot status | No | No | No | Yes |
-| Custom bot token and client ID from dashboard | No | No | No | Yes |
-| Dashboard hosted bot restart | No | No | No | Yes |
-| Discord hosted bot status and pause controls | No | No | No | Yes |
-| Wrong-server invite auto-leave protection | No | No | No | Yes |
-| Staff notes | No | No | Yes | Yes |
-| Reviewer assignment | No | No | Yes | Yes |
-| Shortlist tools | No | No | Yes | Yes |
-| Quick status buttons | No | No | Yes | Yes |
-| Priority flags | No | No | Yes | Yes |
-| Demo ratings | No | No | Yes | Yes |
-| Saved rejection reasons | No | No | Yes | Yes |
-| Weekly digest | No | No | Yes | Yes |
-| Analytics | No | No | Yes | Yes |
-| CSV export | No | No | Yes | Yes |
-| Support tickets | No | No | Yes | Yes |
+<PlanGrid>
+  <Plan name="Free" price="$0" period="forever" note="Everything you need to collect and review demos">
+    - Demo intake with /submit
+    - Staff cards with Approve, Reject & DM
+    - Private staff threads per submission
+    - Queue, recent & panel views
+    - Artist commands & leaderboard
+    - Managed storage
+  </Plan>
+  <Plan name="Starter" price="$3.99" period="/ 2 months" note="2-month minimum · free with ads" popular="true">
+    - Everything in Free
+    - Custom branding & submit panels
+    - DM templates & custom form prompt
+    - Cooldowns, caps & duplicate rules
+    - Approved / rejected routing channels
+    - DM reply forwarding from artists
+  </Plan>
+  <Plan name="Pro" price="$8.99" period="/ month" note="The full A&R workflow + dashboard">
+    - Everything in Starter
+    - Web dashboard (review, tickets, releases)
+    - Staff notes, reviewers, shortlists & ratings
+    - Priority flags & quick status buttons
+    - Support tickets
+    - Analytics, CSV export & storage regions
+  </Plan>
+  <Plan name="Pro+" price="$16.99" period="/ month" note="Your own Discord bot identity">
+    - Everything in Pro
+    - White-label hosted bot worker
+    - Custom bot token & online status
+    - Dashboard restart & Discord controls
+    - Wrong-server auto-leave protection
+  </Plan>
+</PlanGrid>
+
+<Button href="https://vektra.games/pricing">Buy a plan</Button>
+
+## How to buy
+
+Buying happens on the web — no DMs needed.
+
+1. Open [vektra.games/pricing](https://vektra.games/pricing) and pick a plan.
+2. Checkout runs on the dashboard at `dashboard.vektra.games/checkout` — log in with Discord.
+3. Pay with **USDT / USDC** (Polygon, Base, Ethereum, or BNB) or a supported method.
+4. Choose delivery: **activate instantly on a server you admin**, or get a **redeemable coupon**.
+5. Redeem a coupon in any server with `/redeem code:<coupon>`.
+6. Your receipt is sent to your Discord DMs.
+
+<Tip>
+  Crypto payments activate instantly. Other payment methods (gift cards, Robux, Discord Nitro) are verified manually — email `support@dapmedia.tech` or open a ticket in the Discord server.
+</Tip>
+
+<Info>
+  Coupons can be wrapped as a gift: after buying, create a gift link with an optional password and share it with anyone. See the FAQ.
+</Info>
 
 ## Release distribution fee
 
@@ -66,59 +74,21 @@ Free servers can still submit release requests for Vektra QC and Labelcaster del
 Paid tiers keep **100%** of distribution earnings.
 
 <Info>
-  The service fee only applies to release distribution handled through Vektra. It does not affect normal demo submissions.
+  The service fee only applies to release distribution handled through Vektra. It does not affect demo submissions.
 </Info>
 
-## Starter features
+## Pro features at a glance
 
-### Branding
-
-Make Vektra feel closer to your label.
-
-- `/brand` opens a form to set your display name, required submit panel caption, and embed color.
-- `/brand_info` shows current branding and premium state.
-- `/brand_clear` resets branding to defaults.
-
-`/brand` also tries to update the bot's server nickname when permissions allow it.
-
-<Info>
-  Discord does not let a shared bot use a different avatar or online status per server. Starter branding applies to server-specific messages, embeds, panels, and the bot's server nickname where permissions allow it.
-</Info>
-
-### Submission experience
-
-- `/post_panel` posts a branded public submit button panel. Choose simple caption mode or tutorial mode with steps and tips from the dashboard branding page.
-- `/form label:<text> placeholder:<text>` customizes the optional submission question.
-- `/templates` sets custom approval and rejection DM templates. Either template can be edited alone.
-- `/extras footer_text:<text> logo_url:<url or none> success_message:<text>` customizes footers, thumbnails, and submitter confirmation.
-- `/limits cooldown_minutes:<minutes> max_submissions_per_user:<count> duplicate_policy:<policy>` controls cooldowns, caps, and duplicate handling.
-- `/routing approved_channel:<channel> rejected_channel:<channel>` routes accepted and rejected updates.
-
-## Pro features
-
-- The web dashboard lets staff review submissions and tickets, submit and track release requests, approve or reject demos, DM users, export CSV files, and view analytics graphs.
-- `/note ticket_id:<id> note:<text>` adds private staff notes.
-- `/reviewer ticket_id:<id> reviewer:<member>` assigns a reviewer.
-- `/shortlist ticket_id:<id> enabled:<true or false>` adds or removes from the shortlist.
-- `/shortlisted` views the shortlist.
-- Pro submission cards include quick buttons for Review, Shortlist, Processed, Contacted, and Signed.
-- `/priority ticket_id:<id> enabled:<true or false>` marks or unmarks priority.
-- `/rate ticket_id:<id> score:<1-10>` stores an internal rating.
-- `/reasons reasons:<reason, reason>` saves rejection reasons.
-- `/digest channel:<channel>` posts a weekly submission digest and saves the digest channel.
-- `/analytics` shows Pro submission analytics.
-- `/export` exports submissions to CSV.
-- `/storage region:<region>` moves managed storage to West US, Europe (UK), or South-East Asia.
-- `/setup_db` connects your own Neon database.
-- Support ticket commands: `/ticket_channel`, `/ticket_panel`, `/tickets`, and `/ticket_set`.
+- **Dashboard** — review submissions and tickets, submit and track release requests, DM artists, export CSV, and view analytics graphs.
+- **A&R tools** — staff notes (`/note`), reviewer assignment (`/reviewer`), shortlists, priority flags, ratings (`/rate`), saved rejection reasons (`/reasons`), weekly digest (`/digest`), and analytics (`/analytics`).
+- **Support tickets** — `/ticket_channel`, `/ticket_panel`, `/tickets`, and `/ticket_set`.
+- **Storage** — choose a region with `/storage` or connect your own Neon database with `/setup_db`.
 
 ## Pro+ white-label hosting
 
-Pro+ servers can connect their own Discord bot application from the dashboard. The custom bot runs as a dedicated worker on the Vektra VPS, uses that server's Vektra setup, and can have its own Discord identity and online status.
+Pro+ servers can connect their own Discord bot application from the dashboard. The custom bot runs as a dedicated worker on the Vektra VPS, uses that server's Vektra setup, and has its own Discord identity and online status.
 
-The Pro+ Bot page stores the bot token encrypted, shows manager status, and gives an invite link based on the buyer's bot client ID. If the custom bot is invited to the wrong server, it leaves automatically.
-
-Admins can also use `/white_label_status` to check worker health from Discord, or `/white_label` to pause, resume, or update the hosted bot's status text. The dashboard includes status presets and a restart request button for quick operations.
+The Pro+ Bot page stores the bot token encrypted, shows manager status, and provides an invite link from the buyer's bot client ID. If the custom bot is invited to the wrong server, it leaves automatically. Admins can also use `/white_label_status` and `/white_label` from Discord.
 
 <Note>
   The current Pro+ hosting limit is 5 active white-label bots while the service is in controlled beta.
@@ -126,13 +96,13 @@ Admins can also use `/white_label_status` to check worker health from Discord, o
 
 ## Dashboard
 
-The dashboard uses Discord login. After login, Vektra only shows servers where:
+The dashboard uses Discord login and only shows servers where:
 
 - You are a server admin or have Manage Server permission.
 - Vektra is installed in that server.
 - The server has an active Pro or Pro+ tier for dashboard-only tools.
 
-From the dashboard you can edit branding, tutorial panel templates, demo intake, templates, storage, ticket settings, submission statuses, ticket statuses, release requests, post panels into channels the bot can see, and post custom embeds from the Messages page.
+From the dashboard you can edit branding, panel templates, demo intake, templates, storage, ticket settings, submission statuses, ticket statuses, release requests, post panels, and post custom embeds from the Messages page.
 
 <Warning>
   When posting panels from the dashboard, make sure the bot can view the selected channel and has Send Messages permission there.
@@ -142,22 +112,6 @@ From the dashboard you can edit branding, tutorial panel templates, demo intake,
 
 When you change storage region or connect a custom database, Vektra migrates existing submissions, tickets, branding, and Pro settings before switching. Old managed storage is cleaned up after a successful move.
 
-Pro and Pro+ servers can also change storage from the dashboard. Use this when you want to move from one custom Neon database to another without asking staff to run commands in Discord.
-
-## How to upgrade
-
-```text
-/premium
-```
-
-Premium access is handled manually:
-
-1. Run `/premium` to see contact and pricing info.
-2. Contact the owner and pay.
-3. Receive a redeemable coupon code.
-4. In your server, run `/redeem code:<your-coupon>`.
-5. Check status anytime with `/pro_status`.
-
 <Warning>
-  When premium expires, saved paid settings are kept but inactive. Existing branded submit panels and ticket panels may still be visible in Discord, but paid workflows stop opening until the server renews. Pro+ custom bots stop automatically when Pro+ expires.
+  When premium expires, saved paid settings are kept but inactive. Existing branded panels may remain visible in Discord, but paid workflows stop until the server renews. Pro+ custom bots stop automatically when Pro+ expires.
 </Warning>

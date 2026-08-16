@@ -87,6 +87,7 @@ const iconPaths = {
   book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/>',
   newspaper: '<path d="M4 22h14a2 2 0 0 0 2-2V7H4v15Z"/><path d="M4 7V5a2 2 0 0 1 2-2h12v4"/><path d="M8 11h8"/><path d="M8 15h8"/><path d="M8 19h5"/>',
   search: '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
   moon: '<path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/>',
   copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><rect x="4" y="4" width="11" height="11" rx="2"/>',
   send: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
@@ -179,6 +180,39 @@ function convertComponents(source, stashHtml) {
             `<a class="doc-card" href="${escapeHtml(card.href)}"><span class="card-icon">${icon(card.icon)}</span><strong>${escapeHtml(card.title)}</strong><span>${card.body}</span></a>`,
         )
         .join("")}</div>`);
+    },
+  );
+
+  text = text.replace(
+    /<PlanGrid[^>]*>([\s\S]*?)<\/PlanGrid>/g,
+    (_match, body) => {
+      const cards = [];
+      body.replace(/<Plan\s+([^>]*)>([\s\S]*?)<\/Plan>/g, (_plan, attrs, content) => {
+        cards.push({
+          name: attrValue(attrs, "name"),
+          price: attrValue(attrs, "price"),
+          period: attrValue(attrs, "period"),
+          note: attrValue(attrs, "note"),
+          popular: attrValue(attrs, "popular") === "true",
+          features: content
+            .split("\n")
+            .map((line) => line.replace(/^\s*[-*]\s*/, "").trim())
+            .filter(Boolean),
+        });
+        return "";
+      });
+      return stashHtml(
+        `<div class=\"plan-grid\">${cards
+          .map(
+            (card) =>
+              `<div class=\"plan-card${card.popular ? " popular" : ""}\">${card.popular
+                ? '<span class=\"plan-badge\">Most popular</span>'
+                : ""}<div class=\"plan-head\"><strong>${escapeHtml(card.name)}</strong><span class=\"plan-price\">${escapeHtml(card.price)}<em>${escapeHtml(card.period)}</em></span>${card.note ? `<small>${escapeHtml(card.note)}</small>` : ""}</div><ul class=\"plan-features\">${card.features
+                .map((feature) => `<li>${icon("check", "plan-check")}${renderInline(feature)}</li>`)
+                .join("")}</ul></div>`,
+          )
+          .join("")}</div>`,
+      );
     },
   );
 
@@ -462,8 +496,8 @@ function pageShell(page, content, allPages) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)} - Vektra Docs</title>
   <meta name="description" content="${escapeHtml(description)}">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -486,7 +520,7 @@ function pageShell(page, content, allPages) {
           <kbd>Ctrl K</kbd>
         </div>
         <nav class="top-actions" aria-label="Primary">
-          <a class="discord-button" href="https://discord.gg/Hysd3GSQxQ" target="_blank" rel="noreferrer">
+          <a class="discord-button" href="https://discord.gg/AMUaEFxTDE" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.9 3l-.5 1a18.3 18.3 0 0 0-6.8 0L8.1 3a19.7 19.7 0 0 0-4.4 1.5A20.4 20.4 0 0 0 .1 18.1a19.9 19.9 0 0 0 6 3l1.2-2a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.4 0l.5.4a12.9 12.9 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6-3A20.3 20.3 0 0 0 20.3 4.4ZM8.7 15.1c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm6.6 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>
             <span>Support</span>
           </a>
@@ -627,8 +661,8 @@ const styles = `
   --text: #e7edf3;
   --muted: #9aa6b2;
   --line: #1f2730;
-  --brand: #16a34a;
-  --brand-light: #22c55e;
+  --brand: #059669;
+  --brand-light: #10b981;
   --brand-soft: #34d399;
   --warn: #f59e0b;
   --radius: 12px;
@@ -637,11 +671,11 @@ const styles = `
 }
 * { box-sizing: border-box; }
 code, pre, kbd { font-family: var(--font-mono); }
-::selection { background: rgba(34, 197, 94, 0.25); }
+::selection { background: rgba(16, 185, 129, 0.25); }
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 75% -10%, rgba(34, 197, 94, 0.07), transparent 34rem),
+    radial-gradient(circle at 75% -10%, rgba(16, 185, 129, 0.08), transparent 34rem),
     var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
@@ -771,7 +805,7 @@ a { color: inherit; }
 .article a {
   color: var(--brand-light);
   text-decoration: none;
-  border-bottom: 1px solid rgba(34, 197, 94, 0.35);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.35);
 }
 .article .doc-button {
   display: inline-flex;
@@ -814,16 +848,27 @@ pre code {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 13px;
 }
 th, td {
-  border-bottom: 1px solid var(--line);
-  padding: 11px 10px;
+  border-bottom: 1px solid rgba(31, 39, 48, 0.75);
+  padding: 11px 12px;
   text-align: left;
   vertical-align: top;
 }
-th { color: var(--text); background: var(--panel); }
+th {
+  color: var(--muted);
+  background: var(--panel);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  white-space: nowrap;
+}
 td { color: #d6e2db; }
+tbody tr:hover { background: rgba(22, 28, 34, 0.5); }
+td code { white-space: nowrap; }
 .feature-mark {
   width: 24px;
   height: 24px;
@@ -864,6 +909,91 @@ td { color: #d6e2db; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin: 22px 0;
+}
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+}
+.plan-card.popular {
+  border-color: #10b981;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.35), 0 18px 50px rgba(16, 185, 129, 0.12);
+}
+.plan-badge {
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #059669;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.4);
+}
+.plan-head strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.plan-price {
+  display: block;
+  margin-top: 6px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.plan-price em {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 4px;
+}
+.plan-head small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.plan-features {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #d6e2db;
+}
+.plan-check {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  color: #34d399;
+  flex: 0 0 auto;
 }
 .doc-card {
   display: grid;
@@ -1558,10 +1688,10 @@ td {
 .search-trigger:hover,
 .copy-page:hover,
 .theme-button:hover {
-  border-color: #16d977;
+  border-color: #10b981;
   color: var(--text);
   background: rgba(11, 35, 24, 0.9);
-  box-shadow: 0 0 0 3px rgba(22, 217, 119, 0.08);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
   transform: translateY(-1px);
 }
 .dashboard-link,
@@ -1569,28 +1699,28 @@ td {
 .assistant-composer button {
   background: var(--brand);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.22);
+  box-shadow: 0 10px 24px rgba(5, 150, 105, 0.28);
 }
 .dashboard-link {
   color: #fff !important;
 }
 .dashboard-link:hover,
 .article .doc-button:hover {
-  background: #22c55e;
-  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.3);
+  background: #10b981;
+  box-shadow: 0 14px 30px rgba(16, 185, 129, 0.34);
   transform: translateY(-1px);
 }
 .assistant-composer:focus-within {
-  border-color: #18d174;
-  box-shadow: 0 0 0 4px rgba(24, 209, 116, 0.09), 0 18px 50px rgba(0, 0, 0, 0.28);
+  border-color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1), 0 18px 50px rgba(0, 0, 0, 0.28);
 }
 .assistant-composer button:hover {
-  background: #22c55e;
-  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+  background: #10b981;
+  box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.12);
   transform: translateY(-1px) scale(1.03);
 }
 .doc-card:hover {
-  border-color: #15995a;
+  border-color: #10b981;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
   transform: translateY(-2px);
 }
@@ -1752,7 +1882,7 @@ td {
   padding: 3px 9px;
   border-radius: 999px;
   background: rgba(6, 78, 59, 0.4);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 .search-shell {
   flex: 1;
@@ -1773,7 +1903,7 @@ td {
 .search-shell:focus-within,
 .search-shell:hover {
   border-color: var(--brand-light);
-  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.08);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
 }
 .search-shell svg {
   width: 15px;
@@ -1854,13 +1984,13 @@ td {
   padding: 0 15px;
   font-weight: 600;
   font-size: 13px;
-  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.28);
+  box-shadow: 0 10px 24px rgba(5, 150, 105, 0.32);
   text-decoration: none;
 }
 .green-button:hover {
   background: var(--brand-light);
   border-color: var(--brand-light);
-  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.32);
+  box-shadow: 0 14px 30px rgba(16, 185, 129, 0.36);
   transform: translateY(-1px);
 }
 .outline-button,
@@ -1955,7 +2085,7 @@ td {
   padding: 3px 9px;
   border-radius: 999px;
   background: rgba(6, 78, 59, 0.4);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 /* Sticky header clearance */
@@ -1969,14 +2099,14 @@ td {
 /* Buttons / cards / panels — dashboard motion language */
 .article .doc-button {
   border-radius: 10px;
-  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.28);
+  box-shadow: 0 10px 24px rgba(5, 150, 105, 0.32);
   transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
 }
 .article .doc-button:hover {
   background: var(--brand-light);
   border-color: var(--brand-light);
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.32);
+  box-shadow: 0 14px 30px rgba(16, 185, 129, 0.36);
 }
 .doc-card,
 .step,
@@ -2030,7 +2160,7 @@ select:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
   border-radius: 8px;
 }
 

@@ -1,5 +1,5 @@
-const DEFAULT_MODEL = "Meta-Llama-3.3-70B-Instruct";
-const DEFAULT_ENDPOINT = "https://api.sambanova.ai/v1/chat/completions";
+const DEFAULT_MODEL = "llama-3.3-70b-versatile";
+const DEFAULT_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 
 async function readJson(req) {
   if (req.body && typeof req.body === "object") {
@@ -40,9 +40,9 @@ export default async function handler(req, res) {
     return;
   }
 
-  const apiKey = process.env.SAMBANOVA_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    res.status(500).json({ error: "Assistant is not configured. Add SAMBANOVA_API_KEY in Vercel." });
+    res.status(500).json({ error: "Assistant is not configured. Add GROQ_API_KEY in Vercel." });
     return;
   }
 
@@ -61,8 +61,8 @@ export default async function handler(req, res) {
   }
 
   const context = normalizeContext(payload.context);
-  const endpoint = process.env.SAMBANOVA_API_BASE_URL || DEFAULT_ENDPOINT;
-  const model = process.env.SAMBANOVA_MODEL || DEFAULT_MODEL;
+  const endpoint = process.env.GROQ_API_BASE_URL || DEFAULT_ENDPOINT;
+  const model = process.env.GROQ_MODEL || DEFAULT_MODEL;
 
   try {
     const response = await fetch(endpoint, {
@@ -92,7 +92,7 @@ export default async function handler(req, res) {
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
       res.status(response.status).json({
-        error: data.error?.message || data.message || "SambaNova request failed.",
+        error: data.error?.message || data.message || "Groq request failed.",
       });
       return;
     }
